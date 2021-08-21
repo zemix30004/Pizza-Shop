@@ -41,7 +41,7 @@
         <h1>King Пицца, 35см.</h1>
         <h2>{{ $product }}</h2>
         <p>Цена: <b>150 грн.</b></p>
-        <img src="http://laravel-diplom-1.rdavydov.ru/storage/products/iphone_x.jpg">
+        <img src="img/King Pizza.jpg">
         <p>Вкуснейшая пица сезона</p>
         <a class="btn btn-success" href="http://laravel-diplom-1.rdavydov.ru/basket/1/add">Добавить в корзину</a>
     </div>

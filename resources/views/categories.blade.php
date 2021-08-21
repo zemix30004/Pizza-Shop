@@ -48,8 +48,8 @@
             </p>
         </div>
         <div class="panel">
-            <a href="img/snacks">
-                <img src="snacks.jpg">
+            <a href="/snacks">
+                <img src="img/snacks.jpg">
                 <h2>Закуски</h2>
             </a>
             <p>
@@ -57,8 +57,8 @@
             </p>
         </div>
         <div class="panel">
-            <a href="img/beverages">
-                <img src="beverages.jpg">
+            <a href="/beverages">
+                <img src="img/beverages.jpg">
                 <h2>Напитки</h2>
             </a>
             <p>

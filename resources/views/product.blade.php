@@ -39,6 +39,7 @@
 <div class="container">
     <div class="starter-template">
         <h1>King Пицца, 35см.</h1>
+        <h2>{{ $product }}</h2>
         <p>Цена: <b>150 грн.</b></p>
         <img src="http://laravel-diplom-1.rdavydov.ru/storage/products/iphone_x.jpg">
         <p>Вкуснейшая пица сезона</p>

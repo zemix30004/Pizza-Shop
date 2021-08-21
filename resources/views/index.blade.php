@@ -91,7 +91,7 @@
                         <p>85грн.</p>
                         <p>
                             <a href="http://laravel-diplom-1.rdavydov.ru/basket/4/add" class="btn btn-primary" role="button">В корзину</a>
-                            <a href="http://laravel-diplom-1.rdavydov.ru/mobiles/iphone_5se" class="btn btn-default"
+                            <a href="http://laravel-diplom-1.rdavydov.ru/pizzas/iphone_5se" class="btn btn-default"
                                role="button">Подробнее</a>
                         </p>
                     </div>
@@ -105,7 +105,7 @@
                         <p>18грн.</p>
                         <p>
                             <a href="http://laravel-diplom-1.rdavydov.ru/basket/5/add" class="btn btn-primary" role="button">В корзину</a>
-                            <a href="http://laravel-diplom-1.rdavydov.ru/portable/beats_audio" class="btn btn-default"
+                            <a href="http://laravel-diplom-1.rdavydov.ru/beverages/beats_audio" class="btn btn-default"
                                role="button">Подробнее</a>
                         </p>
                     </div>
@@ -119,7 +119,7 @@
                         <p>115грн.</p>
                         <p>
                             <a href="http://laravel-diplom-1.rdavydov.ru/basket/6/add" class="btn btn-primary" role="button">В корзину</a>
-                            <a href="http://laravel-diplom-1.rdavydov.ru/portable/gopro" class="btn btn-default"
+                            <a href="http://laravel-diplom-1.rdavydov.ru/snacks/gopro" class="btn btn-default"
                                role="button">Подробнее</a>
                         </p>
                     </div>

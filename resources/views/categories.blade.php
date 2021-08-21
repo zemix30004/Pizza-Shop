@@ -17,7 +17,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="http://laravel-diplom-1.rdavydov.ru">Интернет Магазин</a>
+            <a class="navbar-brand" href="http://laravel-diplom-1.rdavydov.ru">Pizza-Shop</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -39,8 +39,8 @@
 <div class="container">
     <div class="starter-template">
         <div class="panel">
-            <a href="http://laravel-diplom-1.rdavydov.ru/mobiles">
-                <img src="http://laravel-diplom-1.rdavydov.ru/storage/categories/mobile.jpg">
+            <a href="/pizzas">
+                <img src="img/pizzas.jpg">
                 <h2>Пиццы</h2>
             </a>
             <p>
@@ -48,8 +48,8 @@
             </p>
         </div>
         <div class="panel">
-            <a href="http://laravel-diplom-1.rdavydov.ru/portable">
-                <img src="http://laravel-diplom-1.rdavydov.ru/storage/categories/portable.jpg">
+            <a href="img/snacks">
+                <img src="snacks.jpg">
                 <h2>Закуски</h2>
             </a>
             <p>
@@ -57,8 +57,8 @@
             </p>
         </div>
         <div class="panel">
-            <a href="http://laravel-diplom-1.rdavydov.ru/appliances">
-                <img src="http://laravel-diplom-1.rdavydov.ru/storage/categories/appliance.jpg">
+            <a href="img/beverages">
+                <img src="beverages.jpg">
                 <h2>Напитки</h2>
             </a>
             <p>

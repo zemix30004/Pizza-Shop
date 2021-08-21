@@ -38,16 +38,18 @@
 
 <div class="container">
     <div class="starter-template">
+        @foreach ($categories as $category)
         <div class="panel">
-            <a href="/pizzas">
+            <a href="/{{ $category->code }}">
                 <img src="img/pizzas.jpg">
-                <h2>Пиццы</h2>
+                <h2>{{ $category->name  }}</h2>
             </a>
             <p>
-                В этом разделе вы найдёте самые изысканные на вкус пиццы!
+                {{ $category->description }}
             </p>
         </div>
-        <div class="panel">
+        @endforeach
+        {{-- <div class="panel">
             <a href="/snacks">
                 <img src="img/snacks.jpg">
                 <h2>Закуски</h2>
@@ -64,7 +66,7 @@
             <p>
                 Напитки на любой вкус ждут вас!
             </p>
-        </div>
+        </div> --}}
     </div>
 </div>
 </body>

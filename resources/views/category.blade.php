@@ -39,7 +39,7 @@
 <div class="container">
     <div class="starter-template">
         <h1>
-            {{ $category->name-> }}
+            {{ $category->name }}
         </h1>
         <p>
             {{ $category->description }}

@@ -39,16 +39,10 @@
 <div class="container">
     <div class="starter-template">
         <h1>
-            @if($category == 'pizzas')
-                Пиццы
-            @elseif($category == 'snacks')
-                Закуски
-            @elseif($category == 'beverages')
-                Напитки
-            @endif
+            {{ $category->name-> }}
         </h1>
         <p>
-            В этом разделе вы найдёте самые популярные мобильные телефонамы по отличным ценам!
+            {{ $category->description }}
         </p>
         <div class="row">
             <div class="col-sm-6 col-md-4">
@@ -60,7 +54,7 @@
                         <p>
                             <a href="http://laravel-diplom-1.rdavydov.ru/basket/1/add" class="btn btn-primary" role="button">В корзину</a>
                             <a href="http://laravel-diplom-1.rdavydov.ru/mobiles/iphone_x_64" class="btn btn-default"
-                               role="button">Подробнее</a>
+                            role="button">Подробнее</a>
                         </p>
                     </div>
                 </div>
@@ -74,7 +68,7 @@
                         <p>
                             <a href="http://laravel-diplom-1.rdavydov.ru/basket/4/add" class="btn btn-primary" role="button">В корзину</a>
                             <a href="http://laravel-diplom-1.rdavydov.ru/pizzas/iphone_5se" class="btn btn-default"
-                               role="button">Подробнее</a>
+                            role="button">Подробнее</a>
                         </p>
                     </div>
                 </div>
@@ -88,7 +82,7 @@
                         <p>
                             <a href="http://laravel-diplom-1.rdavydov.ru/basket/8/add" class="btn btn-primary" role="button">В корзину</a>
                             <a href="http://laravel-diplom-1.rdavydov.ru/appliances/delongi" class="btn btn-default"
-                               role="button">Подробнее</a>
+                            role="button">Подробнее</a>
                         </p>
                     </div>
                 </div>
@@ -102,7 +96,7 @@
                         <p>
                             <a href="http://laravel-diplom-1.rdavydov.ru/basket/10/add" class="btn btn-primary" role="button">В корзину</a>
                             <a href="http://laravel-diplom-1.rdavydov.ru/appliances/moulinex" class="btn btn-default"
-                               role="button">Подробнее</a>
+                            role="button">Подробнее</a>
                         </p>
                     </div>
                 </div>

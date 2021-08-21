@@ -5,7 +5,10 @@
             <h3>King пицца, 35см.</h3>
             <p>150 грн.</p>
             <p>
-                <a href="http://laravel-diplom-1.rdavydov.ru/basket/1/add" class="btn btn-primary" role="button">В корзину</a>
+                <a href="{{  route('cart') }}" class="btn btn-primary" role="button">В корзину</a>
+                @isset($category)
+                {{ $category->name }}
+                @endisset
                 <a href="http://laravel-diplom-1.rdavydov.ru/mobiles/iphone_x_64" class="btn btn-default"
                 role="button">Подробнее</a>
             </p>

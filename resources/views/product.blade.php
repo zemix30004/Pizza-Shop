@@ -38,10 +38,10 @@
 
 <div class="container">
     <div class="starter-template">
-        <h1>iPhone X 64GB</h1>
-        <p>Цена: <b>71990 руб.</b></p>
+        <h1>King Пицца, 35см.</h1>
+        <p>Цена: <b>150 грн.</b></p>
         <img src="http://laravel-diplom-1.rdavydov.ru/storage/products/iphone_x.jpg">
-        <p>Отличный продвинутый телефон с памятью на 64 gb</p>
+        <p>Вкуснейшая пица сезона</p>
         <a class="btn btn-success" href="http://laravel-diplom-1.rdavydov.ru/basket/1/add">Добавить в корзину</a>
     </div>
 </div>

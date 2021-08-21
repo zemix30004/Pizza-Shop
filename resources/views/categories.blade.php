@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Интернет Магазин</title>
+    <title>Категории</title>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -41,28 +41,28 @@
         <div class="panel">
             <a href="http://laravel-diplom-1.rdavydov.ru/mobiles">
                 <img src="http://laravel-diplom-1.rdavydov.ru/storage/categories/mobile.jpg">
-                <h2>Мобильные телефоны</h2>
+                <h2>Пиццы</h2>
             </a>
             <p>
-                В этом разделе вы найдёте самые популярные мобильные телефонамы по отличным ценам!
+                В этом разделе вы найдёте самые изысканные на вкус пиццы!
             </p>
         </div>
         <div class="panel">
             <a href="http://laravel-diplom-1.rdavydov.ru/portable">
                 <img src="http://laravel-diplom-1.rdavydov.ru/storage/categories/portable.jpg">
-                <h2>Портативная техника</h2>
+                <h2>Закуски</h2>
             </a>
             <p>
-                Раздел с портативной техникой.
+                Здесь выбирайте самые разнообразные закуски под крепкие напитки!
             </p>
         </div>
         <div class="panel">
             <a href="http://laravel-diplom-1.rdavydov.ru/appliances">
                 <img src="http://laravel-diplom-1.rdavydov.ru/storage/categories/appliance.jpg">
-                <h2>Бытовая техника</h2>
+                <h2>Напитки</h2>
             </a>
             <p>
-                Раздел с бытовой техникой
+                Напитки на любой вкус ждут вас!
             </p>
         </div>
     </div>

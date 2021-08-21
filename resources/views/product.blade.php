@@ -1,5 +1,7 @@
 @extends('master')
 
+@section('title', 'Товар')
+
 @section('content')
     <div class="starter-template">
         <h1>King Пицца, 35см.</h1>

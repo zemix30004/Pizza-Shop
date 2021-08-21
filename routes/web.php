@@ -24,3 +24,8 @@ Route::get('/categories', function () {
 
     return view('categories');
 });
+
+Route::get('/pizzas/King Pizza', function () {
+
+    return view('product');
+});

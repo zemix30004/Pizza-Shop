@@ -27,6 +27,7 @@ Route::get('/categories', 'App\Http\Controllers\MainController@categories')->nam
 Route::get('/cart', 'App\Http\Controllers\CartController@cart')->name('cart');
 Route::get('/cart/place', 'App\Http\Controllers\CartController@cartPlace')->name('cart-place');
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@cartAdd')->name('cart-add');
+Route::post('/cart/remove/{id}', 'App\Http\Controllers\CartController@cartRemove')->name('cart-remove');
 
 Route::get('/{category}', 'App\Http\Controllers\MainController@category')->name('category');
 Route::get('/{category}/{product?}', 'App\Http\Controllers\MainController@product')->name('product');

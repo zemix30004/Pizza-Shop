@@ -27,12 +27,15 @@
                 </td>
                 <td><span class="badge">1</span>
                     <div class="btn-group">
-                        <a type="button" class="btn btn-danger" href="http://laravel-diplom-1.rdavydov.ru/basket/1/remove"><span
-                                class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
+                                <form action="{{ route('cart-remove', $product) }}" method="POST">
+                                    <button type="submit" class="btn btn-danger" href=""><span
+                                    class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                                    @csrf
+                                </form>
                                 <form action="{{ route('cart-add', $product) }}" method="POST">
                                     <button type="submit" class="btn btn-success" href=""><span
                                     class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                                     @csrf
+                                    @csrf
                                 </form>
 
                     </div>

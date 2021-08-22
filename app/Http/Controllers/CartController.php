@@ -32,6 +32,18 @@ class CartController extends Controller
         }
         $order->products()->attach($productId);
 
-        return view('cart', compact('order'));
+        return redirect()->route('cart');
+    }
+
+    public function cartRemove($productId)
+    {
+        $orderId = session('orderId');
+        if (is_null($orderId)) {
+            return view('cart', compact('order'));
+        }
+        $order = Order::find($orderId);
+        $order->products()->detach($productId);
+
+        return redirect()->route('cart');
     }
 }

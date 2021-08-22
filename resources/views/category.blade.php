@@ -1,4 +1,5 @@
 @extends('master')
+@isset($category->name)
 
 @section('title', 'Категория' . $category->name)
 
@@ -15,3 +16,4 @@
         </div>
     </div>
 @endsection
+@endisset

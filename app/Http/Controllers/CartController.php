@@ -11,7 +11,7 @@ class CartController extends Controller
     {
         $orderId = session('orderId');
         if (!is_null($orderId)) {
-            $order = findOrFail($orderId);
+            $order = Order::findOrFail($orderId);
         }
         return view('cart', compact('order'));
     }

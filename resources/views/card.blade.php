@@ -6,8 +6,7 @@
             <p>{{ $product->price }}</p>
             <p>
                 <a href="{{  route('cart') }}" class="btn btn-primary" role="button">В корзину</a>
-                {{  $product->category->name }}
-                <a href="" class="btn btn-default"
+                <a href="{{  route('product', [$product->category->code, $product->code]) }}" class="btn btn-default"
                 role="button">Подробнее</a>
             </p>
         </div>

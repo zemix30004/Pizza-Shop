@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -30,15 +31,5 @@ class MainController extends Controller
     public function product($category, $product = null)
     {
         return view('product', ['product' => $product]);
-    }
-
-    public function cart()
-    {
-        return view('cart');
-    }
-
-    public function cartPlace()
-    {
-        return view('order');
     }
 }

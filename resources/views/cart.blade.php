@@ -33,8 +33,8 @@
                                 class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                     </div>
                 </td>
-                <td>150 грн..</td>
-                <td>150 грн.</td>
+                <td>{{  $product->price }}</td>
+                <td>{{  $product->price }}</td>
             </tr>
             @endforeach
 

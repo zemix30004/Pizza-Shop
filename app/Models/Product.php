@@ -18,4 +18,13 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function getPriceForCount($count)
+    {
+        if (!is_null($this->pivot)) {
+            return $this->pivot->count * $this->price;
+        }
+        return $this->price;
+        return $this->price * $count;
+    }
 }

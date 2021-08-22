@@ -9,7 +9,11 @@ class CartController extends Controller
 {
     public function cart()
     {
-        return view('cart');
+        $orderId = session('orderId');
+        if (!is_null($orderId)) {
+            $order = findOrFail($orderId);
+        }
+        return view('cart', compact('order'));
     }
 
     public function cartPlace()
@@ -21,9 +25,13 @@ class CartController extends Controller
     {
         $orderId = session('orderId');
         if (is_null($orderId)) {
-            $orderId = Order::create()->id;
-            session(['orderId' => $orderId]);
+            $order = Order::create()->id;
+            session(['orderId' => $order->id]);
+        } else {
+            $order = Order::find($orderId);
         }
-        dump($orderId);
+        $order->products()->attach($productId);
+
+        return view('cart', compact('order'));
     }
 }

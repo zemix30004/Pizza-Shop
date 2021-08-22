@@ -25,13 +25,13 @@ class CartController extends Controller
     {
         $orderId = session('orderId');
         if (is_null($orderId)) {
-            $order = Order::create()->id;
+            $order = Order::create();
             session(['orderId' => $order->id]);
         } else {
             $order = Order::find($orderId);
         }
         if ($order->products->contains($productId)) {
-            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot();
+            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
             $pivotRow->count++;
             $pivotRow->update();
         } else {
@@ -44,11 +44,12 @@ class CartController extends Controller
     {
         $orderId = session('orderId');
         if (is_null($orderId)) {
-            return view('cart', compact('order'));
+            return redirect()->route('cart');
         }
         $order = Order::find($orderId);
+
         if ($order->products->contains($productId)) {
-            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot();
+            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
             if ($pivotRow->count < 2) {
                 $order->products()->detach($productId);
             } else {

@@ -6,9 +6,7 @@
             <p>{{ $product->price }}</p>
             <p>
                 <a href="{{  route('cart') }}" class="btn btn-primary" role="button">В корзину</a>
-                @isset($category)
-                {{ $category->name }}
-                @endisset
+                {{  $product->category->name }}
                 <a href="" class="btn btn-default"
                 role="button">Подробнее</a>
             </p>

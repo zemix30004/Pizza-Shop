@@ -16,9 +16,18 @@ class CartController extends Controller
         return view('cart', compact('order'));
     }
 
+    public function cartConfirm()
+    {
+    }
+
     public function cartPlace()
     {
-        return view('order');
+        $orderId = session('orderId');
+        if (is_null($orderId)) {
+            return redirect()->route('index');
+        }
+        $order = Order::find($orderId);
+        return view('order', compact('order'));
     }
 
     public function cartAdd($productId)

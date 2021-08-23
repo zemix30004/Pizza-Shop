@@ -56,7 +56,7 @@
         </table>
         <br>
         <div class="btn-group pull-right" role="group">
-            <a type="button" class="btn btn-success" href="http://laravel-diplom-1.rdavydov.ru/basket/place">Оформить заказ</a>
+            <a type="button" class="btn btn-success" href="{{  route ('cart-place') }}">Оформить заказ</a>
         </div>
     </div>
 </div>

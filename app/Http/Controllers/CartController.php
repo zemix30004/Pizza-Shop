@@ -16,8 +16,22 @@ class CartController extends Controller
         return view('cart', compact('order'));
     }
 
-    public function cartConfirm()
+    public function cartConfirm(Request $request)
     {
+        $orderId = session('orderId');
+        if (is_null($orderId)) {
+            return redirect()->route('index');
+        }
+        $order = Order::find($orderId);
+        $success = $order->saveOrder($request->name, $request->phone);
+
+        if ($success) {
+            session()->flash('success', 'Ваш заказ принят в обработку!');
+        } else {
+            session()->flash('warning', 'Произошла ошибка');
+        }
+
+        return redirect()->route('index');
     }
 
     public function cartPlace()

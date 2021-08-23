@@ -30,8 +30,11 @@ Auth::routes([
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('get-logout');
 
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::group([
+    'middleware' => 'auth',
+    'namespace' => '',
+], function () {
+    Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
 });
 
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');

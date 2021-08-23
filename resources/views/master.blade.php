@@ -10,8 +10,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/starter-template.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' }}" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/starter-template.css' }}" type="text/css">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">

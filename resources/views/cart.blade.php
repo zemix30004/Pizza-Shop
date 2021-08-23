@@ -26,7 +26,10 @@
                     </a>
                 </td>
                 <td><span class="badge">{{ $product->pivot->count }}</span>
-                    <div class="btn-group">
+                    <div class="btn-group form-inline">
+                        <style>div.form-inline form{
+                            display: inline;
+                        }</style>
                                 <form action="{{ route('cart-remove', $product) }}" method="POST">
                                     <button type="submit" class="btn btn-danger" href=""><span
                                     class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>

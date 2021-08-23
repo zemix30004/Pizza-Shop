@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -41,6 +42,7 @@ class CartController extends Controller
             return redirect()->route('index');
         }
         $order = Order::find($orderId);
+
         return view('order', compact('order'));
     }
 
@@ -60,6 +62,10 @@ class CartController extends Controller
         } else {
             $order->products()->attach($productId);
         }
+        $product = Product::find($productId);
+
+        session()->flash('success', 'Добавлен товар ' . $product->name);
+
         return redirect()->route('cart');
     }
 
@@ -80,6 +86,10 @@ class CartController extends Controller
                 $pivotRow->update();
             }
         }
+        $product = Product::find($productId);
+
+        session()->flash('warning', 'Удален товар ' . $product->name);
+
         return redirect()->route('cart');
     }
 }

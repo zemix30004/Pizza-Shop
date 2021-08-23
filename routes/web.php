@@ -26,10 +26,13 @@ Auth::routes([
     'confirm' => false,
     'verify' => false,
 ]);
-
+// Route::get('/login', 'App\Http\Controllers\Auth\LoginController@login')->name('get-login');
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('get-logout');
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+});
 
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');
 Route::get('/categories', 'App\Http\Controllers\MainController@categories')->name('categories');

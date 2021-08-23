@@ -42,7 +42,7 @@
 
                     </div>
                 </td>
-                <td>{{  $product->price }}</td>
+                <td>{{  $product->price }} грн.</td>
                 <td>{{  $product->getPriceForCount() }} грн.</td>
             </tr>
             @endforeach

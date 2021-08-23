@@ -26,6 +26,14 @@
                                 <input type="text" name="phone" id="phone" value="" class="form-control">
                             </div>
                         </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label for="phone" class="control-label col-lg-offset-3 col-lg-2">Адрес доставки: </label>
+                            <div class="col-lg-4">
+                                <input type="text" name="phone" id="phone" value="" class="form-control">
+                            </div>
+                        </div>
                     </div>
                     <br>
                     <input type="hidden" name="_token" value="qhk4riitc1MAjlRcro8dvWchDTGkFDQ9Iacyyrkj"><br>

@@ -3,7 +3,6 @@
 @section('title', 'Корзина')
 
 @section('content')
-<div class="starter-template">
     <h1>Корзина</h1>
     <p>Оформление заказа</p>
     <div class="panel">
@@ -59,5 +58,4 @@
             <a type="button" class="btn btn-success" href="{{  route ('cart-place') }}">Оформить заказ</a>
         </div>
     </div>
-</div>
 @endsection

@@ -45,9 +45,9 @@
                     <label for="category_id" class="col-sm-2 col-form-label">Категория: </label>
                     <div class="col-sm-6">
                         <select name="category_id" id="category_id" class="form-control">
-                            <option value="1">Мобильные телефоны</option>
-                            <option value="2">Портативная техника</option>
-                            <option value="3">Бытовая техника</option>
+                            <option value="1">Хачапури</option>
+                            <option value="2">Равиоли</option>
+                            <option value="3">Шаурма</option>
                         </select>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -42,6 +43,7 @@ Route::group([
     });
 
     Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+    Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
 });
 
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');

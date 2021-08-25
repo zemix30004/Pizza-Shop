@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -32,11 +34,14 @@ Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name(
 
 Route::group([
     'middleware' => 'auth',
-    'namespace' => 'Admin',
+    'namespace' => '',
+    'prefix' => 'admin',
 ], function () {
     Route::group(['middleware' => 'is_admin'], function () {
         Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
     });
+
+    Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
 });
 
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');

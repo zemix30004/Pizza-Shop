@@ -34,7 +34,9 @@ Route::group([
     'middleware' => 'auth',
     'namespace' => '',
 ], function () {
-    Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
+    Route::group(['middleware' => 'is_admin'], function () {
+        Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
+    });
 });
 
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');

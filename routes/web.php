@@ -32,7 +32,7 @@ Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name(
 
 Route::group([
     'middleware' => 'auth',
-    'namespace' => '',
+    'namespace' => 'Admin',
 ], function () {
     Route::group(['middleware' => 'is_admin'], function () {
         Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
@@ -41,12 +41,18 @@ Route::group([
 
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');
 Route::get('/categories', 'App\Http\Controllers\MainController@categories')->name('categories');
+Route::group(['prefix' => 'cart'], function () {
+    Route::post('/add/{id}', 'App\Http\Controllers\CartController@cartAdd')->name('cart-add');
 
-Route::get('/cart', 'App\Http\Controllers\CartController@cart')->name('cart');
-Route::get('/cart/place', 'App\Http\Controllers\CartController@cartPlace')->name('cart-place');
-Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@cartAdd')->name('cart-add');
-Route::post('/cart/remove/{id}', 'App\Http\Controllers\CartController@cartRemove')->name('cart-remove');
-Route::post('/cart/place', 'App\Http\Controllers\CartController@cartConfirm')->name('cart-confirm');
+    Route::group([
+        'middleware' => 'cart_not_empty',
+    ], function () {
+        Route::get('/', 'App\Http\Controllers\CartController@cart')->name('cart');
+        Route::get('/place', 'App\Http\Controllers\CartController@cartPlace')->name('cart-place');
+        Route::post('/remove/{id}', 'App\Http\Controllers\CartController@cartRemove')->name('cart-remove');
+        Route::post('/place', 'App\Http\Controllers\CartController@cartConfirm')->name('cart-confirm');
+    });
+});
 
 Route::get('/{category}', 'App\Http\Controllers\MainController@category')->name('category');
 Route::get('/{category}/{product?}', 'App\Http\Controllers\MainController@product')->name('product');

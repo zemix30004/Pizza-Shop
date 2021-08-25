@@ -2,12 +2,13 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Order;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Admin;
 
-class CheckIsAdmin
+class CartIsNotEmpty
 {
     /**
      * Handle an incoming request.
@@ -18,10 +19,14 @@ class CheckIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = Auth::user();
-        if (!$user->isAdmin()) {
-            session()->flash('warning', 'У вас нет прав администратора');
-            return redirect()->route('index');
+        $orderId = session('orderId');
+
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
+            if ($order->products->count() == 0) {
+                session()->flash('warning', 'Ваша корзина пуста!');
+                return redirect()->route('index');
+            }
         }
         return $next($request);
     }

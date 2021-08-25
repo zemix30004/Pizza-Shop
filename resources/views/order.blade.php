@@ -36,9 +36,8 @@
                         </div>
                     </div>
                     <br>
-                    <input type="hidden" name="_token" value="qhk4riitc1MAjlRcro8dvWchDTGkFDQ9Iacyyrkj"><br>
                     @csrf
-                    <input type="submit" class="btn btn-success" href="http://laravel-diplom-1.rdavydov.ru/basket/place" value="Подтвердить заказ">
+                    <input type="submit" class="btn btn-success" href="" value="Подтвердить заказ">
                 </div>
             </form>
         </div>

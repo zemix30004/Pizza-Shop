@@ -17,15 +17,15 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{  route('index') }}">Pizza-Shop</a>
+            <a class="navbar-brand" href="{{ route('index') }}">Pizza-Shop</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li @routeactive('index')><a href="{{  route('index') }}">Все товары</a></li>
-                <li @routeactive('categor*')><a href="{{  route('categories') }}">Категории</a>
+                <li @routeactive('index')><a href="{{ route('index') }}">Все товары</a></li>
+                <li @routeactive('categor*')><a href="{{ route('categories') }}">Категории</a>
                 </li>
-                <li @routeactive('cart*')><a href="{{  route('cart') }}">В корзину</a></li>
-                <li><a href="{{  route('index') }}">Сбросить проект в начальное состояние</a></li>
+                <li @routeactive('cart*')><a href="{{ route('cart') }}">В корзину</a></li>
+                <li><a href="{{  route('reset_db') }}">Сбросить проект в начальное состояние</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

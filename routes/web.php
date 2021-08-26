@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ResetController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
@@ -24,12 +25,14 @@ Auth::routes([
     'confirm' => false,
     'verify' => false,
 ]);
+
+Route::get('reset', 'App\Http\Controllers\ResetController@reset')->name('reset_db');
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('get-logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::group([
         'prefix' => 'person',
-        'namespace' => 'Person',
+        'namespace' => '',
         'as' => 'person.',
     ], function () {
         Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('orders.index');

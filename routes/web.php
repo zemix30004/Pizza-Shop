@@ -19,11 +19,6 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-
-// Route::get('/', function () {
-
-//     return view('index');
-// });
 Auth::routes([
     'reset' => false,
     'confirm' => false,
@@ -70,7 +65,3 @@ Route::group(['prefix' => 'cart'], function () {
 
 Route::get('/{category}', 'App\Http\Controllers\MainController@category')->name('category');
 Route::get('/{category}/{product?}', 'App\Http\Controllers\MainController@product')->name('product');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

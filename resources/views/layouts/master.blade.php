@@ -34,11 +34,11 @@
                 @endguest
 
                 @auth
-                    @if(Auth::user()->isAdmin())
+                    @admin(Auth::user()->isAdmin())
                             <li><a href="{{ route('home') }}">Панель администратора</a></li>
                     @else
                             <li><a href="{{ route('person.orders.index') }}">Мои заказы</a></li>
-                    @endif
+                    @endadmin
                     <li><a href="{{ route('get-logout') }}">Выйти</a></li>
                 @endauth
             </ul>

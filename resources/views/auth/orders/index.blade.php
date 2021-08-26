@@ -44,7 +44,7 @@
                             @admin
                                 href="{{ route('orders.show', $order) }}"
                             @else
-                            href="{{ route('person.orders.show', $order) }}"
+                                href="{{ route('person.orders.show', $order) }}"
                             @endadmin
                         >Открыть</a>
                         </div>

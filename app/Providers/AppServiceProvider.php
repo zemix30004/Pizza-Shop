@@ -29,8 +29,8 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo Route::currentRouteNamed($route) ? 'class=\"active\"' : '' ?>";
         });
 
-        Blade::if('admin', function ($environment) {
-            return Auth::user()->IsAdmin();
+        Blade::if('admin', function () {
+            return Auth::check() && Auth::user()->IsAdmin();
         });
     }
 }

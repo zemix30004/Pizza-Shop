@@ -29,23 +29,30 @@ Auth::routes([
     'confirm' => false,
     'verify' => false,
 ]);
-// Route::get('/login', 'App\Http\Controllers\Auth\LoginController@login')->name('get-login');
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('get-logout');
 
-
-Route::group([
-    'middleware' => 'auth',
-    'namespace' => '',
-    'prefix' => 'admin',
-], function () {
-    Route::group(['middleware' => 'is_admin'], function () {
-        Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::group([
+        'prefix' => 'person',
+        'namespace' => 'Person',
+        'as' => 'person.',
+    ], function () {
+        Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('orders.index');
+        Route::get('/orders/{order}', 'App\Http\Controllers\Admin\OrderController@show')->name('orders.show');
     });
+    Route::group([
+        'namespace' => '',
+        'prefix' => 'admin',
+    ], function () {
+        Route::group(['middleware' => 'is_admin'], function () {
+            Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
+            Route::get('/orders/{order}', 'App\Http\Controllers\Admin\OrderController@show')->name('orders.show');
+        });
 
-    Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
-    Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+        Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+        Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+    });
 });
-
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');
 Route::get('/categories', 'App\Http\Controllers\MainController@categories')->name('categories');
 Route::group(['prefix' => 'cart'], function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Requests\ProductsFilterRequest;
+use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -25,8 +26,7 @@ class MainController extends Controller
                 $productsQuery->where($field, 1);
             }
         }
-
-        $products = $productQuery->::paginate(6)->withPath("?" . $request->getQueryString());
+        $products = $productsQuery->paginate(6)->withPath("?" . $request->getQueryString());
         return view('index', compact('products'));
     }
 

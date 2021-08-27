@@ -25,6 +25,7 @@
                     @method('PUT')
                 @endisset
                 @csrf
+                <br>
                 <div class="input-group row">
                     <label for="category_id" class="col-sm-2 col-form-label">Категория: </label>
                     <div class="col-sm-6">
@@ -114,6 +115,7 @@
                             value="@isset($product){{ $product->is_veg }}@endisset">
                     </div>
                 </div>
+                <br>
                 <div class="input-group row">
                     <label for="is_best_offer" class="col-sm-2 col-form-label">Наиболее заказуемый: </label>
                     <div class="col-sm-4">

@@ -28,6 +28,7 @@
                 <div class="input-group row">
                     <label for="code" class="col-sm-2 col-form-label">Код: </label>
                     <div class="col-sm-6">
+                        @include('auth.layouts.error', ['fieldName' => 'code'])
                         <input type="text" class="form-control" name="code" id="code"
                             value="@isset($product){{ $product->code }}@endisset">
                     </div>
@@ -36,6 +37,7 @@
                 <div class="input-group row">
                     <label for="name" class="col-sm-2 col-form-label">Название: </label>
                     <div class="col-sm-6">
+                        @include('auth.layouts.error', ['fieldName' => 'name'])
                         <input type="text" class="form-control" name="name" id="name"
                             value="@isset($product){{ $product->name }}@endisset">
                     </div>
@@ -44,6 +46,7 @@
                 <div class="input-group row">
                     <label for="category_id" class="col-sm-2 col-form-label">Категория: </label>
                     <div class="col-sm-6">
+                        @include('auth.layouts.error', ['fieldName' => 'category_id'])
                         <select name="category_id" id="category_id" class="form-control">
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}"
@@ -61,6 +64,7 @@
                 <div class="input-group row">
                     <label for="description" class="col-sm-2 col-form-label">Описание: </label>
                     <div class="col-sm-6">
+                        @include('auth.layouts.error', ['fieldName' => 'description'])
 								<textarea name="description" id="description" cols="72"
                                         rows="7">@isset($product){{ $product->description }}@endisset</textarea>
                     </div>
@@ -77,11 +81,65 @@
                 <br>
                 <div class="input-group row">
                     <label for="price" class="col-sm-2 col-form-label">Цена: </label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
+                        @include('auth.layouts.error', ['fieldName' => 'price'])
                         <input type="text" class="form-control" name="price" id="price"
                             value="@isset($product){{ $product->price }}@endisset">
                     </div>
                 </div>
+                <br>
+                <div class="input-group row">
+                    <label for="size" class="col-sm-2 col-form-label">Размер: </label>
+                    <div class="col-sm-4">
+                        @include('auth.layouts.error', ['fieldName' => 'size'])
+                        <input type="text" class="form-control" name="size" id="size"
+                            value="@isset($product){{ $product->size }}@endisset">
+                    </div>
+                </div>
+                <br>
+                <div class="input-group row">
+                    <label for="is_spicy" class="col-sm-2 col-form-label">Острый: </label>
+                    <div class="col-sm-4">
+                        @include('auth.layouts.error', ['fieldName' => 'is_spicy'])
+                        <input type="text" class="form-control" name="is_spicy" id="is_spicy"
+                            value="@isset($product){{ $product->is_spicy }}@endisset">
+                    </div>
+                </div>
+                <br>
+                <div class="input-group row">
+                    <label for="is_veg" class="col-sm-2 col-form-label">Овощной: </label>
+                    <div class="col-sm-4">
+                        @include('auth.layouts.error', ['fieldName' => 'is_veg'])
+                        <input type="text" class="form-control" name="is_veg" id="is_veg"
+                            value="@isset($product){{ $product->is_veg }}@endisset">
+                    </div>
+                </div>
+                <div class="input-group row">
+                    <label for="is_best_offer" class="col-sm-2 col-form-label">Наиболее заказуемый: </label>
+                    <div class="col-sm-4">
+                        @include('auth.layouts.error', ['fieldName' => 'is_best_offer'])
+                        <input type="text" class="form-control" name="is_best_offer" id="is_best_offer"
+                            value="@isset($product){{ $product->is_best_offer }}@endisset">
+                    </div>
+                </div>
+                <br>
+                @foreach ([
+                'hit' => 'Хиты',
+                'new' => 'Новинки',
+                'recommend' => 'Рекомендуемые',
+                ] as $field => $title)
+                <div class="form-group row">
+                    <label for="code" class="col-sm-2 col-form-label">{{  $title }}: </label>
+                    <div class="col-sm-6">
+                        <input type="checkbox" class="form-control" name="{{ $field }}" id="{{ $field }}"
+                            @if(isset($product) && $product->$field === 1)
+                            checked="checked"
+                            @endif
+                        >
+                    </div>
+                </div>
+                <br>
+                @endforeach
                 <button class="btn btn-success">Сохранить</button>
             </div>
         </form>

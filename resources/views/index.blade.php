@@ -11,7 +11,7 @@
                         <input type="text" name="price_from" id="price_from" size="6" value="{{ request()->price_from}}">
                     </label>
                     <label for="price_to">до
-                        <input type="text" name="price_to" id="price_to" size="6"  value="{{ request()->price_to }}">
+                        <input type="text" name="price_to" id="price_to" size="6"  value="{{ request()->price_to}}">
                     </label>
                 </div>
                 <div class="col-sm-2 col-md-2">

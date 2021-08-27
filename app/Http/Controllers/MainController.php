@@ -9,9 +9,10 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::get();
+        // dd($request->all());
+        $products = Product::paginate(3);
         return view('index', compact('products'));
     }
 

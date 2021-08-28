@@ -7,7 +7,6 @@ use App\Models\Order;
 use App\Http\Requests\ProductsFilterRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
-use App\config\Debugbar;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -17,7 +16,7 @@ class MainController extends Controller
         $productsQuery = Product::with('category');
 
         if ($request->filled('price_from')) {
-            Debugbar::info('price_from');
+            \Debugbar::info('price_from');
             $productsQuery->where('price', '>=', $request->price_from);
         }
         if ($request->filled('price_to')) {

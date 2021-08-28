@@ -45,11 +45,12 @@ class Order extends Model
         return session('full_order_sum', 0);
     }
 
-    public function saveOrder($name, $phone)
+    public function saveOrder($name, $phone, $address)
     {
         if ($this->status == 0) {
             $this->name = $name;
             $this->phone = $phone;
+            $this->address = $address;
             $this->status = 1;
             $this->save();
             session()->forget('orderId');

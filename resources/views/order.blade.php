@@ -29,9 +29,9 @@
                         <br>
                         <br>
                         <div class="form-group">
-                            <label for="phone" class="control-label col-lg-offset-3 col-lg-2">Адрес доставки: </label>
+                            <label for="address" class="control-label col-lg-offset-3 col-lg-2">Адрес доставки: </label>
                             <div class="col-lg-4">
-                                <input type="text" name="phone" id="phone" value="" class="form-control">
+                                <input type="text" name="address" id="address" value="" class="form-control">
                             </div>
                         </div>
                     </div>

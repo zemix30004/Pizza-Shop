@@ -37,7 +37,7 @@
                     <td>{{ $order->phone }}</td>
                     <td>{{ $order->address }}</td>
                     <td>{{ $order->created_at->format('H:i d/m/Y') }}</td>
-                    <td>{{ $order->getFullPrice() }} грн.</td>
+                    <td>{{ $order->calculateFullSum() }} грн.</td>
                     <td>
                         <div class="btn-group" role="group">
                             <a class="btn btn-success" type="button"

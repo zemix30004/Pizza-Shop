@@ -9,5 +9,5 @@
         <p>Цена: <b>150 грн.</b></p>
         <img src="{{ Storage::url($product->image) }}">
         <p>Вкуснейшая пица сезона</p>
-        <a class="btn btn-success" href="http://laravel-diplom-1.rdavydov.ru/basket/1/add">Добавить в корзину</a>
+        <a class="btn btn-success" href="">Добавить в корзину</a>
 @endsection

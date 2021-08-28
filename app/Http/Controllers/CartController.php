@@ -25,7 +25,7 @@ class CartController extends Controller
             return redirect()->route('index');
         }
         $order = Order::find($orderId);
-        $success = $order->saveOrder($request->name, $request->phone);
+        $success = $order->saveOrder($request->name, $request->phone, $request->address);
 
         if ($success) {
             session()->flash('success', 'Ваш заказ принят в обработку!');

@@ -4,18 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
     // use HasFactory;
+    use SoftDeletes;
 
-    // public function getCategory()
-    // {
-    //     return Category::find($this->category_id);
-    // }
-
-
-    protected $fillable = ['category_id', 'name', 'code', 'description', 'image', 'price', 'size', 'is_spicy', 'is_veg', 'is_best_offer', 'hit', 'new', 'recommend'];
+    protected $fillable = ['category_id', 'name', 'code', 'description', 'image', 'price', 'size', 'is_spicy', 'is_veg', 'is_best_offer', 'hit', 'new', 'recommend', 'count'];
 
     public function category()
     {
@@ -28,6 +24,11 @@ class Product extends Model
             return $this->pivot->count * $this->price;
         }
         return $this->price;
+    }
+
+    public function scopeByCode($query, $code)
+    {
+        return $query->where('code', $code);
     }
 
     public function scopeHit($query)
@@ -60,6 +61,11 @@ class Product extends Model
     public function setRecommendAttribute($value)
     {
         $this->attributes['recommend'] = $value === 'on' ? 1 : 0;
+    }
+
+    public function isAvailable()
+    {
+        return !$this->trashed() && $this->count > 0;;
     }
 
 

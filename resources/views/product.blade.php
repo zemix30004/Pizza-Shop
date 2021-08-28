@@ -3,11 +3,14 @@
 @section('title', 'Товар')
 
 @section('content')
-
-        <h1>King Пицца, 35см.</h1>
-        <h2>{{ $product }}</h2>
-        <p>Цена: <b>150 грн.</b></p>
+        <h1>{{ $product->name }}</h1>
+        <h2>{{ $product->category->name }}</h2>
+        <p>Цена: <b>{{  $product->price }} грн.</b></p>
         <img src="{{ Storage::url($product->image) }}">
-        <p>Вкуснейшая пица сезона</p>
-        <a class="btn btn-success" href="">Добавить в корзину</a>
+        <p>{{  $product->description }}</p>
+        @if($product->isAvailable())
+        <a class="btn btn-success" href="{{  route('cart-add', $product) }}">Добавить в корзину</a>
+        @else
+        Не доступен
+        @endif
 @endsection

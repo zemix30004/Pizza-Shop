@@ -14,6 +14,7 @@ class Product extends Model
     //     return Category::find($this->category_id);
     // }
 
+
     protected $fillable = ['category_id', 'name', 'code', 'description', 'image', 'price', 'size', 'is_spicy', 'is_veg', 'is_best_offer', 'hit', 'new', 'recommend'];
 
     public function category()

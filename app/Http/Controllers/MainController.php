@@ -6,15 +6,17 @@ use App\Models\Category;
 use App\Http\Requests\ProductsFilterRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
+use \Debugbar;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
     public function index(ProductsFilterRequest $request)
     {
-        $productsQuery = Product::query();
+        $productsQuery = Product::with('category');
 
         if ($request->filled('price_from')) {
+            Debugbar::info('price_from');
             $productsQuery->where('price', '>=', $request->price_from);
         }
         if ($request->filled('price_to')) {

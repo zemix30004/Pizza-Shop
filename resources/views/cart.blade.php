@@ -16,7 +16,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach ($order->products as $product )
+            @foreach ($order->products()->with('category')->get() as $product)
             <tr>
                 <td>
                     <a href="{{ route('product', [$product->category->code, $product->code]) }}">
@@ -26,9 +26,7 @@
                 </td>
                 <td><span class="badge">{{ $product->pivot->count }}</span>
                     <div class="btn-group form-inline">
-                        <style>div.form-inline form{
-                            display: inline;
-                        }</style>
+                        <style>div.form-inline form{display: inline;}</style>
                                 <form action="{{ route('cart-remove', $product) }}" method="POST">
                                     <button type="submit" class="btn btn-danger" href=""><span
                                     class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
@@ -49,7 +47,7 @@
 
             <tr>
                 <td colspan="3">Общая стоимость:</td>
-                <td>{{ $order->getFullPrice() }} грн.</td>
+                <td>{{ $order->getFullSum() }} грн.</td>
             </tr>
             </tbody>
         </table>

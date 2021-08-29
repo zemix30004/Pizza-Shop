@@ -34,6 +34,14 @@
                                 <input type="text" name="address" id="address" value="" class="form-control">
                             </div>
                         </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label for="email" class="control-label col-lg-offset-3 col-lg-2">Email: </label>
+                            <div class="col-lg-4">
+                                <input type="text" name="email" id="email" value="" class="form-control">
+                            </div>
+                        </div>
                     </div>
                     <br>
                     @csrf

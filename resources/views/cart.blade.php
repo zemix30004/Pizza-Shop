@@ -37,7 +37,6 @@
                                     class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                                     @csrf
                                 </form>
-
                     </div>
                 </td>
                 <td>{{  $product->price }} грн.</td>

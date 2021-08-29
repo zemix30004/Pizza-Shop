@@ -6,6 +6,7 @@ use App\Classes\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -17,7 +18,8 @@ class CartController extends Controller
 
     public function cartConfirm(Request $request)
     {
-        if ((new Cart())->saveOrder($request->name, $request->phone, $request->address)) {
+        $email = Auth::check() ? Auth::user()->email : $request->email;
+        if ((new Cart())->saveOrder($request->name, $request->phone, $request->address, $email)) {
             session()->flash('success', 'Ваш заказ принят в обработку!');
         } else {
             session()->flash('warning', 'Товар не доступен для заказа в полном объеме');

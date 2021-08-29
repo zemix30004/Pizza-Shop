@@ -6,7 +6,7 @@
             @endif
 
             @if($product->isRecommend())
-            <span class="badge badge-warning">Рекуомендуем</span>
+            <span class="badge badge-warning">Рекомендуем</span>
             @endif
 
             @if($product->isHit())
@@ -17,7 +17,7 @@
         <img src="{{  Storage::url($product->image) }}" alt="Product">
         <div class="caption">
             <h3>{{ $product->name }}</h3>
-            <p>{{ $product->price }}</p>
+            <p>{{ $product->price }} грн.</p>
             <p>
                 <form action="{{ route('cart-add', $product) }}" method="POST">
                 @if($product->isAvailable())

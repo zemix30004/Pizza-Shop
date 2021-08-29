@@ -27,6 +27,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'true',
                 'is_veg' => 'true',
                 'is_best_offer' => 'true',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 1,
@@ -39,6 +40,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'true',
                 'is_veg' => 'false',
                 'is_best_offer' => 'true',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 1,
@@ -51,6 +53,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'true',
                 'is_veg' => 'true',
                 'is_best_offer' => 'true',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 2,
@@ -63,6 +66,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'false',
                 'is_veg' => 'false',
                 'is_best_offer' => 'true',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 2,
@@ -75,6 +79,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'true',
                 'is_veg' => 'false',
                 'is_best_offer' => 'false',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 2,
@@ -87,6 +92,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'false',
                 'is_veg' => 'true',
                 'is_best_offer' => 'false',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 2,
@@ -99,6 +105,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'true',
                 'is_veg' => 'true',
                 'is_best_offer' => 'true',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 3,
@@ -111,6 +118,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'false',
                 'is_veg' => 'false',
                 'is_best_offer' => 'true',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 3,
@@ -123,6 +131,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'false',
                 'is_veg' => 'false',
                 'is_best_offer' => 'true',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 3,
@@ -135,6 +144,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'false',
                 'is_veg' => 'false',
                 'is_best_offer' => 'false',
+                'count' => rand(0, 10),
             ],
             [
                 'category_id' => 3,
@@ -147,6 +157,7 @@ class ProductsTableSeeder extends Seeder
                 'is_spicy' => 'false',
                 'is_veg' => 'false',
                 'is_best_offer' => 'false',
+                'count' => rand(0, 10),
             ],
         ]);
     }

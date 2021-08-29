@@ -55,14 +55,14 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');
 Route::get('/categories', 'App\Http\Controllers\MainController@categories')->name('categories');
 Route::group(['prefix' => 'cart'], function () {
-    Route::post('/add/{id}', 'App\Http\Controllers\CartController@cartAdd')->name('cart-add');
+    Route::post('/add/{product}', 'App\Http\Controllers\CartController@cartAdd')->name('cart-add');
 
     Route::group([
         'middleware' => 'cart_not_empty',
     ], function () {
         Route::get('/', 'App\Http\Controllers\CartController@cart')->name('cart');
         Route::get('/place', 'App\Http\Controllers\CartController@cartPlace')->name('cart-place');
-        Route::post('/remove/{id}', 'App\Http\Controllers\CartController@cartRemove')->name('cart-remove');
+        Route::post('/remove/{product}', 'App\Http\Controllers\CartController@cartRemove')->name('cart-remove');
         Route::post('/place', 'App\Http\Controllers\CartController@cartConfirm')->name('cart-confirm');
     });
 });

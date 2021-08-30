@@ -54,6 +54,9 @@ Route::middleware(['auth'])->group(function () {
 });
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');
 Route::get('/categories', 'App\Http\Controllers\MainController@categories')->name('categories');
+
+Route::post('subscription/{product}', 'App\Http\Controllers\MainController@subscribe')->name('subscription');
+
 Route::group(['prefix' => 'cart'], function () {
     Route::post('/add/{product}', 'App\Http\Controllers\CartController@cartAdd')->name('cart-add');
 

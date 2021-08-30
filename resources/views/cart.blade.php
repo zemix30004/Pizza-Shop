@@ -1,18 +1,18 @@
 @extends('layouts.master')
 
-@section('title', 'Корзина')
+@section('title', __('cart.cart'))
 
 @section('content')
-    <h1>Корзина</h1>
-    <p>Оформление заказа</p>
+    <h1>@lang('cart.cart')</h1>
+    <p>@lang('cart.ordering')</p>
     <div class="panel">
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Название</th>
-                <th>Кол-во</th>
-                <th>Цена</th>
-                <th>Стоимость</th>
+                <th>@lang('basket.name')</th>
+                <th>@lang('basket.count')</th>
+                <th>@lang('basket.price')</th>
+                <th>@lang('basket.cost')</th>
             </tr>
             </thead>
             <tbody>
@@ -39,20 +39,20 @@
                                 </form>
                     </div>
                 </td>
-                <td>{{  $product->price }} грн.</td>
+                <td>{{  $product->price }} @lang('main.grn')</td>
                 <td>{{  $product->getPriceForCount() }} грн.</td>
             </tr>
             @endforeach
 
             <tr>
-                <td colspan="3">Общая стоимость:</td>
-                <td>{{ $order->getFullSum() }} грн.</td>
+                <td colspan="3">@lang('cart.full_cost'):</td>
+                <td>{{ $order->getFullSum() }} @lang('main.grn').</td>
             </tr>
             </tbody>
         </table>
         <br>
         <div class="btn-group pull-right" role="group">
-            <a type="button" class="btn btn-success" href="{{  route ('cart-place') }}">Оформить заказ</a>
+            <a type="button" class="btn btn-success" href="{{ route ('cart-place') }}">@lang('cart.place_order')</a>
         </div>
     </div>
 @endsection

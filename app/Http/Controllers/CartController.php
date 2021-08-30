@@ -22,7 +22,7 @@ class CartController extends Controller
         if ((new Cart())->saveOrder($request->name, $request->phone, $request->address, $email)) {
             session()->flash('success', __('cart.your_order_confirmed'));
         } else {
-            session()->flash('warning', 'Товар не доступен для заказа в полном объеме');
+            session()->flash('warning', __('cart.your_cant_order_more'));
         }
         Order::eraseOrderSum();
         return redirect()->route('index');
@@ -33,7 +33,7 @@ class CartController extends Controller
         $cart = new Cart();
         $order = $cart->getOrder();
         if (!$cart->countAvailable()) {
-            session()->flash('warning', 'Товар не доступен для заказа в полном объеме');
+            session()->flash('warning', __('cart.you_cant_order_more'));
             return redirect()->route('cart');
         }
         return view('order', compact('order'));
@@ -43,9 +43,9 @@ class CartController extends Controller
     {
         $result = (new Cart(true))->addProduct($product);
         if ($result) {
-            session()->flash('success', 'Добавлен товар' . $product->name);
+            session()->flash('success', __('cart.added') . $product->name);
         } else {
-            session()->flash('warning', 'Товар' . $product->name . ' в большом количестве не доступен для заказа');
+            session()->flash('warning', $product->name . $product->name . __('cart.not_available_more'));
         }
         return redirect()->route('cart');
     }
@@ -54,7 +54,7 @@ class CartController extends Controller
     {
         (new Cart())->removeProduct($product);
 
-        session()->flash('warning', 'Удален товар ' . $product->name);
+        session()->flash('warning', __('cart.removed') . $product->name);
 
         return redirect()->route('cart');
     }

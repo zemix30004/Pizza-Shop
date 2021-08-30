@@ -1,6 +1,6 @@
-<p>Уважаемый {{ $name }}</p>
+<p>@lang('mail.order_created.dear') {{ $name }}</p>
 
-<p>@lang('mail.order_created.your_order') {{ $fullSum }} создан</p>
+<p>@lang('mail.order_created.your_order') {{ $fullSum }} @lang('mail.order_created.created')</p>
 
 <table>
     <tbody>
@@ -18,8 +18,8 @@
                     {{ $product->description }}
                 </div>
             </td>
-            <td>{{ $product->price }} грн.</td>
-            <td>{{ $product->getPriceForCount() }} грн.</td>
+            <td>{{ $product->price }} @lang('main.grn').</td>
+            <td>{{ $product->getPriceForCount() }} @lang('main.grn').</td>
         </tr>
         @endforeach
     </tbody>

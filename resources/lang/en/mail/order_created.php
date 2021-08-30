@@ -1,5 +1,7 @@
 <?php
 
 return [
-    'your_order_confirmed' => 'Your order costs ',
+    'dear' => 'Dear',
+    'your_order' => 'Your order costs ',
+    'created' => ' was created',
 ];

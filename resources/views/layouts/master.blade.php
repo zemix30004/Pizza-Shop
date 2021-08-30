@@ -21,11 +21,12 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li @routeactive('index')><a href="{{ route('index') }}">Все товары</a></li>
+                <li @routeactive('index')><a href="{{ route('index') }}">@lang('main.all_products')</a></li>
                 <li @routeactive('categor*')><a href="{{ route('categories') }}">Категории</a>
                 </li>
                 <li @routeactive('cart*')><a href="{{ route('cart') }}">В корзину</a></li>
-                <li><a href="{{  route('reset_db') }}">Сбросить проект в начальное состояние</a></li>
+                <li><a href="{{  route('reset') }}">Сбросить проект в начальное состояние</a></li>
+                <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Order;
+
 use App\Http\Requests\ProductsFilterRequest;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\SubscriptionRequest;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -16,7 +17,6 @@ class MainController extends Controller
         $productsQuery = Product::with('category');
 
         if ($request->filled('price_from')) {
-            \Debugbar::info('price_from');
             $productsQuery->where('price', '>=', $request->price_from);
         }
         if ($request->filled('price_to')) {
@@ -46,7 +46,18 @@ class MainController extends Controller
 
     public function product($category, $productCode)
     {
-        $product = Product::withTrashed()->byCode($productCode)->firstOfFail();
+        $product = Product::withTrashed()->byCode($productCode)->firstOrFail();
         return view('product', compact('product'));
+    }
+
+    public function subscribe(SubscriptionRequest $request, Product $product)
+    {
+
+        Subscription::create([
+
+            'email' => $request->email,
+            'product_id' => $product->id,
+        ]);
+        return redirect()->back()->with('success', 'Спасибо, мы сообщим вам о поступлении товара');
     }
 }

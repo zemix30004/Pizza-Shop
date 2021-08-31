@@ -9,10 +9,10 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>@lang('basket.name')</th>
-                <th>@lang('basket.count')</th>
-                <th>@lang('basket.price')</th>
-                <th>@lang('basket.cost')</th>
+                <th>@lang('cart.name')</th>
+                <th>@lang('cart.count')</th>
+                <th>@lang('cart.price')</th>
+                <th>@lang('cart.cost')</th>
             </tr>
             </thead>
             <tbody>
@@ -40,7 +40,7 @@
                     </div>
                 </td>
                 <td>{{  $product->price }} @lang('main.grn')</td>
-                <td>{{  $product->getPriceForCount() }} грн.</td>
+                <td>{{  $product->getPriceForCount() }}@lang('main.grn') .</td>
             </tr>
             @endforeach
 

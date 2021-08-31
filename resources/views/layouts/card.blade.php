@@ -21,7 +21,7 @@
             <p>
                 <form action="{{ route('cart-add', $product) }}" method="POST">
                 @if($product->isAvailable())
-                <button type="submit" class="btn btn-primary" role="button">В корзину</button>
+                <button type="submit" class="btn btn-primary" role="button">@lang('main.add_to_cart')</button>
                 @else
                 @lang('main.not_available')
                 @endif

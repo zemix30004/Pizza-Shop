@@ -24,7 +24,7 @@ return [
     'my_orders' => 'My orders',
     'admin_panel' => 'Admin panel',
     'title' => 'Main',
-    'rub' => 'grn',
+    'grn' => 'grn',
     'add_to_cart' => 'Add to cart',
     'more' => 'More about',
     'not_available' => 'Not available',

@@ -39,14 +39,14 @@
                                 </form>
                     </div>
                 </td>
-                <td>{{  $product->price }} @lang('main.grn')</td>
-                <td>{{  $product->getPriceForCount() }}@lang('main.grn') .</td>
+                <td>{{  $product->price }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}</td>
+                <td>{{  $product->getPriceForCount() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}</td>
             </tr>
             @endforeach
 
             <tr>
                 <td colspan="3">@lang('cart.full_cost'):</td>
-                <td>{{ $order->getFullSum() }} @lang('main.grn').</td>
+                <td>{{ $order->getFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}</td>
             </tr>
             </tbody>
         </table>

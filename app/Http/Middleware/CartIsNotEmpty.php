@@ -22,7 +22,7 @@ class CartIsNotEmpty
         if (!is_null($orderId) && Order::getFullSum() > 0) {
             return $next($request);
         }
-        session()->flash('warning', __('basket.cart_is_empty'));
+        session()->flash('warning', __('cart.cart_is_empty'));
         return redirect()->route('index');
     }
 }

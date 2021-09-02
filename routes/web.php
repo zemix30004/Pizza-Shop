@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CartController;
+use App\Http\Controllers\FileUploadController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -32,6 +33,12 @@ Route::get('locale/{locale}', 'App\Http\Controllers\MainController@changeLocale'
 Route::get('reset', 'App\Http\Controllers\ResetController@reset')->name('reset');
 
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('get-logout');
+
+
+Route::get('/upload-file', 'App\Http\Controllers\FileUploadController@createForm');
+
+Route::get('/upload-file', 'App\Http\Controllers\FileUploadController@createForm')->name('fileUpload');
+
 
 Route::middleware(['set_locale'])->group(function () {
     Route::middleware(['auth'])->group(function () {

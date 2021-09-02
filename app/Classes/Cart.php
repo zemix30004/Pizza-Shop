@@ -18,16 +18,18 @@ class Cart
      */
     public function __construct($createOrder = false)
     {
-        $orderId = session('order');
+        $orderId = session('orderId');
 
-        if (is_null($order) && $createOrder) {
+        if (is_null($orderId) && $createOrder) {
             $data = [];
             if (Auth::check()) {
                 $data['user_id'] = Auth::id();
             }
 
             $this->order = Order::create($data);
-            session(['order' => $this->order]);
+            session(['orderId' => $this->order->id]);
+        } else {
+            $this->order = Order::findOrFail($orderId);
         }
     }
 

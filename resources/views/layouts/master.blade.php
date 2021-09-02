@@ -61,5 +61,21 @@
     @yield('content')
     </div>
 </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6"><p>Категории товаров</p>
+                <ul>
+                    <li><a href="/">Category</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-6"><p>Самые популярные товары</p>
+                <ul>
+                    <li><a href="/">Product</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

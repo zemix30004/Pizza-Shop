@@ -29,6 +29,9 @@
                 <th>
                     Действия
                 </th>
+                <th>
+                    Статус
+                </th>
             </tr>
             @foreach($orders as $order)
                 <tr>
@@ -46,11 +49,13 @@
                             @else
                                 href="{{ route('person.orders.show', $order) }}"
                             @endadmin
+
                         >Открыть</a>
                         </div>
                     </td>
                 </tr>
             @endforeach
+
             </tbody>
         </table>
         {{ $orders->links() }}

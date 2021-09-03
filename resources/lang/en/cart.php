@@ -13,6 +13,7 @@ return [
     'place_order' => 'Place your order',
     'ordering' => 'Ordering',
     'approve_order' => 'Approve your order',
+    'cancel_order' => 'Cancel your order',
     'personal_data' => 'Please, specify your personal data to our manager may contact with you',
 
     'your_order_confirmed' => 'Your order confirmed!',

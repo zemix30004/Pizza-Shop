@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CartController;
+use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -22,58 +24,66 @@ use Illuminate\Support\Facades\Auth;
 
 
 Auth::routes([
-    'reset' => false,
-    'confirm' => false,
-    'verify' => false,
+	'reset' => false,
+	'confirm' => false,
+	'verify' => false,
 ]);
 
 Route::get('locale/{locale}', 'App\Http\Controllers\MainController@changeLocale')->name('locale');
 
-Route::get('reset', 'App\Http\Controllers\ResetController@reset')->name('reset');
+Route::get('reset', [ResetController::class, 'reset'])->name('reset');
 
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('get-logout');
 
+
+Route::get('/upload-file', [FileUploadController::class, 'createForm']);
+
+Route::post('/upload-file', [FileUploadController::class, 'fileUpload'])->name('fileUpload');
+
+
 Route::middleware(['set_locale'])->group(function () {
-    Route::middleware(['auth'])->group(function () {
-        Route::group([
-            'prefix' => 'person',
-            'namespace' => 'Person',
-            'as' => 'person.',
-        ], function () {
-            Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('orders.index');
-            Route::get('/orders/{order}', 'App\Http\Controllers\Admin\OrderController@show')->name('orders.show');
-        });
-        Route::group([
-            'namespace' => '',
-            'prefix' => 'admin',
-        ], function () {
-            Route::group(['middleware' => 'is_admin'], function () {
-                Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
-                Route::get('/orders/{order}', 'App\Http\Controllers\Admin\OrderController@show')->name('orders.show');
-            });
+	Route::middleware(['auth'])->group(function () {
+		Route::group([
+			'prefix' => 'person',
+			'namespace' => '',
+			'as' => 'person.',
+		], function () {
+			Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('orders.index');
+			Route::get('/orders/{order}', 'App\Http\Controllers\Admin\OrderController@show')->name('orders.show');
+		});
+		Route::group([
+			'namespace' => '',
+			'prefix' => 'admin',
+		], function () {
+			Route::group(['middleware' => 'is_admin'], function () {
+				Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
+				Route::get('/orders/{order}', 'App\Http\Controllers\Admin\OrderController@show')->name('orders.show');
+			});
 
-            Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
-            Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
-        });
-    });
-    Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');
-    Route::get('/categories', 'App\Http\Controllers\MainController@categories')->name('categories');
+			Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+			Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+			Route::resource('properties', 'App\Http\Controllers\Admin\PropertyController');
+			Route::resource('properties/{property}/property-options', 'App\Http\Controllers\Admin\PropertyOptionController');
+		});
+	});
+	Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');
+	Route::get('/categories', 'App\Http\Controllers\MainController@categories')->name('categories');
 
-    Route::post('subscription/{product}', 'App\Http\Controllers\MainController@subscribe')->name('subscription');
+	Route::post('subscription/{product}', 'App\Http\Controllers\MainController@subscribe')->name('subscription');
 
-    Route::group(['prefix' => 'cart'], function () {
-        Route::post('/add/{product}', 'App\Http\Controllers\CartController@cartAdd')->name('cart-add');
+	Route::group(['prefix' => 'cart'], function () {
+		Route::post('/add/{product}', 'App\Http\Controllers\CartController@cartAdd')->name('cart-add');
 
-        Route::group([
-            'middleware' => 'cart_not_empty',
-        ], function () {
-            Route::get('/', 'App\Http\Controllers\CartController@cart')->name('cart');
-            Route::get('/place', 'App\Http\Controllers\CartController@cartPlace')->name('cart-place');
-            Route::post('/remove/{product}', 'App\Http\Controllers\CartController@cartRemove')->name('cart-remove');
-            Route::post('/place', 'App\Http\Controllers\CartController@cartConfirm')->name('cart-confirm');
-        });
-    });
+		Route::group([
+			'middleware' => 'cart_not_empty',
+		], function () {
+			Route::get('/', 'App\Http\Controllers\CartController@cart')->name('cart');
+			Route::get('/place', 'App\Http\Controllers\CartController@cartPlace')->name('cart-place');
+			Route::post('/remove/{product}', 'App\Http\Controllers\CartController@cartRemove')->name('cart-remove');
+			Route::post('/place', 'App\Http\Controllers\CartController@cartConfirm')->name('cart-confirm');
+		});
+	});
 
-    Route::get('/{category}', 'App\Http\Controllers\MainController@category')->name('category');
-    Route::get('/{category}/{product}', 'App\Http\Controllers\MainController@product')->name('product');
+	Route::get('/{category}', 'App\Http\Controllers\MainController@category')->name('category');
+	Route::get('/{category}/{product}', 'App\Http\Controllers\MainController@product')->name('product');
 });

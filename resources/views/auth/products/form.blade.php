@@ -29,7 +29,6 @@
                 <div class="input-group row">
                     <label for="category_id" class="col-sm-2 col-form-label">Категория: </label>
                     <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'category_id'])
                         <select name="category_id" id="category_id" class="form-control">
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}"
@@ -41,15 +40,16 @@
                                     >{{ $category->name }}</option>
                             @endforeach
                         </select>
+                        @include('auth.layouts.error', ['fieldName' => 'category_id'])
                     </div>
                 </div>
                 <br>
                 <div class="input-group row">
                     <label for="code" class="col-sm-2 col-form-label">Код: </label>
                     <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'code'])
                         <input type="text" class="form-control" name="code" id="code"
                             value="@isset($product){{ $product->code }}@endisset">
+                        @include('auth.layouts.error', ['fieldName' => 'code'])
                     </div>
                 </div>
                 <br>

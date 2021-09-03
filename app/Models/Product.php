@@ -11,11 +11,39 @@ class Product extends Model
 {
     use SoftDeletes, Translatable;
 
-    protected $fillable = ['category_id', 'name', 'code', 'description', 'image', 'price', 'size', 'is_spicy', 'is_veg', 'is_best_offer', 'hit', 'new', 'recommend', 'count', 'name_en', 'description_en'];
+    protected $fillable = [
+        'category_id',
+        'name',
+        'code',
+        'description',
+        'image',
+        'price',
+        'size',
+        'is_spicy',
+        'is_veg',
+        'is_best_offer',
+        'hit',
+        'new',
+        'recommend',
+        'count',
+        'name_en',
+        'description_en'
+    ];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function skus()
+    {
+        return $this->hasMany(Sku::class);
+    }
+
+    //TODO: check table name and fields
+    public function properties()
+    {
+        return $this->belongsToMany(Property::class);
     }
 
     public function getPriceForCount()

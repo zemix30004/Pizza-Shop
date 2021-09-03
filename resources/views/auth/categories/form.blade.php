@@ -63,7 +63,7 @@
                             <label for="description" class="col-sm-2 col-form-label">Описание: </label>
                             <div class="col-sm-6">
                                 @error('description')
-                                <div class="alert alert-danger">{{  $message }}</div>
+                                <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
 							<textarea name="description" id="description" cols="72"
                                     rows="7">@isset($category){{ $category->description }}@endisset</textarea>

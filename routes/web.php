@@ -1,14 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\ResetController;
+
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ConfirmPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Admin\PropertyOptionController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\ResetController;
 use App\Http\Controllers\FileUploadController;
-use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -60,10 +68,10 @@ Route::middleware(['set_locale'])->group(function () {
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
             });
 
-            Route::get('categories', [CategoryController::class]);
-            Route::get('products', [ProductController::class]);
-            Route::get('properties', [PropertyController::class]);
-            Route::get('properties/{property}/property-options', [PropertyOptionController::class]);
+            Route::get('categories', [CategoryController::class, 'index']);
+            Route::get('products', [ProductController::class, 'index']);
+            Route::get('properties', [PropertyController::class, 'index']);
+            Route::get('properties/{property}/property-options', [PropertyOptionController::class, 'index']);
         });
     });
     Route::get('/', [MainController::class, 'index'])->name('index');

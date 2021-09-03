@@ -12,6 +12,9 @@
                     #
                 </th>
                 <th>
+                    Статус
+                </th>
+                <th>
                     Имя
                 </th>
                 <th>
@@ -29,13 +32,11 @@
                 <th>
                     Действия
                 </th>
-                <th>
-                    Статус
-                </th>
             </tr>
             @foreach($orders as $order)
                 <tr>
                     <td>{{ $order->id}}</td>
+                    <td>{{ $order->status }}</td>
                     <td>{{ $order->name }}</td>
                     <td>{{ $order->phone }}</td>
                     <td>{{ $order->address }}</td>

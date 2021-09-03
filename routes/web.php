@@ -68,10 +68,10 @@ Route::middleware(['set_locale'])->group(function () {
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
             });
 
-            Route::get('categories', [CategoryController::class, 'index']);
-            Route::get('products', [ProductController::class, 'index']);
-            Route::get('properties', [PropertyController::class, 'index']);
-            Route::get('properties/{property}/property-options', [PropertyOptionController::class, 'index']);
+            Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+            Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+            Route::resource('properties', 'App\Http\Controllers\Admin\PropertyOptionController');
+            Route::resource('properties/{property}/property-options', 'App\Http\Controllers\Admin\PropertyOptionController');
         });
     });
     Route::get('/', [MainController::class, 'index'])->name('index');

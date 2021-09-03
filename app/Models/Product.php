@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use SoftDeletes, Translatable;
+    protected $casts = [
+        'is_admin' => 'boolean',
+    ];
+
 
     protected $fillable = [
         'category_id',

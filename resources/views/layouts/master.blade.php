@@ -28,10 +28,18 @@
                 <li @routeactive('categor*')><a href="{{ route('categories') }}">@lang('main.categories')</a>
                 </li>
                 <li @routeactive('cart*')><a href="{{ route('cart') }}">@lang('main.cart')</a></li>
-                <li><a href="{{  route('reset') }}">@lang('main.reset_project')</a></li>
+                <li><a href="{{ route('reset') }}">@lang('main.reset_project')</a></li>
                 <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
             </ul>
-
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ \App\Services\CurrencyConversion::getCurrencySymbol() }}<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    @foreach (\App\Services\CurrencyConversion::getCurrencies() as $currency)
+                        <li><a href="{{ route('currency', $currency->code) }}">{{ $currency->symbol }}</a></li>
+                    @endforeach
+                </ul>
+            </li>
+        </ul>
             <ul class="nav navbar-nav navbar-right">
                 @guest
                 <li><a href="{{ route('login') }}">@lang('main.login')</a></li>
@@ -83,7 +91,7 @@
         <div class="footer-info">
                 <a href="/pomichna/info"> О нас</a>
                 <a href="/pomichna/offer">Публичная оферта</a>
-                <a href="/pomichna/privacy-policy">Политика конфиденциальности</a>
+                <a href="/pomichna/privacy-policy">Политика конфиденциальности</a>-
         </div>
         <div class="address-items">
             <div style="color: white; font-size: 20px;" class="pull-right">

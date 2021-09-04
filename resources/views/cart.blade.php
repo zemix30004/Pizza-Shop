@@ -40,7 +40,7 @@
                     </div>
                 </td>
                 <td>{{  $product->price }} @lang('main.grn')</td>
-                <td>{{  $product->getPriceForCount() }}@lang('main.grn') .</td>
+                <td>{{ $order->getFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}</td>
             </tr>
             @endforeach
 

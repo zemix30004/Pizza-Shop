@@ -17,6 +17,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\FileUploadController;
+use App\Services\CurrencyConversion;
+use App\Models\Currency;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -38,6 +40,8 @@ Auth::routes([
 ]);
 
 Route::get('locale/{locale}', [MainController::class, 'changeLocale'])->name('locale');
+
+Route::get('currency/{currencyCode}', [MainController::class, 'changeCurrency'])->name('currency');
 
 Route::get('reset', [ResetController::class, 'reset'])->name('reset');
 

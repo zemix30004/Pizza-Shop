@@ -38,7 +38,8 @@
                 @endguest
 
                 @auth
-                    @admin(Auth::user()->isAdmin())
+                    @admin
+                    {{-- (Auth::user()->isAdmin()){{ Auth::user()->name }} --}}
                             <li><a href="{{ route('home') }}">@lang('main.admin_panel')</a></li>
                     @else
                             <li><a href="{{ route('person.orders.index') }}">@lang('main.my_orders')</a></li>

@@ -28,5 +28,5 @@ return [
     'add_to_cart' => 'Add to cart',
     'more' => 'More about',
     'not_available' => 'Not available',
-    'project_reset' => 'The Project was reset',
+    'project_reset' => 'The project was reset',
 ];

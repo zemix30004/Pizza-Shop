@@ -24,6 +24,7 @@ class SubscriptionRequest extends FormRequest
     public function rules()
     {
         return [
+            'name'  => 'required|min:6|max:50',
             'email' => 'required|email',
         ];
     }
@@ -32,6 +33,7 @@ class SubscriptionRequest extends FormRequest
     {
 
         return [
+            'name'  => 'required|min:6|max:50',
             'email' => 'Поле email должно содержать корректный email адрес',
         ];
     }

@@ -7,6 +7,7 @@ use App\Models\Currency;
 class CurrencyConversion
 {
     protected static $container;
+    const UAH = 'UAH';
 
     public static function loadContainer()
     {
@@ -23,14 +24,14 @@ class CurrencyConversion
         return self::$container;
     }
 
-    public static function convert($sum, $originCurrencyCode = 'UAH', $targetCurrencyCode = null)
+    public static function convert($sum, $originCurrencyCode = self::UAH, $targetCurrencyCode = null)
     {
         self::loadContainer();
 
         $originCurrency = self::$container[$originCurrencyCode];
 
         if (is_null($targetCurrencyCode)) {
-            $targetCurrencyCode = session('currency', 'UAH');
+            $targetCurrencyCode = session('currency', self::UAH);
         }
         $targetCurrency = self::$container[$targetCurrencyCode];
 
@@ -41,7 +42,7 @@ class CurrencyConversion
     {
         self::loadContainer();
 
-        $currencyFromSession = session('currency', 'UAH');
+        $currencyFromSession = session('currency', self::UAH);
 
         $currency = self::$container[$currencyFromSession];
         return $currency->symbol;

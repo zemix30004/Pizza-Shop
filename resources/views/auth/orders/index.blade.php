@@ -1,3 +1,4 @@
+
 @extends('auth.layouts.master')
 
 @section('title', 'Заказы')

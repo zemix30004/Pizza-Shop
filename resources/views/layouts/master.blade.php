@@ -33,7 +33,8 @@
             </ul>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                aria-haspopup="true" aria-expanded="false">{{ \App\Services\CurrencyConversion::getCurrencySymbol() }}<span class="caret"></span></a>
+                aria-haspopup="true" aria-expanded="false">
+                {{ \App\Services\CurrencyConversion::getCurrencySymbol() }}<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     @foreach (\App\Services\CurrencyConversion::getCurrencies() as $currency)
                         <li><a href="{{ route('currency', $currency->code) }}">{{ $currency->symbol }}</a></li>
@@ -92,7 +93,7 @@
         <div class="footer-info">
                 <a href="/pomichna/info"> О нас</a>
                 <a href="/pomichna/offer">Публичная оферта</a>
-                <a href="/pomichna/privacy-policy">Политика конфиденциальности</a>-
+                <a href="/pomichna/privacy-policy">Политика</a>
         </div>
         <div class="address-items">
             <div style="color: white; font-size: 20px;" class="pull-right">

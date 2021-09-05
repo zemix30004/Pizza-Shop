@@ -10,6 +10,7 @@ class CurrencyConversion
 
     public static function loadContainer()
     {
+
         if (is_null(self::$container)) {
             $currencies = Currency::get();
             foreach ($currencies as $currency) {
@@ -20,30 +21,67 @@ class CurrencyConversion
 
     public static function getCurrencies()
     {
+
         return self::$container;
     }
 
-    public static function convert($sum, $originCurrencyCode = 'GRN', $targetCurrencyCode = null)
+    public static function convert($sum, $originCurrencyCode = 'UAH', $targetCurrencyCode = null)
     {
         self::loadContainer();
-
         $originCurrency = self::$container[$originCurrencyCode];
-
         if (is_null($targetCurrencyCode)) {
-            $targetCurrencyCode = session('currency', 'GRN');
+            $targetCurrencyCode = session('currency', 'UAH');
         }
-        $targetCurrency = self::$container[$targetCurrencyCode];
-
+        $targetCurrency = self::$container[$originCurrencyCode];
         return $sum * $originCurrency->rate / $targetCurrency->rate;
     }
 
     public static function getCurrencySymbol()
     {
         self::loadContainer();
-
-        $currencyFromSession = session('currency', 'GRN');
-
+        $currencyFromSession = session('currency', 'UAH');
         $currency = self::$container[$currencyFromSession];
         return $currency->symbol;
     }
 }
+//     public static function loadContainer()
+//     {
+//         if (is_null(self::$container)) {
+//             $currencies = Currency::get();
+//             foreach ($currencies as $currency) {
+//                 self::$container[$currency->code] = $currency;
+//             }
+//         }
+//     }
+
+//     public static function getCurrencies()
+//     {
+//         return self::$container;
+//     }
+
+//     public static function convert($sum, $originCurrencyCode = 'UAH', $targetCurrencyCode = null)
+//     {
+//         self::loadContainer();
+
+//         $originCurrency = self::$container[$originCurrencyCode];
+
+
+//         if (is_null($targetCurrencyCode)) {
+//             $targetCurrencyCode = session('currency', 'GRN');
+//         }
+//         dd($targetCurrencyCode);
+//         $targetCurrency = self::$container[$targetCurrencyCode];
+
+//         return $sum * $originCurrency->rate / $targetCurrency->rate;
+//     }
+
+//     public static function getCurrencySymbol()
+//     {
+//         self::loadContainer();
+
+//         $currencyFromSession = session('currency', 'GRN');
+
+//         $currency = self::$container[$currencyFromSession];
+//         return $currency->symbol;
+//     }
+// }

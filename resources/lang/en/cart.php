@@ -17,6 +17,7 @@ return [
     'personal_data' => 'Please, specify your personal data to our manager may contact with you',
 
     'your_order_confirmed' => 'Your order confirmed!',
+    'your_order_canceled' => 'Your order canceled',
     'cart_is_empty' => 'Your Cart is empty!',
     'not_available_more' => ' you can\'t order more',
     'you_cant_order_more' => 'you can\'t order more',

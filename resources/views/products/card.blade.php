@@ -17,7 +17,7 @@
         <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->__('name') }}">
         <div class="caption">
             <h3>{{ $product->__('name') }}</h3>
-            <p>{{ $product->price }} @lang('main.grn').</p>
+            <p>{{ $product->price }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}.</p>
             <p>
                 <form action="{{ route('cart-add', $product) }}" method="POST">
                 @if($product->isAvailable())

@@ -45,8 +45,8 @@
                     </div>
                     <br>
                     @csrf
-                    <input type="submit" class="btn btn-success" value="@lang('cart.approve_order')">
-                    <input type="submit" class="btn btn-success" value="@lang('cart.cancel_order')">
+                    <input type="submit" class="btn btn-success" name="approve_order" value="@lang('cart.approve_order')">
+                    <input type="submit" class="btn btn-success" name="cancel_order" value="@lang('cart.cancel_order')">
                 </div>
             </form>
         </div>

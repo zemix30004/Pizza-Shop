@@ -18,12 +18,22 @@ class CartController extends Controller
 
     public function cartConfirm(Request $request)
     {
-        $email = Auth::check() ? Auth::user()->email : $request->email;
-        if ((new Cart())->saveOrder($request->name, $request->phone, $request->address, $email)) {
-            session()->flash('success', __('cart.your_order_confirmed'));
-        } else {
-            session()->flash('warning', __('cart.your_cant_order_more'));
+        if ($request->get('cancel_order')) {
+            return;
         }
+
+
+        if ($request->get('cancel_order')) {
+            session()->flash('success', __('cart.cancel_order'));
+        } else {
+            $email = Auth::check() ? Auth::user()->email : $request->email;
+            if ((new Cart())->saveOrder($request->name, $request->phone, $request->address, $email)) {
+                session()->flash('success', __('cart.your_order_confirmed'));
+            } else {
+                session()->flash('warning', __('cart.your_cant_order_more'));
+            }
+        }
+
         Order::eraseOrderSum();
         return redirect()->route('index');
     }

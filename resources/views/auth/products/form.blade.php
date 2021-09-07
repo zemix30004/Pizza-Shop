@@ -158,14 +158,15 @@
                     </div>
                 </div>
                 <br>
+                <ul class="nav col-sm-6">
                 @foreach ([
                 'hit' => 'Хиты',
                 'new' => 'Новинки',
                 'recommend' => 'Рекомендуемые',
                 ] as $field => $title)
-                <div class="form-group row">
+                <div class="nav-form-group row">
                     <label for="code" class="col-sm-2 col-form-label">{{  $title }}: </label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <input type="checkbox" class="form-control" name="{{ $field }}" id="{{ $field }}"
                             @if(isset($product) && $product->$field === 1)
                             checked="checked"
@@ -173,8 +174,8 @@
                         >
                     </div>
                 </div>
-                <br>
                 @endforeach
+            </ul>
                 <button class="btn btn-success">Сохранить</button>
             </div>
         </form>

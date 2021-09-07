@@ -63,8 +63,8 @@
 									</div>
                                     </li>
 									<br>
-                                    <ul class="nav">
-                                        <li class="nav-input-group row col-sm-6">
+                            <ul class="nav">
+                                <li class="nav-input-group row col-sm-6">
 									<div class="input-group row">
 										<label for="description" class="col-sm-2 col-form-label">Описание: </label>
 										<div class="col-sm-6">
@@ -75,8 +75,8 @@
 													rows="7">@isset($category){{ $category->description }}@endisset</textarea>
 										</div>
 									</div>
-									<br>
-                                    <li class="nav-input-group row col-sm-6">
+                                </li>
+                                <li class="nav-input-group row col-sm-6">
 									<div class="input-group row">
 										<label for="description" class="col-sm-2 col-form-label">Описание en: </label>
 										<div class="col-sm-6">
@@ -85,10 +85,10 @@
 											@enderror
 								<textarea name="description_en" id="description_en" cols="50"
 													rows="7">@isset($category){{ $category->description_en }}@endisset</textarea>
-										</div>
-									</div>
-                                    </li>
-                                    </ul>
+										        </div>
+									        </div>
+                                </li>
+                            </ul>
 									<br>
 									<div class="input-group row">
 										<label for="image" class="col-sm-2 col-form-label">Картинка: </label>

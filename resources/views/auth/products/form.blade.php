@@ -53,15 +53,18 @@
                     </div>
                 </div>
                 <br>
+        <ul class="nav">
+            <li class="nav-input-group row col-sm-6">
                 <div class="input-group row">
-                    <label for="name" class="col-sm-2 col-form-label">Название: </label>
+                    <label for="name" class="col-sm-4 col-form-label">Название: </label>
                     <div class="col-sm-6">
                         @include('auth.layouts.error', ['fieldName' => 'name'])
                         <input type="text" class="form-control" name="name" id="name"
                             value="@isset($product){{ $product->name }}@endisset">
                     </div>
                 </div>
-                <br>
+            </li>
+            <li class="nav-input-group row col-sm-6">
                 <div class="input-group row">
                     <label for="name" class="col-sm-2 col-form-label">Название en: </label>
                     <div class="col-sm-6">
@@ -70,7 +73,8 @@
                             value="@isset($product){{ $product->name_en }}@endisset">
                     </div>
                 </div>
-                <br>
+            </li>
+                    <li class="nav-input-group row col-sm-6">
                 <div class="input-group row">
                     <label for="description" class="col-sm-2 col-form-label">Описание: </label>
                     <div class="col-sm-6">
@@ -79,7 +83,8 @@
                                         rows="7">@isset($product){{ $product->description }}@endisset</textarea>
                     </div>
                 </div>
-                <br>
+            </li>
+                <li class="nav-input-group row col-sm-6">
                 <div class="input-group row">
                     <label for="description" class="col-sm-2 col-form-label">Описание en: </label>
                     <div class="col-sm-6">
@@ -88,6 +93,8 @@
                                         rows="7">@isset($product){{ $product->description_en }}@endisset</textarea>
                     </div>
                 </div>
+            </li>
+        </ul>
                 <br>
                 <div class="input-group row">
                     <label for="image" class="col-sm-2 col-form-label">Картинка: </label>

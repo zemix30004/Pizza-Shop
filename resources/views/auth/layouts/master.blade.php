@@ -35,6 +35,7 @@
                     <li ><a href="{{ route('categories.index') }}">Категории</a></li>
                     <li ><a href="{{ route('products.index') }}">Товары</a></li>
                     <li ><a href="{{ route('properties.index') }}">Свойства</a>
+                        {{-- <li ><a href="{{ route('property-options.index') }}">Свойства</a> --}}
                     <li ><a href="{{ route('home') }}">Заказы</a></li>
             @endadmin
                 </ul>
@@ -60,7 +61,6 @@
             @else               {{ Auth::user()->name }}
             @endadmin
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

@@ -3,6 +3,7 @@
 @section('title', 'Категории')
 
 @section('content')
+
     <div class="col-md-12">
         <h1>Категории</h1>
         <table class="table">

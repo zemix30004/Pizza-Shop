@@ -72,28 +72,12 @@
     @yield('content')
     </div>
 </div>
-{{-- <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6"><p>Категории товаров</p>
-                <ul>
-                    <li><a href="/">Category</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-6"><p>Самые популярные товары</p>
-                <ul>
-                    <li><a href="/">Product</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer> --}}
 <footer id="footer">
     <div class="container footer-content">
         <div class="footer-info">
                 <a href="/pomichna/info"> О нас</a>
                 <a href="/pomichna/offer">Публичная оферта</a>
-                <a href="/pomichna/privacy-policy">Политика</a>
+                <a href="/pomichna/privacy-policy">Политика конфиденциальности</a>
         </div>
         <div class="address-items">
             <div style="color: white; font-size: 20px;" class="pull-right">

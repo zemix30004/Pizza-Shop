@@ -43,10 +43,11 @@
 										<label for="name" class="col-sm-2 col-form-label">Название: </label>
 										<div class="col-sm-6">
 											@error('name')
-											<div class="alert alert-danger">{{  $message }}</div>
+											<div class="alert alert-danger">{{ $message }}</div>
 											@enderror
 											<input type="text" class="form-control" name="name" id="name"
-													value="{{ old('name') }}@isset($category){{ $category->name }}@endisset">
+                                            value="{{ old('name', isset($category) ? $category->name : null) }}">
+													{{-- value="{{ old('name') }}@isset($category){{ $category->name }}@endisset"> --}}
 										</div>
 									</div>
                                     </li>
@@ -58,7 +59,7 @@
 											<div class="alert alert-danger">{{ $message }}</div>
 											@enderror
 											<input type="text" class="form-control" name="name_en" id="name_en"
-													value="{{ old('name_en') }}@isset($category){{ $category->name_en }}@endisset">
+                                            value="{{ old('name_en', isset($category) ? $category->name_en : null) }}">
 										</div>
 									</div>
                                     </li>
@@ -72,7 +73,7 @@
 											<div class="alert alert-danger">{{ $message }}</div>
 											@enderror
 								<textarea name="description" id="description" cols="50"
-													rows="7">{{ old('description') }}@isset($category){{ $category->description }}@endisset</textarea>
+													rows="7">{{ old('description', isset($category) ? $category->description : null) }}"</textarea>
 										</div>
 									</div>
                                 </li>
@@ -84,7 +85,8 @@
 											<div class="alert alert-danger">{{ $message }}</div>
 											@enderror
 								<textarea name="description_en" id="description_en" cols="50"
-													rows="7">{{ old('description') }}@isset($category){{ $category->description_en }}@endisset</textarea>
+                                rows="7">{{ old('description_en', isset($category) ? $category->description_en : null) }}"</textarea>
+													{{-- rows="7">{{ old('description_en') }}@isset($category){{ $category->description_en }}@endisset</textarea> --}}
 										        </div>
 									        </div>
                                 </li>

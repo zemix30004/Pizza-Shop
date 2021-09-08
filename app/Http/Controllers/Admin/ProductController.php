@@ -41,13 +41,13 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $request->validate([
-            'code' => 'required|min:3|max:255|unique:products,code',
-            'name' => 'required|min:6|max:255',
-            'description' => 'required|min:5',
-            'price' => 'required|numeric|min:1',
-            'count' => 'required|numeric|min:0',
-        ]);
+        // $request->validate([
+        //     'code' => 'required|min:3|max:255|unique:products,code',
+        //     'name' => 'required|min:6|max:255',
+        //     'description' => 'required|min:5',
+        //     'price' => 'required|numeric|min:1',
+        //     'count' => 'required|numeric|min:0',
+        // ]);
         $params = $request->all();
 
         unset($params['image']);

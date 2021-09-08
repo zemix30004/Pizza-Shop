@@ -43,7 +43,7 @@ Route::get('currency/{currencyCode}', [MainController::class, 'changeCurrency'])
 
 Route::get('reset', [ResetController::class, 'reset'])->name('reset');
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('get-logout');
+Route::get('/logout', [Auth\LoginController::class, 'logout'])->name('get-logout');
 
 
 Route::get('/upload-file', [FileUploadController::class, 'createForm']);
@@ -55,14 +55,14 @@ Route::middleware(['set_locale'])->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::group([
             'prefix' => 'person',
-            'namespace' => '',
+            'namespace' => 'Person',
             'as' => 'person.',
         ], function () {
             Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
             Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
         });
         Route::group([
-            'namespace' => '',
+            'namespace' => 'Admin',
             'prefix' => 'admin',
         ], function () {
             Route::group(['middleware' => 'is_admin'], function () {
@@ -86,6 +86,7 @@ Route::middleware(['set_locale'])->group(function () {
         Route::group([
             'middleware' => 'cart_not_empty',
         ], function () {
+
             Route::get('/', [CartController::class, 'cart'])->name('cart');
             Route::get('/place', [CartController::class, 'cartPlace'])->name('cart-place');
             Route::post('/remove/{product}', [CartController::class, 'cartRemove'])->name('cart-remove');

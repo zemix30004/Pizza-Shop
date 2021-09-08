@@ -68,6 +68,8 @@ Route::middleware(['set_locale'])->group(function () {
             Route::group(['middleware' => 'is_admin'], function () {
                 Route::get('/orders', [OrderController::class, 'index'])->name('home');
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+                // Route::get('/place/create', [OrdetController::class, 'create'])->name('create');
+                // Route::post('/place', [OrderController::class, 'store'])->name('store');
             });
 
             Route::resource('categories', CategoryController::class);
@@ -88,6 +90,8 @@ Route::middleware(['set_locale'])->group(function () {
             Route::get('/place', [CartController::class, 'cartPlace'])->name('cart-place');
             Route::post('/remove/{product}', [CartController::class, 'cartRemove'])->name('cart-remove');
             Route::post('/place', [CartController::class, 'cartConfirm'])->name('cart-confirm');
+            // Route::get('/place/create', [CartController::class, 'create'])->name('create');
+            // Route::post('/place', [CartController::class, 'store'])->name('store');
         });
     });
 

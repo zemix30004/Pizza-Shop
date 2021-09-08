@@ -28,4 +28,10 @@ return [
         'phone' => 'Phone number',
         'address' => 'Address sending',
     ],
+    'messages' => [
+        'name.required' => 'Enter name how can I call you!',
+        'phone.required'  => 'Enter the number for recall!',
+        'address.required'  => 'Enter where you want to deliver!',
+        'email.required' => 'Enter the correct email!',
+    ],
 ];

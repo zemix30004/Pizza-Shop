@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-4">
+{{-- <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
         <div class="labels">
             @if($product->isNew())
@@ -13,7 +13,7 @@
             <span class="badge badge-danger">@lang('main.properties.hit')</span>
             @endif
 
-        </div>
+        </div> --}}
         <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->__('name') }}">
         <div class="caption">
             <h3>{{ $product->__('name') }}</h3>

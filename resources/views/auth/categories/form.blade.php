@@ -46,7 +46,7 @@
 											<div class="alert alert-danger">{{  $message }}</div>
 											@enderror
 											<input type="text" class="form-control" name="name" id="name"
-													value="@isset($category){{ $category->name }}@endisset">
+													value="{{ old('name') }}@isset($category){{ $category->name }}@endisset">
 										</div>
 									</div>
                                     </li>
@@ -58,7 +58,7 @@
 											<div class="alert alert-danger">{{ $message }}</div>
 											@enderror
 											<input type="text" class="form-control" name="name_en" id="name_en"
-													value="@isset($category){{ $category->name_en }}@endisset">
+													value="{{ old('name_en') }}@isset($category){{ $category->name_en }}@endisset">
 										</div>
 									</div>
                                     </li>
@@ -72,7 +72,7 @@
 											<div class="alert alert-danger">{{ $message }}</div>
 											@enderror
 								<textarea name="description" id="description" cols="50"
-													rows="7">@isset($category){{ $category->description }}@endisset</textarea>
+													rows="7">{{ old('description') }}@isset($category){{ $category->description }}@endisset</textarea>
 										</div>
 									</div>
                                 </li>
@@ -84,7 +84,7 @@
 											<div class="alert alert-danger">{{ $message }}</div>
 											@enderror
 								<textarea name="description_en" id="description_en" cols="50"
-													rows="7">@isset($category){{ $category->description_en }}@endisset</textarea>
+													rows="7">{{ old('description') }}@isset($category){{ $category->description_en }}@endisset</textarea>
 										        </div>
 									        </div>
                                 </li>

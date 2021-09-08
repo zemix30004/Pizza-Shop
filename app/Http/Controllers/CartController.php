@@ -6,10 +6,26 @@ use App\Classes\Cart;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\CartRequest;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    public function create()
+    {
+        return view('cart.place,create');
+    }
+    public function store(CartRequest $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'phone' => 'required|numeric|min:9|max:20',
+            'address' => 'required|min:6|max:255',
+            'name' => 'required|min:3|max:255',
+        ]);
+    }
+
     public function cart()
     {
         $order = (new Cart())->getOrder();
@@ -18,6 +34,15 @@ class CartController extends Controller
 
     public function cartConfirm(Request $request)
     {
+        // dd($request->all());
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'phone' => 'required|numeric|min:9|max:20',
+            'address' => 'required|min:6|max:255',
+            'name' => 'required|min:3|max:255',
+
+        ]);
         if ($request->get('cancel_order')) {
             return;
         }

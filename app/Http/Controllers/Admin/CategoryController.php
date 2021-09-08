@@ -39,6 +39,11 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
+        $request->validate([
+            'code' => 'required|min:3|max:255|unique:categories,code',
+            'name' => 'required|min:3|max:255',
+            'description' => 'required|min:5',
+        ]);
         $params = $request->all();
         unset($params['image']);
         if ($request->has('image')) {

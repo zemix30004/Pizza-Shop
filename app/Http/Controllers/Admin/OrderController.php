@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 
 
@@ -28,7 +29,16 @@ class OrderController extends Controller
         $orders = Order::active()->paginate(6);
         return view('auth.orders.index', compact('orders'));
     }
-
+    public function store(OrderRequest $request)
+    {
+        $request->validate([
+            'code' => 'required|min:3|max:255|unique:products,code',
+            'name' => 'required|min:6|max:255',
+            'description' => 'required|min:5',
+            'price' => 'required|numeric|min:1',
+            'count' => 'required|numeric|min:0',
+        ]);
+    }
     public function show(Order $order)
     {
         $products = $order->products()->withTrashed()->get();

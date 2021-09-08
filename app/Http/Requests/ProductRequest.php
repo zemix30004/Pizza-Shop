@@ -36,4 +36,13 @@ class ProductRequest extends FormRequest
 
         return $rules;
     }
+    public function messages()
+    {
+        return [
+            'required' => 'Поле :attribute обязательно для ввода',
+            'min' => 'Поле :attribute должно иметь минимум :min символов',
+            'code.min' => 'Поле код должно содержать не менее :min символов',
+            'numeric' => 'Поле должно сожержать числовое значение'
+        ];
+    }
 }

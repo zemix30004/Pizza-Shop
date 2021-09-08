@@ -11,15 +11,11 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\PropertyController;
-use App\Http\Controllers\Admin\PropertyOptionController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\FileUploadController;
 use App\Services\CurrencyConversion;
-use App\Services\Property;
-use App\Services\PropertyOption;
 use App\Models\Currency;
 use Illuminate\Support\Facades\Auth;
 
@@ -76,8 +72,6 @@ Route::middleware(['set_locale'])->group(function () {
 
             Route::resource('categories', CategoryController::class);
             Route::resource('products', ProductController::class);
-            Route::resource('properties', PropertyController::class);
-            // Route::resource('properties/{property}/propery-options', PropertyOptionController::class);
         });
     });
     Route::get('/', [MainController::class, 'index'])->name('index');

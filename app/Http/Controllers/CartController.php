@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Classes\Cart;
+use Illuminate\Http\Request;
 use App\Http\Requests\OrderRequest;
 use App\Http\Requests\CartRequest;
 use App\Models\Order;

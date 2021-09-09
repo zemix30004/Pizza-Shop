@@ -23,14 +23,14 @@ class CurrencyConversion
         return self::$container;
     }
 
-    public static function convert($sum, $originCurrencyCode = 'GRN', $targetCurrencyCode = null)
+    public static function convert($sum, $originCurrencyCode = 'UAH', $targetCurrencyCode = null)
     {
         self::loadContainer();
 
         $originCurrency = self::$container[$originCurrencyCode];
 
         if (is_null($targetCurrencyCode)) {
-            $targetCurrencyCode = session('currency', 'GRN');
+            $targetCurrencyCode = session('currency', 'UAH');
         }
         $targetCurrency = self::$container[$targetCurrencyCode];
 
@@ -41,7 +41,7 @@ class CurrencyConversion
     {
         self::loadContainer();
 
-        $currencyFromSession = session('currency', 'GRN');
+        $currencyFromSession = session('currency', 'UAH');
 
         $currency = self::$container[$currencyFromSession];
         return $currency->symbol;

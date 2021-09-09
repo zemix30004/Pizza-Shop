@@ -25,7 +25,7 @@ class ProductRequest extends FormRequest
     {
         $rules = [
             'code' => 'required|min:3|max:255|unique:products,code',
-            'name' => 'required|min:6|max:255|alpha',
+            'name' => 'required|min:6|max:255',
             'description' => 'required|min:5',
             'price' => 'required|numeric|min:1',
             'count' => 'required|numeric|min:0',
@@ -35,5 +35,14 @@ class ProductRequest extends FormRequest
         }
 
         return $rules;
+    }
+    public function messages()
+    {
+        return [
+            'required' => 'Поле :attribute обязательно для ввода',
+            'min' => 'Поле :attribute должно иметь минимум :min символов',
+            'code.min' => 'Поле код должно содержать не менее :min символов',
+            'numeric' => 'Поле должно сожержать числовое значение'
+        ];
     }
 }

@@ -13,7 +13,7 @@ class CartRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class CartRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:3|max:255',
+            'phone' => 'required|numeric|min:9|max:20',
+            'address' => 'required|min:6|max:255',
+            'email' => 'required',
+
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Enter name how can I call you!',
+            'phone.required'  => 'Enter the number for recall!',
+            'address.required'  => 'Enter where you want to deliver!',
+            'email.required' => 'Enter the correct email!',
         ];
     }
 }

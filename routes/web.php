@@ -11,8 +11,6 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\PropertyController;
-use App\Http\Controllers\Admin\PropertyOptionController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ResetController;
@@ -72,15 +70,14 @@ Route::middleware(['set_locale'])->group(function () {
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
             });
 
-            Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
-            Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
-            // Route::resource('categories', CategoryController::class);
-            // Route::resource('products', ProductController::class);
+            // Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+            // Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+            Route::resource('categories', CategoryController::class);
+            Route::resource('products', ProductController::class);
         });
     });
     Route::get('/', [MainController::class, 'index'])->name('index');
     Route::get('/categories', [MainController::class, 'categories'])->name('categories');
-
     Route::post('subscription/{product}', [MainController::class, 'subscribe'])->name('subscription');
 
     Route::group(['prefix' => 'cart'], function () {

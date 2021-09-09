@@ -15,10 +15,10 @@
                         <div class="form-group">
                             <label for="name" class="control-label col-lg-offset-3 col-lg-2">@lang('cart.data.name'): </label>
                             <div class="col-lg-4">
-                                @error('cart.data.name')
+                                <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control">
+                                @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <input type="text" name="name" id="name" value="" class="form-control">
                             </div>
                         </div>
                         <br>
@@ -26,10 +26,10 @@
                         <div class="form-group">
                             <label for="phone" class="control-label col-lg-offset-3 col-lg-2">@lang('cart.data.phone'): </label>
                             <div class="col-lg-4">
-                                @error('cart.data.phone')
+                                <input type="text" name="phone" id="phone" value="{{ old('phone') }}" class="form-control">
+                                @error('phone')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <input type="text" name="phone" id="phone" value="" class="form-control">
                             </div>
                         </div>
                         <br>
@@ -37,10 +37,10 @@
                         <div class="form-group">
                             <label for="address" class="control-label col-lg-offset-3 col-lg-2">@lang('cart.data.address'): </label>
                             <div class="col-lg-4">
-                                @error('cart.data.address')
+                                <input type="text" name="address" id="address" value="" class="form-control">
+                                @error('address')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <input type="text" name="address" id="address" value="" class="form-control">
                             </div>
                         </div>
                         <br>
@@ -48,10 +48,10 @@
                         <div class="form-group">
                             <label for="email" class="control-label col-lg-offset-3 col-lg-2">@lang('cart.data.email'): </label>
                             <div class="col-lg-4">
-                                @error('cart.data.email')
+                                <input type="text" name="email" id="email" value="{{ old('email')  }}" class="form-control">
+                                @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
-                                <input type="text" name="email" id="email" value="" class="form-control">
                             </div>
                         </div>
                     </div>

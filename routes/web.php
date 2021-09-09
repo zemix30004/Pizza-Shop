@@ -62,7 +62,7 @@ Route::middleware(['set_locale'])->group(function () {
             Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
         });
         Route::group([
-            'namespace' => 'Admin',
+            'namespace' => '',
             'prefix' => 'admin',
         ], function () {
             Route::group(['middleware' => 'is_admin'], function () {

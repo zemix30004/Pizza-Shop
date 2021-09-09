@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Classes\Cart;
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -32,20 +33,8 @@ class CartController extends Controller
         return view('cart', compact('order'));
     }
 
-    public function cartConfirm(Request $request)
+    public function cartConfirm(OrderRequest $request)
     {
-        // dd($request->all());
-        $validated = $request->validate([
-            'title' => 'required|max:255',
-            'body' => 'required',
-            'phone' => 'required|numeric|min:9|max:20',
-            'address' => 'required|min:6|max:255',
-            'name' => 'required|min:3|max:255',
-
-        ]);
-        if ($request->get('cancel_order')) {
-            return;
-        }
         if ($request->get('cancel_order')) {
             session()->flash('success', __('cart.cancel_order'));
         } else {

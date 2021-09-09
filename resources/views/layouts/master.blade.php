@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,8 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/starter-template.css" rel="stylesheet">
+{{--    <link href="/css/starter-template.css" rel="stylesheet">--}}
     {{-- <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' }}" type="text/css">
     <link rel="stylesheet" href="{{ '/css/starter-template.css' }}" type="text/css"> --}}
 </head>

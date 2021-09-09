@@ -7,7 +7,6 @@ use App\Http\Requests\OrderRequest;
 use App\Http\Requests\CartRequest;
 use App\Models\Order;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller

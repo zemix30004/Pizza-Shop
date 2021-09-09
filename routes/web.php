@@ -74,8 +74,8 @@ Route::middleware(['set_locale'])->group(function () {
 
             Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
             Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
-            Route::resource('properties', 'App\Http\Controllers\Admin\PropertyOptionController');
-            Route::resource('properties/{property}/property-options', 'App\Http\Controllers\Admin\PropertyOptionController');
+            // Route::resource('categories', CategoryController::class);
+            // Route::resource('products', ProductController::class);
         });
     });
     Route::get('/', [MainController::class, 'index'])->name('index');

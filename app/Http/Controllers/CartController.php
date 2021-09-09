@@ -37,16 +37,16 @@ class CartController extends Controller
         if ($request->get('cancel_order')) {
             session()->flash('success', __('cart.cancel_order'));
         } else {
-        $email = Auth::check() ? Auth::user()->email : $request->email;
-        if ((new Cart())->saveOrder($request->name, $request->phone, $request->address, $email)) {
-            session()->flash('success', __('cart.your_order_confirmed'));
-        } else {
-            session()->flash('warning', __('cart.your_cant_order_more'));
+            $email = Auth::check() ? Auth::user()->email : $request->email;
+            if ((new Cart())->saveOrder($request->name, $request->phone, $request->address, $email)) {
+                session()->flash('success', __('cart.your_order_confirmed'));
+            } else {
+                session()->flash('warning', __('cart.your_cant_order_more'));
+            }
         }
         Order::eraseOrderSum();
         return redirect()->route('index');
     }
-
     public function cartPlace()
     {
         $cart = new Cart();
@@ -57,7 +57,6 @@ class CartController extends Controller
         }
         return view('order', compact('order'));
     }
-
     public function cartAdd(Product $product)
     {
         $result = (new Cart(true))->addProduct($product);
@@ -68,13 +67,10 @@ class CartController extends Controller
         }
         return redirect()->route('cart');
     }
-
     public function cartRemove(Product $product)
     {
         (new Cart())->removeProduct($product);
-
         session()->flash('warning', __('cart.removed') . $product->name);
-
         return redirect()->route('cart');
     }
 }

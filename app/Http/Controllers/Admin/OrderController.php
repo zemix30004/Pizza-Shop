@@ -33,7 +33,7 @@ class OrderController extends Controller
     {
         $request->validate([
             'code' => 'required|min:3|max:255|unique:products,code',
-            'name' => 'required|min:6|max:255',
+            'name' => 'required|alpha|min:2|max:255',
             'description' => 'required|min:5',
             'price' => 'required|numeric|min:1',
             'count' => 'required|numeric|min:0',

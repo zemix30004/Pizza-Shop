@@ -24,7 +24,7 @@ class CartRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:255',
+            'name' => 'required|alpha|min:2|max:255',
             'phone' => 'required|numeric|min:9|max:20',
             'address' => 'required|min:6|max:255',
             'email' => 'required',
@@ -38,6 +38,7 @@ class CartRequest extends FormRequest
             'phone.required'  => 'Введите номер телефона!',
             'address.required'  => 'Введите адрес доставки!',
             'email.required' => 'Введите корректный емайл',
+            'validation.numeric' => 'Введите только числовое значение',
         ];
 
         // return [

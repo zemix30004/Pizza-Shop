@@ -10,11 +10,13 @@ return [
     'reset_project' => 'Сбросить проект в начальное состояние',
     'current_lang' => 'ru',
     'set_lang' => 'en',
+
     'properties' => [
         'hit' => 'Хит',
         'recommend' => 'Рекомендуем',
         'new' => 'Новинка',
     ],
+
     'filter' => 'Фильтр',
     'reset' => 'Сброс',
     'price_from' => 'Цена от',

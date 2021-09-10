@@ -10,11 +10,13 @@ return [
     'reset_project' => 'Reset project to default state',
     'current_lang' => 'en',
     'set_lang' => 'ru',
+
     'properties' => [
         'hit' => 'Hit',
         'recommend' => 'Recommend',
         'new' => 'New',
     ],
+
     'filter' => 'Filter',
     'reset' => 'Reset',
     'price_from' => 'Price from',

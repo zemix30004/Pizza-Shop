@@ -216,7 +216,7 @@ class ProductsTableSeeder extends Seeder
                 'name' => 'Мороженое Снежок',
                 'code' => 'ice_cream_snowball',
                 'description' => 'Тает во рту, а не в руках',
-                'image' => 'products/Мороженое Снежок',
+                'image' => 'products/Мороженое Снежок.jpg',
                 'price' => '30.00',
                 'size' => '5.00',
                 'is_spicy' => false,

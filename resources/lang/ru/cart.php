@@ -30,6 +30,7 @@ return [
     'phone.required'  => 'Введите номер телефона!',
     'address.required'  => 'Введите адрес доставки!',
     'email.required' => 'Введите корректный емайл',
+    'validation.numeric' => 'Введите только числовое значение',
 
 
     'data' => [

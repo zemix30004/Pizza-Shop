@@ -30,6 +30,7 @@ return [
     'phone.required'  => 'Enter the number for recall!',
     'address.required'  => 'Enter where you want to deliver!',
     'email.required' => 'Enter_the_correct_email!',
+    'validation.numeric' => 'Enter only numeric value',
 
     'data' => [
         'name' => 'Name',

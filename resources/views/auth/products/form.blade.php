@@ -71,7 +71,7 @@
                         <input type="text" class="form-control" name="name_en" id="name_en" value="{{ old('name_en') }}">
                     </div>
                 </div>
-                <ul class="nav nav-tabs" id="namesTab" role="tablist">
+                <ul class="nav nav-tabs" id="descsTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="desc1-tab" data-bs-toggle="tab" data-bs-target="#desc1" type="button" role="tab" aria-controls="#desc1" aria-selected="true">Описание:</button>
                     </li>
@@ -79,7 +79,7 @@
                         <button class="nav-link" id="desc2-tab" data-bs-toggle="tab" data-bs-target="#desc2" type="button" role="tab" aria-controls="#desc2" aria-selected="false">Описание en:</button>
                     </li>
                 </ul>
-                <div class="tab-content" id="namesTabContent">
+                <div class="tab-content" id="descsTabContent">
                     <div class="tab-pane fade show active" id="desc1" role="tabpanel" aria-labelledby="desc1-tab">
                         @include('auth.layouts.error', ['fieldName' => 'name'])
                         <textarea name="description" id="description" cols="50" rows="7">{{ $product->description ?? '' }}</textarea>

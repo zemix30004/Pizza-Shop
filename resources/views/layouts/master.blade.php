@@ -10,13 +10,6 @@
 
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> --}}
-
-    {{-- <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/js/bootstrap.min.js"></script> --}}
-    {{-- <link rel="stylesheet" href="{{ '/js/jquery.min.js' }}" type="text/js"> --}}
-    {{-- <script src="/js/jquery.min.js"></script> --}}
-    {{-- <link href="/css/starter-template.css" rel="stylesheet">
-    <script src="/js/bootstrap.min.js"></script> --}}
     {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> --}}
     {{-- <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"> --}}
@@ -29,71 +22,63 @@
     <link href="/assets/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
     <script src="/js/bootstrap.min.js"></script>
     <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ route('index') }}">
-                    Вернуться на сайт
-                </a>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                @admin
-                        <li ><a href="{{ route('categories.index') }}">Категории</a></li>
-                        <li ><a href="{{ route('products.index') }}">Товары</a></li>
-                        <li ><a href="{{ route('home') }}">Заказы</a></li>
-                @endadmin
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ route('index') }}">Pizza-Shop</a>
+        </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li @routeactive('index')><a href="{{ route('index') }}">@lang('main.all_products')</a></li>
+                    <li @routeactive('categor*')><a href="{{ route('categories') }}">@lang('main.categories')</a>
+                    </li>
+                    <li @routeactive('cart*')><a href="{{ route('cart') }}">@lang('main.cart')</a></li>
+                    <li><a href="{{ route('reset') }}">@lang('main.reset_project')</a></li>
+                    <li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
+                </ul></div>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                    aria-haspopup="true" aria-expanded="false">
+                    {{ \App\Services\CurrencyConversion::getCurrencySymbol() }}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        @foreach (\App\Services\CurrencyConversion::getCurrencies() as $currency)
+                            <li><a href="{{ route('currency', $currency->code) }}">{{ $currency->symbol }}</a></li>
+                        @endforeach
                     </ul>
-                @guest
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Войти</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Зарегистрироваться</a>
-                        </li>
-                    </ul>
-                @endguest
-                @auth
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" v-pre>
-                @admin
-                                    Администратор
-                @else               {{ Auth::user()->name }}
-                @endadmin
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                        Выйти
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        </ul>
-                @endauth
-                </div>
-            </div>
-        </nav>
-        <div class="py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    @yield('content')
-                </div>
+                </li>
+            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @guest
+                    <li><a href="{{ route('login') }}">@lang('main.login')</a></li>
+                    @endguest
+                    @auth
+                        @admin
+                        {{-- (Auth::user()->isAdmin()){{ Auth::user()->name }} --}}
+                                <li><a href="{{ route('home') }}">@lang('main.admin_panel')</a></li>
+                        @else
+                                <li><a href="{{ route('person.orders.index') }}">@lang('main.my_orders')</a></li>
+                        @endadmin
+                        <li><a href="{{ route('get-logout') }}">@lang('main.logout')</a></li>
+                    @endauth
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
+</div>
+    <div class="container">
+        <div class="starter-template">
+            @if (session()->has('success'))
+                <p class="alert alert-success">{{ session()->get('success') }}</p>
+            @endif
+            @if (session()->has('warning'))
+                <p class="alert alert-warning">{{ session()->get('warning') }}</p>
+            @endif
+        @yield('content')
+        </div>
+</body>
+</html>
 {{-- <footer id="footer">
     <div class="container footer-content">
         <div class="footer-info">

@@ -32,13 +32,13 @@
                                     </a>
                                 </td>
                                 <td><span class="badge">1</span></td>
-                                <td>{{ $product->price }} грн.</td>
-                                <td>{{ $product->getPriceForCount()}} грн.</td>
+                                <td>{{ $product->price }} @lang('main.uah')</td>
+                                <td>{{ $product->getPriceForCount()}} @lang('main.uah')</td>
                             </tr>
                         @endforeach
                         <tr>
                             <td colspan="3">Общая стоимость:</td>
-                            <td>{{ $order->calculateFullSum() }} грн.</td>
+                            <td>{{ $order->calculateFullSum() }} @lang('main.uah')</td>
                         </tr>
                         </tbody>
                     </table>

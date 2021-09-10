@@ -26,7 +26,7 @@ return [
     'my_orders' => 'My orders',
     'admin_panel' => 'Admin panel',
     'title' => 'Main',
-    'uah' => 'uah',
+    'uah' => '₴',
     'add_to_cart' => 'Add to cart',
     'more' => 'More about',
     'not_available' => 'Not available',

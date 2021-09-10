@@ -41,7 +41,7 @@
                     <td>{{ $order->phone }}</td>
                     <td>{{ $order->address }}</td>
                     <td>{{ $order->created_at->format('H:i d/m/Y') }}</td>
-                    <td>{{ $order->calculateFullSum() }} грн.</td>
+                    <td>{{ $order->calculateFullSum() }} @lang('main.uah')</td>
                     <td>
                         <div class="btn-group" role="group">
                             <a class="btn btn-success" type="button"

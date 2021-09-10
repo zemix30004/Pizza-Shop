@@ -34,10 +34,17 @@ class CartRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Enter name how can I call you!',
-            'phone.required'  => 'Enter the number for recall!',
-            'address.required'  => 'Enter where you want to deliver!',
-            'email.required' => 'Enter the correct email!',
+            'name.required' => 'Правильно заполните поле имя!',
+            'phone.required'  => 'Введите номер телефона!',
+            'address.required'  => 'Введите адрес доставки!',
+            'email.required' => 'Введите корректный емайл',
         ];
+
+        // return [
+        //     'name.required' => 'Enter name how can I call you!',
+        //     'phone.required'  => 'Enter the number for recall!',
+        //     'address.required'  => 'Enter where you want to deliver!',
+        //     'email.required' => 'Enter the correct email!',
+        // ];
     }
 }

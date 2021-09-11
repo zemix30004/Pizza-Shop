@@ -25,7 +25,7 @@ class CartRequest extends FormRequest
     {
 
         if (request()->get('cancel_order')) {
-            return redirect()->route('/');
+            return redirect()->route('cart');
         }
         return [
             'name' => 'required|alpha|min:2|max:255',

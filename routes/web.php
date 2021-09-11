@@ -93,6 +93,7 @@ Route::middleware(['set_locale'])->group(function () {
             Route::get('/place', [CartController::class, 'cartPlace'])->name('cart-place');
             Route::post('/remove/{product}', [CartController::class, 'cartRemove'])->name('cart-remove');
             Route::post('/place', [CartController::class, 'cartConfirm'])->name('cart-confirm');
+            // Route::post('/cart', [CartController::class, 'orderCancel'])->name('order-cancel');
         });
     });
 

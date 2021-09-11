@@ -73,4 +73,9 @@ class CartController extends Controller
         session()->flash('warning', __('cart.removed') . $product->name);
         return redirect()->route('cart');
     }
+    // public function orderCancel(OrderRequest $request)
+    // {
+    //     $this->cart->delete();
+    //     return redirect()->route('cart');
+    // }
 }

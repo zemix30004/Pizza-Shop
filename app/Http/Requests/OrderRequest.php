@@ -25,7 +25,7 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         if (request()->get('cancel_order')) {
-            return [];
+            return redirect()->route('/');;
         }
 
         return [

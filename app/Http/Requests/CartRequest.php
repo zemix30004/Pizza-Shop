@@ -23,6 +23,10 @@ class CartRequest extends FormRequest
      */
     public function rules()
     {
+
+        if (request()->get('cancel_order')) {
+            return redirect()->route('/');
+        }
         return [
             'name' => 'required|alpha|min:2|max:255',
             'phone' => 'required|numeric|min:15',

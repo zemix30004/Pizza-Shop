@@ -57,10 +57,10 @@ Route::middleware(['set_locale'])->group(function () {
         Route::group([
             'prefix' => 'person',
             'namespace' => '',
-            'as' => 'person.',
+            'as' => 'person',
         ], function () {
-            Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
-            Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+            Route::get('/orders', [App\Http\Controllers\Person\OrderController::class, 'index'])->name('orders.index');
+            Route::get('/orders/{order}', [App\Http\Controllers\Person\OrderController::class, 'show'])->name('orders.show');
         });
         Route::group([
             'namespace' => '',
@@ -69,6 +69,8 @@ Route::middleware(['set_locale'])->group(function () {
             Route::group(['middleware' => 'is_admin'], function () {
                 Route::get('/orders', [OrderController::class, 'index'])->name('home');
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+                // Route::get('/place/create', [OrderController::class, 'create'])->name('create');
+                // Route::post('/place', [OrderController::class, 'store'])->name('store');
             });
 
             // Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');

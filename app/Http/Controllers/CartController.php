@@ -14,7 +14,7 @@ class CartController extends Controller
 {
     public function create()
     {
-        return view('cart.place,create');
+        return view('cart.place.create');
     }
     public function store(CartRequest $request)
     {
@@ -34,9 +34,6 @@ class CartController extends Controller
 
     public function cartConfirm(OrderRequest $request)
     {
-        if ($request->get('cancel_order')) {
-            return;
-        }
         if ($request->get('cancel_order')) {
             session()->flash('success', __('cart.cancel_order'));
         } else {

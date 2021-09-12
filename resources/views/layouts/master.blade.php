@@ -171,7 +171,6 @@
 		<p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
 	</div>
 	</footer>
-		<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="{{ '/js/bootstrap.min.js' }}" type="text/js"></script>
 	</body>

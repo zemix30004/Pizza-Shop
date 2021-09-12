@@ -46,7 +46,7 @@ class CategoryController extends Controller
         }
 
         Category::create($params);
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**

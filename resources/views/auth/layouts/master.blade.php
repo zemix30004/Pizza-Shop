@@ -12,15 +12,16 @@
     {{-- <link href="/css/bootstrap.min.css" rel="stylesheet">
     {{-- <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"> --}}
-
-    <link rel="stylesheet" href="{{ '/css/starter-template.css' }}" type="text/css">
-    <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' }}" type="text/css"
-    <link rel="stylesheet" href="{{ '/js/bootstrap.min.js' }}" type="text/js">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="{{ '/css/starter-template.css' }}" type="text/css">
+    <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' }}" type="text/css"
+    <link rel="stylesheet" href="{{ '/js/bootstrap.min.js' }}" type="text/js"> --}}
+
+    {{-- <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/dist/js/bootstrap.bundle.min.js" rel="stylesheet"> --}}
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    {{-- <script src="/assets/dist/js/bootstrap.bundle.min.js"></script> --}}
 </head>
 <body>
 <div id="app">

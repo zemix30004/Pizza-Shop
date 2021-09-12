@@ -43,85 +43,9 @@
 
 	</head>
 	<body>
-	<header>
-		<div class="navbar navbar-dark bg-dark shadow-sm">
-		<div class="container">
-			<a href="#" class="navbar-brand d-flex align-items-center">
-			<strong>Все продукты</strong>
-			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
 
-		</div>
-	</div>
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-				<div class="row">
-				<div class="col-sm-8 col-md-7 py-4">
-					<h4 class="text-white">Главная</h4>
-					<p class="text-muted">О нас</p>
-				</div>
-				<div class="col-sm-4 offset-md-1 py-4">
-					<h4 class="text-white">Все продукты</h4>
-					<ul class="list-unstyled">
-				<div class="col-sm-4 offset-md-1 py-4">
-					<h4 class="text-white">Категории</h4>
-					<ul class="list-unstyled">
-						<div class="col-sm-4 offset-md-1 py-4">
-							<h4 class="text-white">Корзина</h4>
-							<ul class="list-unstyled">
-						<li><a href="#" class="text-white">Регистрация</a></li>
-						<li><a href="#" class="text-white">Войти</a></li>
-						<li><a href="#" class="text-white">Отзывы</a></li>
-						</ul>
-					</div>
-				</div>
-					</div>
-					<div class="navbar-header">
-						<a class="navbar-brand" href="{{ route('index') }}">Pizza-Shop</a>
-			</div>
-					<div id="navbar" class="collapse navbar-collapse">
-						<ul class="nav navbar-nav">
-							<li @routeactive('index')><a href="{{ route('index') }}">@lang('main.all_products')</a></li>
-							<li @routeactive('categor*')><a href="{{ route('categories') }}">@lang('main.categories')</a>
-							</li>
-							<li @routeactive('cart*')><a href="{{ route('cart') }}">@lang('main.cart')</a></li>
-							<li><a href="{{ route('reset') }}">@lang('main.reset_project')</a></li>
-							<li><a href="{{ route('locale', __('main.set_lang')) }}">@lang('main.set_lang')</a></li>
-						</ul></div>
-					<div class="collapse bg-dark" id="navbarHeader">
-			</div>
-			</div>
-		<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-					aria-haspopup="true" aria-expanded="false">
-					{{ \App\Services\CurrencyConversion::getCurrencySymbol() }}<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-							@foreach (\App\Services\CurrencyConversion::getCurrencies() as $currency)
-								<li><a href="{{ route('currency', $currency->code) }}">{{ $currency->symbol }}</a></li>
-							@endforeach
-					</ul>
-				</li>
-			</ul></button>
-						<ul class="nav navbar-nav navbar-right">
-							@guest
-							<li><a href="{{ route('login') }}">@lang('main.login')</a></li>
-							@endguest
-							@auth
-									@admin
-									{{-- (Auth::user()->isAdmin()){{ Auth::user()->name }} --}}
-											<li><a href="{{ route('home') }}">@lang('main.admin_panel')</a></li>
-									@else
-											<li><a href="{{ route('person.orders.index') }}">@lang('main.my_orders')</a></li>
-									@endadmin
-									<li><a href="{{ route('get-logout') }}">@lang('main.logout')</a></li>
-							@endauth
-						</ul>
-					</div>
-			</div>
-		</nav>
-	</div>
-	</header>
+@include('layouts.header')
+
 	<main>
 	<section class="py-5 text-center container">
 		<div class="row py-lg-5">
@@ -162,15 +86,9 @@
 			</div>
 	</div>
 	</main>
-	<footer class="text-muted py-5">
-	<div class="container">
-		<p class="float-end mb-1">
-			<a href="#">Вернуться вверх</a>
-		</p>
-		<p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-		<p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-	</div>
-	</footer>
+
+    @include('layouts.footer')
+
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="{{ '/js/bootstrap.min.js' }}" type="text/js"></script>
 	</body>

@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate(6);
-        return view('auth.categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -28,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('auth.categories.form');
+        return view('admin.categories.form');
     }
 
     /**
@@ -57,7 +57,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('auth.categories.show', compact('category'));
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
@@ -68,7 +68,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('auth.categories.form', compact('category'));
+        return view('admin.categories.form', compact('category'));
     }
 
     /**
@@ -87,7 +87,7 @@ class CategoryController extends Controller
             $params['image'] = $request->file('image')->store('categories');
         }
         $category->update($params);
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -98,6 +98,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 }

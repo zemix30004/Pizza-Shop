@@ -1,9 +1,9 @@
-@extends('auth.layouts.master')
+@extends('layouts.admin')
 
 @section('title', 'Категория ' . $category->name)
 
 @section('content')
-    <div class="col-md-12 >
+    <div class="col-md-12">
         <h1>{{ $category->name }}</h1>
         <table class="table">
             <tbody>

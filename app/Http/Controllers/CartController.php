@@ -29,7 +29,7 @@ class CartController extends Controller
     public function cart()
     {
         $order = (new Cart())->getOrder();
-        return view('cart', compact('order'));
+        return view('cart.cart', compact('order'));
     }
 
     public function cartConfirm(OrderRequest $request)
@@ -55,7 +55,7 @@ class CartController extends Controller
             session()->flash('warning', __('cart.you_cant_order_more'));
             return redirect()->route('cart');
         }
-        return view('order', compact('order'));
+        return view('cart.order', compact('order'));
     }
     public function cartAdd(Product $product)
     {

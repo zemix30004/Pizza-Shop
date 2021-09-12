@@ -55,7 +55,7 @@ Route::post('/upload-file', [FileUploadController::class, 'fileUpload'])->name('
 Route::middleware(['set_locale'])->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::group([
-            'prefix' => 'person',
+            'prefix' => '',
             'namespace' => '',
             'as' => 'person',
         ], function () {
@@ -77,6 +77,9 @@ Route::middleware(['set_locale'])->group(function () {
             // Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
             Route::resource('categories', CategoryController::class);
             Route::resource('products', ProductController::class);
+
+//            Route::get('/', [MainController::class, 'adminIndex'])->name('admin.index');
+            Route::get('/', [OrderController::class, 'index'])->name('admin.index');
         });
     });
     Route::get('/', [MainController::class, 'index'])->name('index');

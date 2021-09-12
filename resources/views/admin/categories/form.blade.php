@@ -1,4 +1,4 @@
-	@extends('auth.layouts.master')
+	@extends('layouts.admin')
 
 	@isset($category)
 		@section('title', 'Редактировать категорию ' . $category->name)

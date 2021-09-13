@@ -78,7 +78,7 @@ Route::middleware(['set_locale'])->group(function () {
             Route::resource('categories', CategoryController::class);
             Route::resource('products', ProductController::class);
 
-//            Route::get('/', [MainController::class, 'adminIndex'])->name('admin.index');
+            //            Route::get('/', [MainController::class, 'adminIndex'])->name('admin.index');
             Route::get('/', [OrderController::class, 'index'])->name('admin.index');
         });
     });

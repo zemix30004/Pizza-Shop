@@ -13,7 +13,6 @@
 
 			<title>Pizza-Shop:@yield('title')</title>
 
-
 		{{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> --}}
 		{{-- <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"> --}}
@@ -26,7 +25,6 @@
 			-moz-user-select: none;
 			user-select: none;
 			}
-
 			@media (min-width: 768px) {
 			.bd-placeholder-img-lg {
 				font-size: 3.5rem;

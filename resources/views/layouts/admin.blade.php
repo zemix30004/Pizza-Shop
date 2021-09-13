@@ -10,8 +10,6 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <meta name="theme-color" content="#7952b3">
-
-
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -20,15 +18,12 @@
             -moz-user-select: none;
             user-select: none;
         }
-
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
         }
     </style>
-
-
 </head>
 <body>
 
@@ -47,7 +42,7 @@
     </section>
 </main>
 
-@include('layouts.admin-footer')
+@include('layouts.footer')
 
 <script src="/js/bootstrap.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 

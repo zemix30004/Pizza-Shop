@@ -21,6 +21,7 @@ return [
     'reset' => 'Reset',
     'price_from' => 'Price from',
     'to' => 'to',
+    'register' => 'Register',
     'login' => 'Login',
     'logout' => 'Logout',
     'my_orders' => 'My orders',

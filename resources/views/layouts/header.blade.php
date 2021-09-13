@@ -28,6 +28,9 @@
                     @else
 {{--                        <a href="{{ route('person.orders.index') }}">@lang('main.my_orders')</a>--}}
                     @endauth
+                    @guest
+                    <a class="btn btn-outline-light me-2" href="{{ route('register') }}">@lang('main.register')</a>
+                    @endguest
             </div>
         </div>
     </div>

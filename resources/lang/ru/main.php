@@ -21,6 +21,7 @@ return [
     'reset' => 'Сброс',
     'price_from' => 'Цена от',
     'to' => 'до',
+    'register' => 'Регистрация',
     'login' => 'Войти',
     'logout' => 'Выйти',
     'my_orders' => 'Мои заказы',

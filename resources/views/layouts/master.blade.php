@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="Pizza-Shop">
 		<meta name="generator" content="Hugo 0.88.1">
-		<title>Pizza-Shop</Pizza-Shop></title>
+		<title>Pizza-Shop</title>
 		<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
 
 			<title>Pizza-Shop:@yield('title')</title>

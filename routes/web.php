@@ -56,7 +56,7 @@ Route::middleware(['set_locale'])->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::group([
             'prefix' => '',
-            'namespace' => '',
+            'namespace' => 'person',
             'as' => 'person',
         ], function () {
             Route::get('/orders', [App\Http\Controllers\Person\OrderController::class, 'index'])->name('orders.index');
@@ -73,12 +73,13 @@ Route::middleware(['set_locale'])->group(function () {
                 // Route::post('/place', [OrderController::class, 'store'])->name('store');
             });
 
-            Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+            Route::resource('category', 'App\Http\Controllers\Admin\CategoryController');
             Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
             // Route::resource('categories', CategoryController::class);
             // Route::resource('products', ProductController::class);
 
-            //            Route::get('/', [MainController::class, 'adminIndex'])->name('admin.index');
+            // Route::get('/', [MainController::class, 'adminIndex'])->name('admin.index');
+            Route::get('/admin/orders', [MainController::class, 'index'])->name('admin.index');
             Route::get('/', [OrderController::class, 'index'])->name('admin.index');
         });
     });

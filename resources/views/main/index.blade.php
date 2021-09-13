@@ -12,5 +12,5 @@
                 @include('products.new-card', compact('product'))
             @endforeach
         </div>
-{{--        {{ $products->links() }}--}}
+       {{ $products->links() }}
 @endsection

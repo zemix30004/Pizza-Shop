@@ -73,10 +73,10 @@ Route::middleware(['set_locale'])->group(function () {
                 // Route::post('/place', [OrderController::class, 'store'])->name('store');
             });
 
-            // Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
-            // Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
-            Route::resource('categories', CategoryController::class);
-            Route::resource('products', ProductController::class);
+            Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+            Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+            // Route::resource('categories', CategoryController::class);
+            // Route::resource('products', ProductController::class);
 
             //            Route::get('/', [MainController::class, 'adminIndex'])->name('admin.index');
             Route::get('/', [OrderController::class, 'index'])->name('admin.index');

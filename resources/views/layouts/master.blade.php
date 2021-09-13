@@ -51,8 +51,8 @@
 			<h1 class="fw-light">Pizza-Shop</h1>
 			<p class="lead text-muted">Только на нашем сайте вы можете выбрать качественный и вакусный продукт по приличным ценам</p>
 			<p>
-				<a href="#" class="btn btn-primary my-2">Выберите подходящий продукт</a>
-					<a href="#" class="btn btn-secondary my-2">Другое</a>
+				<a href="#" class="btn btn-primary my-2">Выберите категорию продукта</a>
+					<a href="#" class="btn btn-secondary my-2">Выберите продукт</a>
 				</p>
 				</div>
 			</div>

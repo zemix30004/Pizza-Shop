@@ -57,18 +57,18 @@
             </tr>
             <div class="tab-content" id="descsTabContent">
                 <div class="tab-pane fade show active" id="desc1" role="tabpanel" aria-labelledby="desc1-tab">
-                    @include('auth.layouts.error', ['fieldName' => 'desc1'])
+                    @include('layouts.error', ['fieldName' => 'desc1'])
                     <textarea name="description" id="description" cols="50" rows="7">{{ $product->description ?? '' }}</textarea>
-                    @include('auth.layouts.error', ['fieldName' => 'description'])
+                    @include('layouts.error', ['fieldName' => 'description'])
                             <textarea name="description" id="description" cols="72"
                                     rows="7">@isset($product){{ $product->description }}@endisset</textarea>
                 </div>
             </div>
             <div class="tab-content" id="namesTab">
                 <div class="tab-pane fade show active" id="desc2" role="tabpanel" aria-labelledby="desc2-tab">
-                    @include('auth.layouts.error', ['fieldName' => 'desc2'])
+                    @include('layouts.error', ['fieldName' => 'desc2'])
                     <textarea name="description" id="description" cols="50" rows="7">{{ $product->description_en ?? '' }}</textarea>
-                    @include('auth.layouts.error', ['fieldName' => 'description_en'])
+                    @include('layouts.error', ['fieldName' => 'description_en'])
                             <textarea name="description_en" id="description_en" cols="72"
                                     rows="7">@isset($product){{ $product->description_en }}@endisset</textarea>
                 </div>

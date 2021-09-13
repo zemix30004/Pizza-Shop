@@ -23,13 +23,13 @@
                     @auth
                         @admin
                         {{-- (Auth::user()->isAdmin()){{ Auth::user()->name }} --}}
-                            <a class="btn btn-outline-light me-2" href="{{ route('home') }}">@lang('main.admin_panel')</a>
+                            <a class="btn btn-outline-light me-2" href="{{ route('admin.index') }}">@lang('main.admin_panel')</a>
                         @endadmin
                     @else
 {{--                        <a href="{{ route('person.orders.index') }}">@lang('main.my_orders')</a>--}}
                     @endauth
                     @guest
-                    <a class="btn btn-outline-light me-2" href="{{ route('register') }}">@lang('main.register')</a>
+                        <a class="btn btn-outline-light me-2" href="{{ route('register') }}">@lang('main.register')</a>
                     @endguest
             </div>
         </div>

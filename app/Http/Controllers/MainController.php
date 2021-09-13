@@ -41,11 +41,6 @@ class MainController extends Controller
         return view('categories', compact('categories'));
     }
 
-    public function adminIndex()
-    {
-        //
-    }
-
     public function category($code)
     {
         $category = Category::where('code', $code)->first();

@@ -33,7 +33,12 @@
 </head>
 <body>
 
-@include('layouts.header')
+
+@if(\Illuminate\Support\Str::startsWith(request()->path(), 'admin'))
+    @include('layouts.admin-header')
+@else
+    @include('layouts.header')
+@endif
 
 <main>
     <section class="py-5 text-center container">

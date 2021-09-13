@@ -1,4 +1,4 @@
-@extends('auth.layouts.master')
+@extends('layouts.new-master')
 
 @isset($product)
     @section('title', 'Редактировать товар ' . $product->name)
@@ -33,31 +33,31 @@
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="code" id="code"
                             value="@isset($product){{ $product->code }}@endisset">
-                        @include('auth.layouts.error', ['fieldName' => 'code'])
+                        @include('layouts.error', ['fieldName' => 'code'])
                     </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'name'])
+                        @include('layouts.error', ['fieldName' => 'name'])
                         <input type="text" class="form-control" name="name" id="name"
                             value="@isset($product){{ $product->name }}@endisset">
                     </div>
                 </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'name'])
+                        @include('layouts.error', ['fieldName' => 'name'])
                         <input type="text" class="form-control" name="name" id="name"
                             value="@isset($product){{ $product->name }}@endisset">
                     </div>
                 </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'name_en'])
+                        @include('layouts.error', ['fieldName' => 'name_en'])
                         <input type="text" class="form-control" name="name_en" id="name_en"
                             value="@isset($product){{ $product->name_en }}@endisset">
                     </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'description'])
+                        @include('layouts.error', ['fieldName' => 'description'])
 								{{-- <textarea name="description" id="description" cols="72"
                                         rows="7">@isset($product){{ $product->description }}@endisset</textarea> --}}
                     </div>
@@ -65,7 +65,7 @@
                 <td>               </div>
                 <div class="input-group row">
                     <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'description_en'])
+                        @include('layouts.error', ['fieldName' => 'description_en'])
 								{{-- <textarea name="description_en" id="description_en" cols="72"
                                         rows="7">@isset($product){{ $product->description_en }}@endisset</textarea> --}}
                     </div>
@@ -78,42 +78,42 @@
                 </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-2">
-                        @include('auth.layouts.error', ['fieldName' => 'price'])
+                        @include('layouts.error', ['fieldName' => 'price'])
                         <input type="text" class="form-control" name="price" id="price"
                             value="@isset($product){{ $product->price }}@endisset">
                     </div>
                 </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-2">
-                        @include('auth.layouts.error', ['fieldName' => 'count'])
+                        @include('layouts.error', ['fieldName' => 'count'])
                         <input type="text" class="form-control" name="count" id="count"
                             value="@isset($product){{ $product->count }}@endisset">
                     </div>
                 </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-2">
-                        @include('auth.layouts.error', ['fieldName' => 'size'])
+                        @include('layouts.error', ['fieldName' => 'size'])
                         <input type="text" class="form-control" name="size" id="size"
                             value="@isset($product){{ $product->size }}@endisset">
                     </div>
                 </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-2">
-                        @include('auth.layouts.error', ['fieldName' => 'is_spicy'])
+                        @include('layouts.error', ['fieldName' => 'is_spicy'])
                         <input type="text" class="form-control" name="is_spicy" id="is_spicy"
                             value="@isset($product){{ $product->is_spicy }}@endisset">
                     </div>
                 </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-2">
-                        @include('auth.layouts.error', ['fieldName' => 'is_veg'])
+                        @include('layouts.error', ['fieldName' => 'is_veg'])
                         <input type="text" class="form-control" name="is_veg" id="is_veg"
                             value="@isset($product){{ $product->is_veg }}@endisset">
                     </div>
                 </div></td>
                 <td>                <div class="input-group row">
                     <div class="col-sm-2">
-                        @include('auth.layouts.error', ['fieldName' => 'is_best_offer'])
+                        @include('layouts.error', ['fieldName' => 'is_best_offer'])
                         <input type="text" class="form-control" name="is_best_offer" id="is_best_offer"
                             value="@isset($product){{ $product->is_best_offer }}@endisset">
                     </div>
@@ -163,7 +163,7 @@
                                     >{{ $category->name }}</option>
                             @endforeach
                         </select>
-                        @include('auth.layouts.error', ['fieldName' => 'category_id'])
+                        @include('layouts.error', ['fieldName' => 'category_id'])
                     </div><div><button class="btn btn-success">Сохранить</button><br>
                 </div>
 

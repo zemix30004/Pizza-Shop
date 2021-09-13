@@ -1,4 +1,4 @@
-@extends('auth.layouts.master')
+@extends('layouts.new-master')
 
 @section('title', 'Авторизация')
 

@@ -1,6 +1,6 @@
 <div class="col">
     <div class="card shadow-sm">
-        <img class="img-thumbnail" style="max-height: 300px" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->__('name') }}">
+        <img class="img-thumbnail" style="max-height: 200px" src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->__('name') }}">
 
         <div class="card-body">
             <p class="card-title">{{ $product->__('name') }}</p>

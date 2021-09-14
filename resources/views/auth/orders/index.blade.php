@@ -59,6 +59,6 @@
 
             </tbody>
         </table>
-        {{ $orders->links() }}
+        {{-- {{ $orders->links() }} --}}
     </div>
 @endsection

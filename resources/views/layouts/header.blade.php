@@ -10,7 +10,25 @@
                 <li><a href="/categories" class="nav-link px-2 text-white">Категории</a></li>
                 <li><a href="/cart" class="nav-link px-2 text-white">Корзина</a></li>
                 <li><a href="/cart/place" class="nav-link px-2 text-white">Подтверждение заказа</a></li>
-            </ul>
+                {{-- <li class="dropdown">
+                    <a href="#" class=" nav-link px-2 text-white dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ App\Services\CurrencyConversion::getCurrencySymbol() }}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        @foreach (App\Services\CurrencyConversion::getCurrencies() as $currency)
+                            <li><a href="{{ route('currency', $currency->code) }}">{{ $currency->symbol }}</a></li>
+                        @endforeach
+                    </ul>
+                </li> --}}
+                {{-- <div class="p-3 bg-dark text-white dropdown">
+                    <button class="nav-link px-2 text-white btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Выберите валюту
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">₴</a></li>
+                      <li><a class="dropdown-item" href="#">$</a></li>
+                      <li><a class="dropdown-item" href="#">€</a></li>
+                    </ul>
+                  </div>
+            </ul> --}}
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" class="form-control form-control-dark" placeholder="Поиск..." aria-label="Search">
             </form>

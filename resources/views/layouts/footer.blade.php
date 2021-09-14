@@ -16,10 +16,10 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/" class="nav-link px-2 text-secondary"></a></li>
                 <p class="nav-link px-5 text-white mb-1">Pizza-Shop &copy; </p>
-                <li><a href="/categories" class="nav-link px-5 text-white">Контакты</a></li>
-                <li><a href="/cart" class="nav-link px-5 text-white">О нас</a></li>
-                <li><a href="/cart/place" class="nav-link px-5 text-white">Отзывы покупателей</a></li>
-                <li><a href="/cart/place" class="nav-link px-5 text-white">Вернуться наверх</a></li>
+                <li><a href="/contacts" class="nav-link px-5 text-white">Контакты</a></li>
+                <li><a href="/about" class="nav-link px-5 text-white">О нас</a></li>
+                <li><a href="/reviews" class="nav-link px-5 text-white">Отзывы покупателей</a></li>
+                <li><a href="/rise up" class="nav-link px-5 text-white">Вернуться наверх</a></li>
             </ul>
         </div>
     </div>

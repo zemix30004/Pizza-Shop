@@ -11,11 +11,11 @@
 {{--                    <button type="button" class="btn btn-sm btn-outline-secondary">Order</button>--}}
                     <form action="{{ route('cart-add', $product) }}" method="POST">
                         @if($product->isAvailable())
-                            <button type="submit" class="btn btn-primary" role="button">@lang('main.add_to_cart')</button>
+                            <button type="submit" class="btn btn-success" role="button">@lang('main.add_to_cart')</button>
                         @else
                             @lang('main.not_available')
                         @endif
-                        <a href="{{  route('product', [isset($category) ? $category->code : $product->category->code, $product->code]) }}" class="btn btn-default"
+                        <a href="{{  route('product', [isset($category) ? $category->code : $product->category->code, $product->code]) }}" class="btn btn-info"
                         role="button">@lang('main.more')</a>
                         @csrf
                     </form>

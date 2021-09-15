@@ -179,7 +179,7 @@
                 </div>
                 @endforeach
             </ul>
-                <button class="btn btn-success">Сохранить</button>
+                <button class="btn btn-success btn-sm">Сохранить</button>
             </div>
         </form>
     </div>

@@ -28,7 +28,7 @@
                 <div class="btn-group form-inline">
                     <style>div.form-inline form{display: inline;}</style>
                     <form action="{{ route('cart-remove', $product) }}" method="POST"></form>
-                        <button type="submit" class="btn btn-danger" href=""><span
+                        <button type="submit" class="btn btn-danger btn-sm" href=""><span
                         class="glyphicon glyphicon-minus" aria-hidden="true">-</span></button>
                         @csrf
                     </form>
@@ -51,7 +51,7 @@
         </table>
         <br>
         <div class="btn-group pull-right" role="group">
-            <a type="button" class="btn btn-success" href="{{ route ('cart-place') }}">@lang('cart.place_order')</a>
+            <a type="button" class="btn btn-success btn-sm" href="{{ route ('cart-place') }}">@lang('cart.place_order')</a>
         </div>
     </div>
 @endsection

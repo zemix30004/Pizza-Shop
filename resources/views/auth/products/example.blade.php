@@ -164,7 +164,7 @@
                             @endforeach
                         </select>
                         @include('layouts.error', ['fieldName' => 'category_id'])
-                    </div><div><button class="btn btn-success">Сохранить</button><br>
+                    </div><div><button class="btn btn-success btn-sm">Сохранить</button><br>
                 </div>
 
             </div>

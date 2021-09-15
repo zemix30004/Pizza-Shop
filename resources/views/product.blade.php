@@ -10,7 +10,7 @@
         <p>{{  $product->__('description') }}</p>
             @if($product->isAvailable())
             <form action="{{ route('cart-add', $product) }}" method="POST">
-            <button type="submit" class="btn btn-success" role="button">@lang('product.add_to_cart')</button>
+            <button type="submit" class="btn btn-success btn-sm" role="button">@lang('product.add_to_cart')</button>
             @csrf
         </form>
     @else

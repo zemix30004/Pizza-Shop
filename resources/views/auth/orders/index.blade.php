@@ -44,7 +44,7 @@
                     <td>{{ $order->calculateFullSum() }} @lang('main.uah')</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a class="btn btn-success" type="button"
+                            <a class="btn btn-success btn-sm" type="button"
                             @admin
                                 href="{{ route('orders.show', $order) }}"
                             @else

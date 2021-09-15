@@ -24,8 +24,8 @@
                 </label>
             </div>
             <div class="col-sm-6 col-md-3">
-                <button type="submit" class="btn btn-primary">@lang('main.filter')</button>
-                <a href="{{ route("index") }}" class="btn btn-warning">@lang('main.reset')</a>
+                <button type="submit" class="btn btn-primary btn-sm">@lang('main.filter')</button>
+                <a href="{{ route("index") }}" class="btn btn-warning btn-sm">@lang('main.reset')</a>
             </div>
         </div>
     </form>

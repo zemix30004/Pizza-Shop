@@ -27,13 +27,13 @@
                    {{-- <td><span class="badge">{{ $product->pivot->count }}</span></td> --}}
                 <div class="btn-group form-inline">
                     <style>div.form-inline form{display: inline;}</style>
-                    <form action="{{ route('cart-remove', $product) }}" method="POST"></form>
+                    <form action="{{ route('cart-remove', $product) }}" method="POST">
                         <button type="submit" class="btn btn-danger btn-sm" href=""><span
                         class="glyphicon glyphicon-minus" aria-hidden="true">-</span></button>
                         @csrf
                     </form>
                     <form action="{{ route('cart-add', $product) }}" method="POST">
-                        <button type="submit" class="btn btn-success" href=""><span
+                        <button type="submit" class="btn btn-success btn-sm" href=""><span
                         class="glyphicon glyphicon-plus" aria-hidden="true">+</span></button>
                         @csrf
                         </form>

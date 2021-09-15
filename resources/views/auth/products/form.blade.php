@@ -58,7 +58,7 @@
                         <button class="nav-link active" id="name1-tab" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="home" aria-selected="true">Название:</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="name2-tab" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="profile" aria-selected="false">Название en:</button>
+                        <button class="nav-link" active id="name2-tab" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="profile" aria-selected="false">Название en:</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="namesTabContent">
@@ -88,15 +88,15 @@
                                         rows="7">@isset($product){{ $product->description }}@endisset</textarea>
                     </div>
                 </div>
-                <div class="tab-content" id="namesTab">
+                {{-- <div class="tab-content" id="namesTab">
                     <div class="tab-pane fade show active" id="desc2" role="tabpanel" aria-labelledby="desc2-tab">
-                        @include('layouts.error', ['fieldName' => 'name'])
+                        @include('layouts.error', ['fieldName' => 'name_en'])
                         <textarea name="description" id="description" cols="50" rows="7">{{ $product->description_en ?? '' }}</textarea>
                         @include('layouts.error', ['fieldName' => 'description_en'])
 								<textarea name="description_en" id="description_en" cols="72"
                                         rows="7">@isset($product){{ $product->description_en }}@endisset</textarea>
                     </div>
-                </div>
+                </div> --}}
                 <br>
                 <div class="input-group row">
                     <label for="image" class="col-sm-2 col-form-label">Картинка: </label>
@@ -115,6 +115,7 @@
                             value="@isset($product){{ $product->price }}@endisset">
                     </div>
                 </div>
+                <br>
                 <div class="input-group row">
                     <label for="count" class="col-sm-2 col-form-label">Количество: </label>
                     <div class="col-sm-2">
@@ -167,7 +168,7 @@
                 'recommend' => 'Рекомендуемые',
                 ] as $field => $title)
                 <div class="form-group row">
-                    <label for="code" class="col-sm-2 col-form-label">{{  $title }}: </label>
+                    <label for="code" class="col-sm-2 col-form-label">{{ $title }}: </label>
                     <div class="col-sm-6">
                         <input type="checkbox" class="form-control" name="{{ $field }}" id="{{ $field }}"
                             @if(isset($product) && $product->$field === 1)

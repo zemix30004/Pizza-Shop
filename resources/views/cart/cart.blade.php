@@ -24,10 +24,10 @@
                         {{  $product->__('name') }}
                     </a>
                 </td>
-                <td><td><span class="badge">{{ $product->pivot->count }}</span>
-                        <div class="btn-group form-inline">
+                   {{-- <td><span class="badge">{{ $product->pivot->count }}</span></td> --}}
+                <div class="btn-group form-inline">
                     <style>div.form-inline form{display: inline;}</style>
-                    <form action="{{ route('cart-remove', $product) }}" method="POST">
+                    <form action="{{ route('cart-remove', $product) }}" method="POST"></form>
                         <button type="submit" class="btn btn-danger" href=""><span
                         class="glyphicon glyphicon-minus" aria-hidden="true">-</span></button>
                         @csrf
@@ -36,10 +36,9 @@
                         <button type="submit" class="btn btn-success" href=""><span
                         class="glyphicon glyphicon-plus" aria-hidden="true">+</span></button>
                         @csrf
-                    </form>
+                        </form>
                     </div>
-                </td>
-                {{-- <td>{{ $product->pivot->count }}</td> --}}
+                <td>{{ $product->pivot->count }}</td>
                 <td>{{  $product->price }} @lang('main.uah')</td>
                 <td>{{ $order->getFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}</td>
             </tr>

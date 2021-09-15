@@ -94,7 +94,7 @@
                                                             rows="7">@isset($product){{ $product->description }}@endisset</textarea>
                                         </div>
                                     </div>
-                                    <div class="tab-content" id="namesTab">
+                                    {{-- <div class="tab-content" id="namesTab">
                                         <div class="tab-pane fade show active" id="desc2" role="tabpanel" aria-labelledby="desc2-tab">
                                             @include('layouts.error', ['fieldName' => 'desc2'])
                                             <textarea name="description" id="description" cols="50" rows="7">{{ $product->description_en ?? '' }}</textarea>
@@ -102,7 +102,7 @@
                                                     <textarea name="description_en" id="description_en" cols="72"
                                                             rows="7">@isset($product){{ $product->description_en }}@endisset</textarea>
                                         </div>
-                                    </div>
+                                    </div> --}}
 									{{-- <div class="input-group row">
 										<label for="description" class="col-sm-2 col-form-label">Описание: </label>
 										<div class="col-sm-6">

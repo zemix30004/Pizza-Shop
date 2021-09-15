@@ -69,16 +69,18 @@ Route::middleware(['set_locale'])->group(function () {
             Route::group(['middleware' => 'is_admin'], function () {
                 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+                // Route::get('/products/export', [ProductController::class, 'export'])->name('products.export');
+
                 // Route::get('/place/create', [OrderController::class, 'create'])->name('create');
                 // Route::post('/place', [OrderController::class, 'store'])->name('store');
             });
 
 
-             Route::resource('categories', CategoryController::class);
-             Route::resource('products', ProductController::class);
+            Route::resource('categories', CategoryController::class);
+            Route::resource('products', ProductController::class);
 
             // Route::get('/', [MainController::class, 'adminIndex'])->name('admin.index');
-//            Route::get('/admin/orders', [MainController::class, 'index'])->name('admin.orders');
+            //            Route::get('/admin/orders', [MainController::class, 'index'])->name('admin.orders');
             Route::get('/', [OrderController::class, 'index'])->name('admin.index');
         });
     });

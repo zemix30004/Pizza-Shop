@@ -113,4 +113,8 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('products.index');
     }
+    // public function productExport()
+    // {
+    //     return Excel::download(new ProductsExport, 'products-collection.csv');
+    // }
 }

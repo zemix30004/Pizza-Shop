@@ -46,7 +46,8 @@
                                 <a class="btn btn-warning btn-sm" type="button"
                                 href="{{ route('products.edit', $product) }}">Редактировать</a>
                                 <a class="btn btn-primary btn-sm" type="button"
-                                href="{{ route('products.edit', $product) }}">Экспорт</a>
+                                {{-- href="{{ route('products.export', $product) }}">Экспорт</a> --}}
+                                href="{{ route('products.show', $product) }}">Экспорт</a>
                                 @csrf
                                 @method('DELETE')
                                 <input class="btn btn-danger btn-sm" type="submit" value="Удалить"></form>

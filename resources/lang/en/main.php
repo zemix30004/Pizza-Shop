@@ -17,6 +17,11 @@ return [
         'new' => 'New',
     ],
 
+    'admin' => [
+        'login' => 'Login',
+        'register' => 'Register',
+    ],
+
     'filter' => 'Filter',
     'reset' => 'Reset',
     'price_from' => 'Price from',

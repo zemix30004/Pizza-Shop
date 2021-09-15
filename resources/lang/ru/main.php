@@ -17,6 +17,11 @@ return [
         'new' => 'Новинка',
     ],
 
+    'admin' => [
+        'login' => 'Login',
+        'register' => 'Register',
+    ],
+
     'filter' => 'Фильтр',
     'reset' => 'Сброс',
     'price_from' => 'Цена от',

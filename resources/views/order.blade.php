@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <p>@lang('cart.full_cost'): <b>{{ $order->calculateFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}.</b></p>
             <form action="{{ route('cart-confirm') }}" method="POST">
-                <div>
+                <>
                     <p>@lang('cart.personal_data'):</p>
                     <div class="container">
                         <div class="form-group">
@@ -57,7 +57,7 @@
                     <br>
                     @csrf
                     <input type="submit" class="btn btn-success" name="cart.approve_order" value="@lang('cart.approve_order')">
-                    <input type="submit" class="btn btn-success" name="cart.cancel_order" value="@lang('cart.cancel_order')">
+                    <input type="submit" class="btn btn-danger" name="cart.cancel_order" value="@lang('cart.cancel_order')">
                 </div>
             </form>
         </div>

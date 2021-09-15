@@ -50,8 +50,9 @@
         </div>
     </div>
     <div class="btn">
-<a class="btn btn-danger btn-sm" type="button"
-href="{{ route('products.edit', $product) }}">Отменить заказ</a>
+{{-- <a class="btn btn-danger btn-sm" type="button"
+href="{{ route('products.edit', $product) }}">Отменить заказ</a> --}}
+<input type="submit" class="btn btn-danger btn-sm" name="cancel_order" value="@lang('cart.cancel_order')">
 </div>
 @endsection
 

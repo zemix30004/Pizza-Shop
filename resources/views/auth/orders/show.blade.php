@@ -30,10 +30,12 @@
                                             src="{{ asset('storage/' . $product->image) }}">
                                         {{ $product->name }}
                                     </a>
+                                    <td>{{ $product->count }}</td>
+                                    <td>{{ $product->price }} @lang('main.uah')</td>
+                                    <td>{{ $product->getPriceForCount()}} @lang('main.uah')</td>
                                 </td>
                                 <td><span class="badge">1</span></td>
-                                <td>{{ $product->price }} @lang('main.uah')</td>
-                                <td>{{ $product->getPriceForCount()}} @lang('main.uah')</td>
+
                             </tr>
                         @endforeach
                         <tr>
@@ -47,4 +49,9 @@
             </div>
         </div>
     </div>
+    <div class="btn">
+<a class="btn btn-danger btn-sm" type="button"
+href="{{ route('products.edit', $product) }}">Отменить заказ</a>
+</div>
 @endsection
+

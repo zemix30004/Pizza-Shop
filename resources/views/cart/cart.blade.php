@@ -3,7 +3,7 @@
 @section('title', __('cart.cart'))
 
 @section('content')
-    <h1>@lang('cart.cart')</h1>
+    <h2>@lang('cart.cart')</h2>
     <p>@lang('cart.ordering')</p>
     <div class="panel">
         <table class="table table-striped">

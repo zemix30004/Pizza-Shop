@@ -1,8 +1,9 @@
 @extends('layouts.new-master')
 
-@section('title', __('main.all_categories'))
+@section('title', __('main.categories'))
 
 @section('content')
+<h2>@lang('main.categories')</h2>
         @foreach($categories as $category)
         <div class="panel">
             <a href="{{ route('category', $category->code) }}">
@@ -14,7 +15,7 @@
             </p>
         </div>
         @endforeach
-        <nav aria-label="Page navigation example">
+        {{-- <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
               <li class="page-item disabled">
                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Предыдущая</a>
@@ -26,6 +27,6 @@
                 <a class="page-link" href="#">Следующая</a>
               </li>
             </ul>
-          </nav>
+          </nav> --}}
 
 @endsection

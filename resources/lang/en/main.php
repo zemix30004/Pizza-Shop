@@ -4,7 +4,6 @@ return [
     'all_products' => 'All products',
     'product' => 'Product',
     'categories' => 'Categories',
-    'all_categories' => 'All categories',
     'category' => 'Category ',
     'cart' => 'Your cart',
     'reset_project' => 'Reset project to default state',

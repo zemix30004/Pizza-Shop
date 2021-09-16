@@ -4,7 +4,6 @@ return [
     'all_products' => 'Все товары',
     'product' => 'Товар',
     'categories' => 'Категории',
-    'all_categories' => 'Все Категории',
     'category' => 'Категория ',
     'cart' => 'В корзину',
     'reset_project' => 'Сбросить проект в начальное состояние',

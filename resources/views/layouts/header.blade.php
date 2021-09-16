@@ -10,6 +10,7 @@
                 <li><a href="/categories" class="nav-link px-2 text-white">Категории</a></li>
                 <li><a href="/cart" class="nav-link px-2 text-white">Корзина</a></li>
                 <li><a href="/cart/place" class="nav-link px-2 text-white">Подтверждение заказа</a></li>
+            </ul>
                 {{-- <li class="dropdown">
                     <a href="#" class=" nav-link px-2 text-white dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ App\Services\CurrencyConversion::getCurrencySymbol() }}<span class="caret"></span></a>
                     <ul class="dropdown-menu">

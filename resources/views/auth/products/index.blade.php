@@ -56,6 +56,7 @@
         </table>
         {{-- {{ $products->links() }} --}}
         <a class="btn btn-success btn-sm" type="button" href="{{ route('products.create') }}">Добавить товар</a>
+        <a class="btn btn-primary btn-sm" type="button" href="{{ route('products.exportintocsv') }}"">Экспорт</a>
     </div>
 @endsection
 

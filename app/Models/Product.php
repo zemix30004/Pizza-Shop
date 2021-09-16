@@ -6,13 +6,24 @@ use App\Models\Traits\Translatable;
 use App\Services\CurrencyConversion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
     use SoftDeletes, Translatable;
+
+    protected $table = "products";
+
+    public static function getProduct()
+    {
+        $records = DB::table('products')->select('category_id', 'name', 'code', 'description', 'image', 'price', 'size', 'is_spicy', 'is_veg', 'is_best_offer');
+    }
+
+
     protected $casts = [
         'is_admin' => 'boolean',
     ];
+
 
 
     protected $fillable = [
@@ -25,14 +36,17 @@ class Product extends Model
         'size',
         'is_spicy',
         'is_veg',
-        'is_best_offer',
-        'hit',
-        'new',
-        'recommend',
-        'count',
-        'name_en',
-        'description_en'
+        'is_best_offer'
+        // 'hit',
+        // 'new',
+        // 'recommend',
+        // 'count',
+        // 'name_en',
+        // 'description_en'
     ];
+
+
+
 
     public function category()
     {

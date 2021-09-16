@@ -21,6 +21,12 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Главная</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('products.addproduct') }}">Запись</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('products.exportintocsv') }}">Экспорт</a>
+                </li>
                 @guest
 
                 @else

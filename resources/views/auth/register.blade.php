@@ -1,11 +1,11 @@
-@extends('layouts.new-master')
+@extends('layouts.login-master')
 
 @section('title', 'Регистрация')
 
 @section('content')
 <div class="col-md-8">
     <div class="card">
-        <div class="card-header">Регистрация</div>
+        <div class="card-header"><h2>Регистрация</h2></div>
             <form method="POST" action="{{ route('register') }}" aria-label="Register">
         @csrf
         <div class="form-group row">
@@ -58,6 +58,5 @@
         </div>
     </div>
 </div>
-{{-- @include('layouts.footer') --}}
 @endsection
 

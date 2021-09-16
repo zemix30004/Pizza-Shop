@@ -13,10 +13,10 @@
             </ul>
             <div class="text-end">
                 @guest
-                    <a class="btn btn-outline-light me-2" href="{{ route('login') }}">@lang('main.login')</a>
+                    <a class="btn btn-outline-light me-2" href="{{ route('login') }}">Войти</a>
                 @endguest
                 @guest
-                    <a class="btn btn-outline-light me-2" href="{{ route('register') }}">@lang('main.register')</a>
+                    <a class="btn btn-outline-light me-2" href="{{ route('register') }}">Регистрация</a>
                 @endguest
                     {{-- @auth
                         @admin

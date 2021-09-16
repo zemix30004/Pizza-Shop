@@ -42,6 +42,6 @@
         </table>
         {{-- {{ $categories->links() }} --}}
         <a class="btn btn-success btn-sm" type="button"href="{{ route('categories.create') }}">Добавить категорию</a>
-        <a class="btn btn-primary btn-sm" type="button" href="{{ route('categories.exportintocsv') }}">Экспорт</a>
+        <a class="btn btn-primary btn-sm" type="button" href="{{ route('categories.exportincsv') }}">Экспорт</a>
     </div>
 @endsection

@@ -33,6 +33,12 @@ class CategoriesTableSeeder extends Seeder
                 'description' => 'Описание напитков на сайте',
                 'image' => 'categories/Напитки.jpg',
             ],
+            [
+                "name" => "Десерты",
+                "code" => "desserts",
+                "description" => "Описание десертов на сайте",
+                "image" => "categories/Десерты.jpg",
+            ],
         ]);
     }
 }

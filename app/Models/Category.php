@@ -15,7 +15,8 @@ class Category extends Model
 
     public static function getCategory()
     {
-        $records = DB::table('categories')->select('code', 'name', 'description', 'image', 'name_en', 'description_en');
+        $records = DB::table('categories')->select('code', 'name', 'description', 'image', 'name_en', 'description_en')->get()->toArray();
+        return $records;
     }
 
 

@@ -69,6 +69,9 @@ Route::middleware(['set_locale'])->group(function () {
             Route::group(['middleware' => 'is_admin'], function () {
                 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+                Route::get('/addcategory', [CategoryController::class, 'addCategory'])->name('categories.addcategory');
+                Route::get('/exportinexcel', [CategoryController::class, 'exportInExcel'])->name('categories.exportinexcel');
+                Route::get('/exportincsv', [CategoryController::class, 'exportInCSV'])->name('categories.exportincsv');
                 Route::get('/addproduct', [ProductController::class, 'addProduct'])->name('products.addproduct');
                 Route::get('/exportintoexcel', [ProductController::class, 'exportIntoExcel'])->name('products.exportintoexcel');
                 Route::get('/exportintocsv', [ProductController::class, 'exportIntoCSV'])->name('products.exportintocsv');

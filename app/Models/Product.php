@@ -16,7 +16,8 @@ class Product extends Model
 
     public static function getProduct()
     {
-        $records = DB::table('products')->select('category_id', 'name', 'code', 'description', 'image', 'price', 'size', 'is_spicy', 'is_veg', 'is_best_offer');
+        $records = DB::table('products')->select('category_id', 'name', 'code', 'description', 'image', 'price', 'size', 'is_spicy', 'is_veg', 'is_best_offer')->get()->toArray();
+        return $records;
     }
 
 

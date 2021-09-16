@@ -115,10 +115,7 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route("products.index");
     }
-    // public function productExport()
-    // {
-    //     return Excel::download(new ProductsExport, "products-collection.csv");
-    // }
+
     public function addProduct()
     {
         $products = [
@@ -329,3 +326,7 @@ class ProductController extends Controller
         return Excel::download(new ProductExport, "productlist.csv");
     }
 }
+ // public function productExport()
+    // {
+    //     return Excel::download(new ProductsExport, "products-collection.csv");
+    // }

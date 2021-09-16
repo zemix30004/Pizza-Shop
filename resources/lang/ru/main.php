@@ -18,8 +18,13 @@ return [
     ],
 
     'admin' => [
-        'login' => 'Login',
-        'register' => 'Register',
+        'login' => 'Войти',
+        'register' => 'Регистрация',
+    ],
+
+    'auth' => [
+        'login' => 'Войти',
+        'register' => 'Регистрация',
     ],
 
     'filter' => 'Фильтр',

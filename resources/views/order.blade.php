@@ -9,7 +9,7 @@
             <p>@lang('cart.full_cost'): <b>{{ $order->calculateFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}.</b></p>
             <form action="{{ route('cart-confirm') }}" method="POST">
                 <>
-                    <p>@lang('cart.personal_data'):</p>
+                    <p>@lang('cart.personal_data')</p>
                     <div class="container">
                         <div class="form-group">
                             <label for="name" class="control-label col-lg-offset-3 col-lg-2">@lang('cart.data.name'): </label>

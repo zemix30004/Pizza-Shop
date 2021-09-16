@@ -21,6 +21,10 @@ return [
         'login' => 'Login',
         'register' => 'Register',
     ],
+    'auth' => [
+        'login' => 'Login',
+        'register' => 'Register',
+    ],
 
     'filter' => 'Filter',
     'reset' => 'Reset',

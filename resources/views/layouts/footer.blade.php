@@ -1,12 +1,4 @@
-{{-- <footer class="text-muted py-5">
-    <div class="container">
-        <p class="float-end mb-1">
-            <a href="#">Вернутся наверх</a>
-        </p>
-        <p class="mb-1">Pizza-Shop &copy; </p>
-		<p class="mb-0">Новые товары   <a href="">Контакты</a>  <a href="">О нас</a>.</p>
-	</div>
-</footer> --}}
+
 <footer class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">

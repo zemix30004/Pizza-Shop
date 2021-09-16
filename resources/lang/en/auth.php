@@ -20,4 +20,8 @@ return [
         'login' => 'Login',
         'register' => 'Register',
     ],
+    'login' => [
+        'login' => 'Login',
+        'register' => 'Register',
+    ],
 ];

@@ -11,7 +11,7 @@ class Category extends Model
 {
     use Translatable;
 
-    protected $table = "categories";
+    // protected $table = "categories";
 
     public static function getCategory()
     {

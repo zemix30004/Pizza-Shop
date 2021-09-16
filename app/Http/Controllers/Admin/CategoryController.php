@@ -104,38 +104,38 @@ class CategoryController extends Controller
         return redirect()->route("admin.categories.index");
     }
 
-    public function addCategory()
-    {
+    // public function addCategory()
+    // {
 
-        $categories = [
-            [
-                "name" => "Пиццы",
-                "code" => "pizzas",
-                "description" => "Описание пицц на сайте",
-                "image" => "categories/Пиццы.png",
-            ],
-            [
-                "name" => "Закуски",
-                "code" => "snacks",
-                "description" => "Описание закусок на сайте",
-                "image" => "categories/Закуски.jpg",
-            ],
-            [
-                "name" => "Напитки",
-                "code" => "beverages",
-                "description" => "Описание напитков на сайте",
-                "image" => "categories/Напитки.jpg",
-            ],
-            [
-                "name" => "Десерты",
-                "code" => "desserts",
-                "description" => "Описание десертов на сайте",
-                "image" => "categories/Десерты.jpg",
-            ],
-        ];
-        Category::insert($categories);
-        return "Records are inserted";
-    }
+    //     $categories = [
+    //         [
+    //             "name" => "Пиццы",
+    //             "code" => "pizzas",
+    //             "description" => "Описание пицц на сайте",
+    //             "image" => "categories/Пиццы.png",
+    //         ],
+    //         [
+    //             "name" => "Закуски",
+    //             "code" => "snacks",
+    //             "description" => "Описание закусок на сайте",
+    //             "image" => "categories/Закуски.jpg",
+    //         ],
+    //         [
+    //             "name" => "Напитки",
+    //             "code" => "beverages",
+    //             "description" => "Описание напитков на сайте",
+    //             "image" => "categories/Напитки.jpg",
+    //         ],
+    //         [
+    //             "name" => "Десерты",
+    //             "code" => "desserts",
+    //             "description" => "Описание десертов на сайте",
+    //             "image" => "categories/Десерты.jpg",
+    //         ],
+    //     ];
+    //     Category::insert($categories);
+    //     return "Records are inserted";
+    // }
 
     public function exportInExcel()
     {

@@ -12,7 +12,7 @@ class Product extends Model
 {
     use SoftDeletes, Translatable;
 
-    protected $table = "products";
+    // protected $table = "products";
 
     public static function getProduct()
     {

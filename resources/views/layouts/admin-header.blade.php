@@ -5,11 +5,11 @@
                 <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a class="nav-link px-2 text-secondary" href="{{ route('admin.index') }}">Админ</a></li>
-              <li><a class="nav-link px-2 text-white" href="{{ route('categories.index') }}">Категории</a></li>
-              <li><a class="nav-link px-2 text-white" href="{{ route('products.index') }}">Продукты</a></li>
-              <li><a class="nav-link px-2 text-white" href="{{ route('orders.index') }}">Заказы</a></li>
-              <li><a class="nav-link px-2 text-white" href="{{ route('index') }}">Главная</a></li>
+                <li><a class="nav-link px-2 text-secondary" href="{{ route('admin.index') }}">Админ</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('categories.index') }}">Категории</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('products.index') }}">Продукты</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('orders.index') }}">Заказы</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('index') }}">Главная</a></li>
                 @guest
                 @else
                 <li><a class="btn btn-outline-light me-2" href="{{ route('get-logout') }}">@lang('main.logout')</a></li>

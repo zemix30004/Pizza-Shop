@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="col-md-12">
-        <h1>Категории</h1>
+        <h2>Категории</h2>
         <table class="table">
             <tbody>
             <tr>
@@ -41,7 +41,7 @@
             </tbody>
         </table>
         {{-- {{ $categories->links() }} --}}
-        <a class="btn btn-success btn-sm" type="button"
-        href="{{ route('categories.create') }}">Добавить категорию</a>
+        <a class="btn btn-success btn-sm" type="button"href="{{ route('categories.create') }}">Добавить категорию</a>
+        <a class="btn btn-primary btn-sm" type="button" href="{{ route('categories.exportintocsv') }}">Экспорт</a>
     </div>
 @endsection

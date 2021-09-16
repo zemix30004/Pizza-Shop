@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="col-md-12">
-        <h1>Продукты</h1>
+        <h2>Продукты</h2>
         <table class="table">
             <tbody>
             <tr>
@@ -56,7 +56,7 @@
         </table>
         {{-- {{ $products->links() }} --}}
         <a class="btn btn-success btn-sm" type="button" href="{{ route('products.create') }}">Добавить товар</a>
-        <a class="btn btn-primary btn-sm" type="button" href="{{ route('products.exportintocsv') }}"">Экспорт</a>
+        <a class="btn btn-primary btn-sm" type="button" href="{{ route('products.exportintocsv') }}">Экспорт</a>
     </div>
 @endsection
 

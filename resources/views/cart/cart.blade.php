@@ -47,7 +47,7 @@
             </tr>
             @endforeach
             <tr>
-                <td colspan="3">@lang('cart.full_cost'):</td>
+                <td colspan="4">@lang('cart.full_cost'):</td>
                 <td>{{ $order->getFullSum() }} @lang('main.uah')</td>
             </tr>
             </tbody>

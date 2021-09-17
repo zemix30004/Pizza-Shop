@@ -1,61 +1,53 @@
-@extends('layouts.new-master')
+@extends('layouts.admin')
 
-@section('title', 'Пользователи')
+@isset($user)
+    @section('title', 'Редактировать пользователя ' . $user->name)
+@else
+    @section('title', 'Добавить пользователя')
+@endisset
 
 @section('content')
     <div class="col-md-12">
-        <h2>Пользователи/h2>
-        <table class="table">
-            <tbody>
-            <tr>
-                <th>
-                    #
-                </th>
-                <th>
-                    ФИО
-                </th>
-                {{-- <th>
-                    Телефон
-                </th> --}}
-                {{-- <th>
-                    Адрес
-                </th> --}}
-                <th>
-                    E-Mail
-                </th>
-                <th>
-                    Время регистрации
-                </th>
-                <th>
-                    Действия
-                </th>
-            </tr>
-            {{-- @foreach($orders as $order)
-                <tr>
-                    <td>{{ $order->id}}</td>
-                    <td>{{ $order->status }}</td>
-                    <td>{{ $order->name }}</td>
-                    <td>{{ $order->phone }}</td>
-                    <td>{{ $order->address }}</td>
-                    <td>{{ $order->created_at->format('H:i d/m/Y') }}</td>
-                    <td>{{ $order->calculateFullSum() }} @lang('main.uah')</td>
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a class="btn btn-success btn-sm" type="button"
-                            @admin
-                                href="{{ route('orders.show', $order) }}"
-                            @else
-                                href="{{ route('person.orders.show', $order) }}"
-                            @endadmin
-
-                        >Открыть</a>
+        @isset($user)
+            <h2>Редактировать пользователя <b>{{ $user->name }}</b></h2>
+                @else
+                    <h2>Добавить пользователя</h2>
+                @endisset
+                <form method="POST" enctype="multipart/form-data"
+                        @isset($user)
+                        action="{{ route('users.update', $user) }}"
+                        @else
+                        action="{{ route('users.store') }}"
+                    @endisset
+                >
+                    <div>
+                        @isset($user)
+                            @method('PUT')
+                        @endisset
+                        @csrf
+                        <div class="input-group row">
+                            <label for="name" class="col-sm-2 col-form-label">Название: </label>
+                            <div class="col-sm-6">
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <input type="text" class="form-control" name="name" id="name"
+                                    value="@isset($user){{ $user->name }}@endisset">
+                            </div>
                         </div>
-                    </td>
-                </tr>
-            @endforeach
-
-            </tbody>
-        </table>
-        {{-- {{ $orders->links() }} --}}
-    </div> --}}
+                            <br>
+                            <div class="input-group row">
+                                <label for="email" class="col-sm-2 col-form-label">Email: </label>
+                                <div class="col-sm-6">
+                                    @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                    <input type="text" class="form-control" name="email" id="email"
+                                        value="@isset($user){{ $user->email }}@endisset">
+                                </div>
+                            </div>
+                        <button class="btn btn-success">Сохранить</button>
+                    </div>
+                </form>
+            </div>
 @endsection

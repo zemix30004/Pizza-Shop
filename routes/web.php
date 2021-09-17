@@ -9,14 +9,14 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Admin\OrderController;
-// use App\Http\Controllers\Person\OrderController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\FileUploadController;
-use App\Http\Controllers\UserController;
+
 use App\Services\CurrencyConversion;
 use App\Models\Currency;
 use Illuminate\Support\Facades\Auth;
@@ -62,6 +62,8 @@ Route::middleware(['set_locale'])->group(function () {
         ], function () {
             Route::get('/orders', [App\Http\Controllers\Person\OrderController::class, 'index'])->name('orders.index');
             Route::get('/orders/{order}', [App\Http\Controllers\Person\OrderController::class, 'show'])->name('orders.show');
+            // Route::get('/users', [App\Http\Controllers\Person\OrderController::class, 'index'])->name('users.index');
+            // Route::get('/users/{user}', [App\Http\Controllers\Person\UserController::class, 'show'])->name('users.show');
         });
         Route::group([
             'namespace' => '',
@@ -77,8 +79,8 @@ Route::middleware(['set_locale'])->group(function () {
                 Route::get('/exportintoexcel', [ProductController::class, 'exportIntoExcel'])->name('products.exportintoexcel');
                 Route::get('/exportintocsv', [ProductController::class, 'exportIntoCSV'])->name('products.exportintocsv');
 
-                Route::get('/users', [UserController::class, 'index'])->name('users.index');
-                Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+                // Route::get('/users', [UserController::class, 'index'])->name('users.index');
+                // Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 
                 // Route::get('/place/create', [OrderController::class, 'create'])->name('create');
                 // Route::post('/place', [OrderController::class, 'store'])->name('store');
@@ -87,7 +89,8 @@ Route::middleware(['set_locale'])->group(function () {
 
             Route::resource('categories', CategoryController::class);
             Route::resource('products', ProductController::class);
-            // Route::resourse('users', UserController::class);
+            Route::resource('users', UserController::class);
+
 
             // Route::get('/', [MainController::class, 'adminIndex'])->name('admin.index');
             //            Route::get('/admin/orders', [MainController::class, 'index'])->name('admin.orders');

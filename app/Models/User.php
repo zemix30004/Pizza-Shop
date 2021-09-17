@@ -48,8 +48,18 @@ class User extends Authenticatable
         return $this->is_admin === 1;
     }
 
-    public function orders()
+    public function User()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(User::class);
     }
+
+    // public function createToken()
+    // {
+    //     $token = Str::random(60);
+    //     $this->token = hash('sha256', $token);
+    //     $this->save();
+
+    //     return $token;
+    // }
+
 }

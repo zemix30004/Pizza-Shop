@@ -1,4 +1,4 @@
-@extends('layouts.new-master')
+@extends('layouts.admin')
 
 @section('title', 'Заказ ' . $order->id)
 

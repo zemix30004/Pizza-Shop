@@ -1,17 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 
 class UserController extends Controller
+
 {
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,9 +16,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(6);
-        return view('auth.users.index');
+        $users = user::paginate(10);
+        return view('auth.users.index', compact('users'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,8 +27,19 @@ class UserController extends Controller
      */
     public function create()
     {
-        $users = User::get();
-        return view('auth.users.form', compact('users'));
+        return view('auth.users.form');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        user::create($request->all());
+        return redirect()->route('users.index');
     }
 
     /**
@@ -43,4 +52,47 @@ class UserController extends Controller
     {
         return view('auth.users.show', compact('user'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $user)
+    {
+        return view('auth.users.form', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
+    {
+        $user->update($request->all());
+        return redirect()->route('users.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('users.index');
+    }
+
+    // public function updateToken(User $user)
+    // {
+    //     session()->flash('success', $user->createToken());
+    //     return redirect()->route('users.index');
+    // }
+
 }

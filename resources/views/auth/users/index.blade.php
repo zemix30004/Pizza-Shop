@@ -1,10 +1,13 @@
-@extends('layouts.new-master')
+@extends('layouts.admin')
 
 @section('title', 'Пользователи')
 
 @section('content')
     <div class="col-md-12">
         <h2>Пользователи</h2>
+        {{-- @if(session()->has('success'))
+        <p class="alert alert-success">{{ session()->get('success') }}</p>
+    @endif --}}
         <table class="table">
             <tbody>
             <tr>
@@ -12,50 +15,38 @@
                     #
                 </th>
                 <th>
-                    ФИО
-                </th>
-                {{-- <th>
-                    Телефон
-                </th> --}}
-                {{-- <th>
-                    Адрес
-                </th> --}}
-                <th>
-                    E-Mail
+                    Имя
                 </th>
                 <th>
-                    Время регистрации
+                    Email
                 </th>
                 <th>
                     Действия
                 </th>
             </tr>
-            {{-- @foreach($orders as $order)
+            @foreach($users as $user)
                 <tr>
-                    <td>{{ $order->id}}</td>
-                    <td>{{ $order->status }}</td>
-                    <td>{{ $order->name }}</td>
-                    <td>{{ $order->phone }}</td>
-                    <td>{{ $order->address }}</td>
-                    <td>{{ $order->created_at->format('H:i d/m/Y') }}</td>
-                    <td>{{ $order->calculateFullSum() }} @lang('main.uah')</td>
+                    <td>{{ $user->id}}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a class="btn btn-success btn-sm" type="button"
-                            @admin
-                                href="{{ route('orders.show', $order) }}"
-                            @else
-                                href="{{ route('person.orders.show', $order) }}"
-                            @endadmin
+                            <form action="{{ route('users.destroy', $user) }}" method="POST">
+                                <a class="btn btn-success btn-sm" type="button" href="{{ route('users.show', $user) }}">Открыть</a>
+                                <a class="btn btn-warning btn-sm" type="button" href="{{ route('users.edit', $user) }}">Редактировать</a>
+                                {{-- <a class="btn btn-primary btn-sm" type="button" href="{{ route('users.update_token', $user) }}">Обновить токен</a> --}}
+                                @csrf
+                                @method('DELETE')
+                                <input class="btn btn-danger btn-sm" type="submit" value="Удалить"></form>
 
-                        >Открыть</a>
                         </div>
                     </td>
                 </tr>
             @endforeach
-
             </tbody>
         </table>
-        {{-- {{ $orders->links() }} --}}
+ {{ $users->links() }}
+<a class="btn btn-success" type="button" href="{{ route('users.create') }}">Добавить пользователя</a>
+{{-- <a class="btn btn-primary btn-sm" type="button" href="{{ route('users.exportintocsv') }}">Экспорт</a> --}}
     </div>
 @endsection

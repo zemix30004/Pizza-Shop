@@ -2,10 +2,10 @@
         <div class="filters row">
             <div class="col-sm-6 col-md-3">
                 <label for="price_from">@lang('main.price_from')
-                    <input type="number" name="price_from" id="price_from" size="6" step="20" min="0" value="{{ request()->price_from}}">
+                    <input type="number" name="price_from" id="price_from" size="4" step="20" min="0" value="{{ request()->price_from}}">
                 </label>
                 <label for="price_to">@lang('main.to')
-                    <input type="number" name="price_to" id="price_to" size="6" step="20" min="0" max="1000" value="{{ request()->price_to}}">
+                    <input type="number" name="price_to" id="price_to" size="4" step="20" min="0" max="1000" value="{{ request()->price_to}}">
                 </label>
             </div>
             <div class="col-sm-2 col-md-2">

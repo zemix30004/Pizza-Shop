@@ -3,9 +3,9 @@
 @section('title', __('main.category') . $category->__('name'))
 
 @section('content')
-        <h1>
+        <h2>
             {{ $category->__('name') }} {{ $category->products->count() }}
-        </h1>
+        </h2>
         <p>
             {{ $category->__('description') }}
         </p>

@@ -25,7 +25,7 @@
                 @else
                 @lang('main.not_available')
                 @endif
-                <a href="{{  route('product', [isset($category) ? $category->code : $product->category->code, $product->code]) }}" class="btn btn-default"
+                <a href="{{  route('product', [isset($category) ? $category->code : $product->category->code, $product->code]) }}" class="btn btn-info btn-sm"
                     role="button">@lang('main.more')</a>
                     @csrf
                 </form>

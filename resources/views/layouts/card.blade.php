@@ -23,9 +23,9 @@
                 @if($product->isAvailable())
                 <button type="submit" class="btn btn-primary btn-sm" role="button">@lang('main.add_to_cart')</button>
                 @else
-                @lang('main.not_available')
+                <a class="btn btn-secondary btn-sm">@lang('main.not_available')</a>
                 @endif
-                <a href="{{  route('product', [isset($category) ? $category->code : $product->category->code, $product->code]) }}" class="btn btn-default"
+                <a href="{{  route('product', [isset($category) ? $category->code : $product->category->code, $product->code]) }}" class="btn btn-info btn-sm"
                     role="button">@lang('main.more')</a>
                     @csrf
                 </form>

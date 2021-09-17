@@ -8,7 +8,7 @@
         <div class="panel">
             <a href="{{ route('category', $category->code) }}">
                 <img src="{{ asset('storage/' . $category->image) }}">
-                <h2>{{ $category->__('name') }}</h2>
+                <h3>{{ $category->__('name') }}</h3>
             </a>
             <p>
                 {{ $category->__('description') }}

@@ -9,9 +9,9 @@
 @section('content')
     <div class="col-md-12">
         @isset($product)
-            <h1>Редактировать товар <b>{{ $product->name }}</b></h1>
+            <h2>Редактировать товар <b>{{ $product->name }}</b></h2>
         @else
-            <h1>Добавить товар</h1>
+            <h2>Добавить товар</h2>
         @endisset
         <form method="POST" enctype="multipart/form-data"
             @isset($product)

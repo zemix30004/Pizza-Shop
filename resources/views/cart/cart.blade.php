@@ -9,7 +9,9 @@
         <table class="table table-striped">
             <thead>
             <tr>
+
                 <th>@lang('cart.name')</th>
+                <th>@lang('cart.adding')</th>
                 <th>@lang('cart.count')</th>
                 <th>@lang('cart.price')</th>
                 <th>@lang('cart.cost')</th>
@@ -24,7 +26,7 @@
                         {{  $product->__('name') }}
                     </a>
                 </td>
-                   {{-- <td><span class="badge">{{ $product->pivot->count }}</span></td> --}}
+                <td><span class="badge">{{$product->pivot->count}}</span>
                 <div class="btn-group form-inline">
                     <style>div.form-inline form{display: inline;}</style>
                     <form action="{{ route('cart-remove', $product) }}" method="POST">
@@ -37,7 +39,8 @@
                         class="glyphicon glyphicon-plus" aria-hidden="true">+</span></button>
                         @csrf
                         </form>
-                    </div>
+                </div>
+                </td>
                 <td>{{ $product->pivot->count }}</td>
                 <td>{{  $product->price }} @lang('main.uah')</td>
                 <td>{{ $order->getFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}</td>

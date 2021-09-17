@@ -5,6 +5,7 @@ return [
     'added' => 'Added to cart ',
     'removed' => 'Removed ',
     'name' => 'Name',
+    'adding' => 'Adding',
     'count' => 'Count',
     'price' => 'Price',
     'full_cost' => 'Full cost',

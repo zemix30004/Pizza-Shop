@@ -9,6 +9,7 @@
                 <li><a class="nav-link px-2 text-white" href="{{ route('categories.index') }}">Категории</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('products.index') }}">Продукты</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('orders.index') }}">Заказы</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('users.index') }}">Пользователи</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('index') }}">Главная</a></li>
                 @guest
                 @else

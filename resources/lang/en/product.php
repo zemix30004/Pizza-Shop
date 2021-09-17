@@ -5,5 +5,6 @@ return [
     'add_to_cart' => 'Add to Cart',
     'tell_me' => 'Tell me, when it will be available',
     'subscribe' => 'Subscribe',
-    'we_will_update' => 'We will update you, when the product will be available',
+    'we_will_update' => 'Thank you, we will let you know when the item arrives',
+    'not_available' => 'Product not available for order'
 ];

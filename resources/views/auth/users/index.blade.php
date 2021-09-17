@@ -1,10 +1,10 @@
 @extends('layouts.new-master')
 
-@section('title', 'Заказы')
+@section('title', 'Пользователи')
 
 @section('content')
     <div class="col-md-12">
-        <h2>Заказы</h2>
+        <h2>Пользователи</h2>
         <table class="table">
             <tbody>
             <tr>
@@ -12,28 +12,25 @@
                     #
                 </th>
                 <th>
-                    Статус
+                    ФИО
                 </th>
-                <th>
-                    Имя
-                </th>
-                <th>
+                {{-- <th>
                     Телефон
-                </th>
-                <th>
+                </th> --}}
+                {{-- <th>
                     Адрес
+                </th> --}}
+                <th>
+                    E-Mail
                 </th>
                 <th>
-                    Когда отправлен
-                </th>
-                <th>
-                    Сумма
+                    Время регистрации
                 </th>
                 <th>
                     Действия
                 </th>
             </tr>
-            @foreach($orders as $order)
+            {{-- @foreach($orders as $order)
                 <tr>
                     <td>{{ $order->id}}</td>
                     <td>{{ $order->status }}</td>
@@ -50,6 +47,7 @@
                             @else
                                 href="{{ route('person.orders.show', $order) }}"
                             @endadmin
+
                         >Открыть</a>
                         </div>
                     </td>

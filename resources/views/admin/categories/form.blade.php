@@ -37,7 +37,7 @@
 										</div>
 									</div>
 									<br>
-                                    <ul class="nav nav-tabs" id="namesTab" role="tablist">
+                                    {{-- <ul class="nav nav-tabs" id="namesTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="name1-tab" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name1" aria-selected="true">Название:</button>
                                         </li>
@@ -54,8 +54,8 @@
                                             @include('layouts.error', ['fieldName' => 'name_en'])
                                             <input type="text" class="form-control" name="name_en" id="name_en" value="{{ old('name_en') }}">
                                         </div>
-                                    </div>
-									{{-- <div class="input-group row">
+                                    </div> --}}
+									<div class="input-group row">
 										<label for="name" class="col-sm-2 col-form-label">Название: </label>
 										<div class="col-sm-6">
 											@error('name')
@@ -75,9 +75,9 @@
 											<input type="text" class="form-control" name="name_en" id="name_en"
 													value="@isset($category){{ $category->name_en }}@endisset">
 										</div>
-									</div> --}}
+									</div>
 									<br>
-                                    <ul class="nav nav-tabs" id="descsTab" role="tablist">
+                                    {{-- <ul class="nav nav-tabs" id="descsTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="desc1-tab" data-bs-toggle="tab" data-bs-target="#desc1" type="button" role="tab" aria-controls="#desc1" aria-selected="true">Описание:</button>
                                         </li>
@@ -93,7 +93,7 @@
                                                     <textarea name="description" id="description" cols="72"
                                                             rows="7">@isset($product){{ $product->description }}@endisset</textarea>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     {{-- <div class="tab-content" id="namesTab">
                                         <div class="tab-pane fade show active" id="desc2" role="tabpanel" aria-labelledby="desc2-tab">
                                             @include('layouts.error', ['fieldName' => 'desc2'])
@@ -103,7 +103,7 @@
                                                             rows="7">@isset($product){{ $product->description_en }}@endisset</textarea>
                                         </div>
                                     </div> --}}
-									{{-- <div class="input-group row">
+									<div class="input-group row">
 										<label for="description" class="col-sm-2 col-form-label">Описание: </label>
 										<div class="col-sm-6">
 											@error('description')
@@ -123,7 +123,7 @@
 								<textarea name="description_en" id="description_en" cols="72"
 													rows="7">@isset($category){{ $category->description_en }}@endisset</textarea>
 										</div>
-									</div> --}}
+									</div>
 									<br>
 									<div class="input-group row">
 										<label for="image" class="col-sm-2 col-form-label">Картинка: </label>

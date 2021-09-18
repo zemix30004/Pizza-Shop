@@ -17,7 +17,8 @@ class CategoryExport implements FromCollection, WithHeadings
             'Description',
             'Image',
             'Name_en',
-            'Description_en'
+            'Description_en',
+            'Count',
         ];
     }
     /**
@@ -25,7 +26,7 @@ class CategoryExport implements FromCollection, WithHeadings
      */
     public function collection()
     {
-        // return Category::all();
-        return collect(Category::getCategory());
+        return Category::all();
+        // return collect(Category::getCategory());
     }
 }

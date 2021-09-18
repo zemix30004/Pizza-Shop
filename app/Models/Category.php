@@ -13,17 +13,22 @@ class Category extends Model
 
     // protected $table = "categories";
 
-    public static function getCategory()
-    {
-        $records = DB::table('categories')->select('code', 'name', 'description', 'image', 'name_en', 'description_en')->get()->toArray();
-        return $records;
-    }
+    // public static function getCategory()
+    // {
+    //     $records = DB::table('categories')->select('code', 'name', 'description', 'image', 'name_en', 'description_en')->get()->toArray();
+    //     return $records;
+    // }
 
 
-    protected $fillable = ['code', 'name', 'description', 'image', 'name_en', 'description_en'];
+    protected $fillable = ['code', 'name', 'description', 'image', 'name_en', 'description_en', 'count'];
 
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function isAvailable()
+    {
+        return !$this->trashed() && $this->count > 0;;
     }
 }

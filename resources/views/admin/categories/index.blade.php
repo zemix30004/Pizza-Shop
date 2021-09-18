@@ -18,6 +18,9 @@
                     Название
                 </th>
                 <th>
+                    Количество
+                </th>
+                <th>
                     Действия
                 </th>
             </tr>
@@ -26,6 +29,7 @@
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->code }}</td>
                     <td>{{ $category->name }}</td>
+                    <td>{{ $category->count }}</td>
                     <td>
                         <div class="btn-group" role="group">
                             <form action="{{ route('categories.destroy', $category) }}" method="POST">

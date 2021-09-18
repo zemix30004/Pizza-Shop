@@ -36,6 +36,17 @@
                             </div>
                         </div>
                             <br>
+                            {{-- <div class="input-group row">
+                                <label for="name" class="col-sm-2 col-form-label">Название en: </label>
+                                <div class="col-sm-6">
+                                    @error('name_en')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                    <input type="text" class="form-control" name="name_en" id="name_en"
+                                        value="@isset($user){{ $user->name_en }}@endisset">
+                                </div>
+                            </div>
+                            <br> --}}
                             <div class="input-group row">
                                 <label for="email" class="col-sm-2 col-form-label">Email: </label>
                                 <div class="col-sm-6">

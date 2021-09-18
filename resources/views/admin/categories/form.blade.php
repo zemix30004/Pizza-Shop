@@ -133,6 +133,15 @@
 											</label>
 										</div>
 									</div>
+                                    <br>
+                                    <div class="input-group row">
+                                        <label for="count" class="col-sm-2 col-form-label">Количество: </label>
+                                        <div class="col-sm-2">
+                                            @include('layouts.error', ['fieldName' => 'count'])
+                                            <input type="text" class="form-control" name="count" id="count"
+                                                value="@isset($category){{ $category->count }}@endisset">
+                                        </div>
+                                    </div>
 									<button class="btn btn-success btn-sm">Сохранить</button>
 							</div>
 						</form>

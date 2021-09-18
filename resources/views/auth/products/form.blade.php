@@ -54,32 +54,54 @@
                 </div>
                 <br>
                 <ul class="nav nav-tabs" id="namesTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="name1-tab" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="home" aria-selected="true">Название:</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" active id="name2-tab" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="profile" aria-selected="false">Название en:</button>
-                    </li>
-                </ul>
+                    <li class="nav-ite1" role="presentation">
+                        <button class="nav-link active" id="name1-tab" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name1" aria-selected="true">Название:</button>
                 <div class="tab-content" id="namesTabContent">
                     <div class="tab-pane fade show active" id="name1" role="tabpanel" aria-labelledby="name1-tab">
-                        @include('layouts.error', ['fieldName' => 'name'])
-                        <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}">
-                    </div>
-                    <div class="tab-pane fade" id="name2" role="tabpanel" aria-labelledby="name2-tab">
-                        @include('layouts.error', ['fieldName' => 'name_en'])
-                        <input type="text" class="form-control" name="name_en" id="name_en" value="{{ old('name_en') }}">
+                        @include('layouts.error', ['fieldName' => 'name1'])
+                        <textarea name="name" id="name" cols="50" rows="1">{{ $product->name ?? '' }}</textarea>
+                        {{-- {{ $product->name }} --}}
                     </div>
                 </div>
-                <ul class="nav nav-tabs" id="descsTab" role="tablist">
+                </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="desc1-tab" data-bs-toggle="tab" data-bs-target="#desc1" type="button" role="tab" aria-controls="#desc1" aria-selected="true">Описание:</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="desc2-tab" data-bs-toggle="tab" data-bs-target="#desc2" type="button" role="tab" aria-controls="#desc2" aria-selected="false">Описание en:</button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="descsTabContent">
+                        <button class="nav-link" id="name2-tab" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="name2" aria-selected="false">Название en:</button>
+                        <div class="tab-content" id="namesTabContent">
+                    <div class="tab-pane fade show active" id="name2" role="tabpanel" aria-labelledby="name2-tab">
+                        @include('layouts.error', ['fieldName' => 'name2'])
+                        <textarea name="name_en" id="name_en" cols="50" rows="1">{{ $product->name_en ?? '' }}</textarea>
+                        {{-- {{ $product->name_en }} --}}
+                    </div>
+                </div>
+                </li>
+            </ul>
+                            <ul class="nav nav-tabs" id="descsTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="desc1-tab" data-bs-toggle="tab" data-bs-target="#desc1" type="button" role="tab" aria-controls="#desc1" aria-selected="true">Описание:</button>
+                                        <div class="tab-content" id="descsTabContent">
+                        <div class="tab-pane fade show active" id="desc1" role="tabpanel" aria-labelledby="desc1-tab">
+                            @include('layouts.error', ['fieldName' => 'desc1'])
+                            <textarea name="description" id="description" cols="50" rows="7">{{ $product->description ?? '' }}</textarea>
+                            {{-- @include('layouts.error', ['fieldName' => 'description'])
+                                    <textarea name="description" id="description" cols="72"
+                                            rows="7">@isset($product){{ $product->description }}@endisset</textarea> --}}
+                        </div>
+                    </div>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="desc2-tab" data-bs-toggle="tab" data-bs-target="#desc2" type="button" role="tab" aria-controls="#desc2" aria-selected="false">Описание en:</button>
+                                        <div class="tab-content" id="namesTab">
+                        <div class="tab-pane fade show active" id="desc2" role="tabpanel" aria-labelledby="desc2-tab">
+                            @include('layouts.error', ['fieldName' => 'desc2'])
+                            <textarea name="description_en" id="description_en" cols="50" rows="7">{{ $product->description_en ?? '' }}</textarea>
+                            {{-- @include('layouts.error', ['fieldName' => 'description_en'])
+                                    <textarea name="description_en" id="description_en" cols="72"
+                                            rows="7">@isset($product){{ $product->description_en }}@endisset</textarea> --}}
+                        </div>
+                    </div>
+                        </li>
+                    </ul>
+                {{-- <div class="tab-content" id="descsTabContent">
                     <div class="tab-pane fade show active" id="desc1" role="tabpanel" aria-labelledby="desc1-tab">
                         @include('layouts.error', ['fieldName' => 'name'])
                         <textarea name="description" id="description" cols="50" rows="7">{{ $product->description ?? '' }}</textarea>
@@ -87,7 +109,7 @@
 								<textarea name="description" id="description" cols="72"
                                         rows="7">@isset($product){{ $product->description }}@endisset</textarea>
                     </div>
-                </div>
+                </div> --}}
                 {{-- <div class="tab-content" id="namesTab">
                     <div class="tab-pane fade show active" id="desc2" role="tabpanel" aria-labelledby="desc2-tab">
                         @include('layouts.error', ['fieldName' => 'name_en'])

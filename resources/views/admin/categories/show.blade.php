@@ -6,14 +6,15 @@
     <div class="col-md-12">
         <h2>{{ $category->name}}</h2>
                     <ul class="nav nav-tabs" id="namesTab" role="tablist">
-                <li class="nav-item" role="presentation">
+                <li class="nav-ite1" role="presentation">
                     <button class="nav-link active" id="name1-tab" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name1" aria-selected="true">Название:</button>
-                    <div class="tab-content" id="namesTabContent">
+            <div class="tab-content" id="namesTabContent">
                 <div class="tab-pane fade show active" id="name1" role="tabpanel" aria-labelledby="name1-tab">
                     @include('layouts.error', ['fieldName' => 'name1'])
                     <textarea name="name" id="name" cols="50" rows="1">{{ $category->name ?? '' }}</textarea>
                     {{-- {{ $category->name }} --}}
                 </div>
+            </div>
             </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="name2-tab" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="name2" aria-selected="false">Название en:</button>

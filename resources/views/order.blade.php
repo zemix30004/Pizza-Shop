@@ -3,7 +3,7 @@
 @section('title', __('cart.place_order'))
 
 @section('content')
-    <h1>@lang('cart.approve_order'):</h1>
+    <h2>@lang('cart.approve_order'):</h2>
     <div class="container">
         <div class="row justify-content-center">
             <p>@lang('cart.full_cost'): <b>{{ $order->calculateFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}.</b></p>

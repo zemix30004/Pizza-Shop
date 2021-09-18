@@ -9,9 +9,9 @@
 	@section('content')
 		<div class="col-md-12">
 			@isset($category)
-					<h1>Редактировать Категорию <b>{{ $category->name }}</b></h1>
+					<h2>Редактировать Категорию <b>{{ $category->name }}</b></h2>
 						@else
-							<h1>Добавить Категорию</h1>
+							<h2>Добавить Категорию</h2>
 						@endisset
 
 						<form method="POST" enctype="multipart/form-data"

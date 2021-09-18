@@ -7,7 +7,7 @@
         <div class="container">
             <div class="justify-content-center">
                 <div class="panel">
-                    <h1>Заказ №{{ $order->id }}</h1>
+                    <h2>Заказ №{{ $order->id }}</h2>
                     <p>Статус: <b>{{ $order->status }}</b></p>
                     <p>Заказчик: <b>{{ $order->name }}</b></p>
                     <p>Номер телефона: <b>{{ $order->phone }}</b></p>
@@ -53,6 +53,9 @@
 {{-- <a class="btn btn-danger btn-sm" type="button"
 href="{{ route('products.edit', $product) }}">Отменить заказ</a> --}}
 <input type="submit" class="btn btn-danger btn-sm" name="cancel_order" value="@lang('cart.cancel_order')">
+@csrf
+@method('DELETE')
+<input class="btn btn-danger btn-sm" type="submit" value="Удалить заказ">
 </div>
 @endsection
 

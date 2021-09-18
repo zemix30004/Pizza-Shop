@@ -3,7 +3,7 @@
 @section('title', __('cart.place_order'))
 
 @section('content')
-    <h1>@lang('cart.approve_order'):</h1>
+    <h2>@lang('cart.approve_order'):</h2>
     <div class="container">
         <div class="row justify-content-center">
             <p>@lang('cart.full_cost'): <b>{{ $order->calculateFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}.</b></p>
@@ -62,7 +62,7 @@
                     <br>
                     <br>
                     @csrf
-                    <input type="submit" class="btn btn-success btn-sm" name="confirm_order" value="@lang('cart.approve_order')">
+                    <input type="submit" class="btn btn-success btn-sm" name="approve_order" value="@lang('cart.approve_order')">
                     <input type="submit" class="btn btn-danger btn-sm" name="cancel_order" value="@lang('cart.cancel_order')">
                 </div>
             </form>

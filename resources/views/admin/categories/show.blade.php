@@ -1,12 +1,12 @@
-@extends('layouts.new-master')
+@extends('layouts.admin')
 
 @section('title', 'Категория ' . $category->name)
 
 @section('content')
     <div class="col-md-12">
         <h2>{{ $category->name}}</h2>
-                    <tr class="nav nav-tabs" id="namesTab" role="tablist">
-                <td class="nav-item" role="presentation">
+                    <ul class="nav nav-tabs" id="namesTab" role="tablist">
+                <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="name1-tab" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name1" aria-selected="true">Название:</button>
                     <div class="tab-content" id="namesTabContent">
                 <div class="tab-pane fade show active" id="name1" role="tabpanel" aria-labelledby="name1-tab">
@@ -14,8 +14,8 @@
                     <textarea name="name" id="name" cols="50" rows="1">{{ $category->name ?? '' }}</textarea>
                     {{-- {{ $category->name }} --}}
                 </div>
-                </td>
-                <td class="nav-item" role="presentation">
+            </li>
+                <li class="nav-item" role="presentation">
                     <button class="nav-link" id="name2-tab" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="name2" aria-selected="false">Название en:</button>
                     <div class="tab-content" id="namesTabContent">
                 <div class="tab-pane fade show active" id="name2" role="tabpanel" aria-labelledby="name2-tab">
@@ -24,10 +24,10 @@
                     {{-- {{ $category->name_en }} --}}
                 </div>
             </div>
-            </td>
-            </tr>
-            <tr class="nav nav-tabs" id="descsTab" role="tablist">
-                <div class="nav-item" role="presentation">
+            </li>
+        </ul>
+            <ul class="nav nav-tabs" id="descsTab" role="tablist">
+                <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="desc1-tab" data-bs-toggle="tab" data-bs-target="#desc1" type="button" role="tab" aria-controls="#desc1" aria-selected="true">Описание:</button>
                                 <div class="tab-content" id="descsTabContent">
                 <div class="tab-pane fade show active" id="desc1" role="tabpanel" aria-labelledby="desc1-tab">
@@ -38,8 +38,8 @@
                                     rows="7">@isset($category){{ $category->description }}@endisset</textarea> --}}
                 </div>
             </div>
-                </div>
-                <div class="nav-item" role="presentation">
+                </li>
+                <li class="nav-item" role="presentation">
                     <button class="nav-link" id="desc2-tab" data-bs-toggle="tab" data-bs-target="#desc2" type="button" role="tab" aria-controls="#desc2" aria-selected="false">Описание en:</button>
                                 <div class="tab-content" id="namesTab">
                 <div class="tab-pane fade show active" id="desc2" role="tabpanel" aria-labelledby="desc2-tab">
@@ -50,8 +50,8 @@
                                     rows="7">@isset($category){{ $category->description_en }}@endisset</textarea> --}}
                 </div>
             </div>
-                </div>
-        </tr>
+                </li>
+        </ul>
         <table class="table">
             <tbody>
             <tr>

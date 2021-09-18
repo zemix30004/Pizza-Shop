@@ -1,4 +1,4 @@
-@extends('layouts.new-master')
+@extends('layouts.admin')
 
 @isset($product)
     @section('title', 'Редактировать товар ' . $product->name)
@@ -9,7 +9,7 @@
 @section('content')
     <div class="col-md-12">
         @isset($product)
-            <h2>Редактировать товар <b>{{ $product->name }}</b></h2>
+            <h2>Редактировать товар <br><b>{{ $product->name }}</b></h2>
         @else
             <h2>Добавить товар</h2>
         @endisset

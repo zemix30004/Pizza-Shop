@@ -1,12 +1,12 @@
-@extends('layouts.new-master')
+@extends('layouts.admin')
 
 @section('title', 'Продукт ' . $product->name)
 
 @section('content')
     <div class="col-md-12">
         <h2>{{ $product->name }}</h2>
-                    <tr class="nav nav-tabs" id="descsTab" role="tablist">
-                <div class="nav-item" role="presentation">
+                    <ul class="nav nav-tabs" id="descsTab" role="tablist">
+                <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="desc1-tab" data-bs-toggle="tab" data-bs-target="#desc1" type="button" role="tab" aria-controls="#desc1" aria-selected="true">Описание:</button>
                                 <div class="tab-content" id="descsTabContent">
                 <div class="tab-pane fade show active" id="desc1" role="tabpanel" aria-labelledby="desc1-tab">
@@ -17,8 +17,8 @@
                                     rows="7">@isset($product){{ $product->description }}@endisset</textarea> --}}
                 </div>
             </div>
-                </div>
-                <div class="nav-item" role="presentation">
+                </li>
+                <li class="nav-item" role="presentation">
                     <button class="nav-link" id="desc2-tab" data-bs-toggle="tab" data-bs-target="#desc2" type="button" role="tab" aria-controls="#desc2" aria-selected="false">Описание en:</button>
                                 <div class="tab-content" id="namesTab">
                 <div class="tab-pane fade show active" id="desc2" role="tabpanel" aria-labelledby="desc2-tab">
@@ -29,8 +29,8 @@
                                     rows="7">@isset($product){{ $product->description_en }}@endisset</textarea> --}}
                 </div>
             </div>
-                </div>
-            </tr>
+                </li>
+            </ul>
         <table class="table">
             <tbody>
             <tr>

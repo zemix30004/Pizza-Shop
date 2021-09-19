@@ -75,6 +75,7 @@ Route::middleware(['set_locale'])->group(function () {
                 // Route::get('/addcategory', [CategoryController::class, 'addCategory'])->name('categories.addcategory');
                 // Route::get('/exportinexcel', [CategoryController::class, 'exportInExcel'])->name('categories.exportinexcel');
                 Route::get('/exportincsv', [CategoryController::class, 'exportInCSV'])->name('categories.exportincsv');
+                // Route::get('/importform', [CategoryController::class, 'importForm'])->name('categories.importform');
                 Route::post('/import', [CategoryController::class, 'import'])->name('categories.import');
                 // Route::get('/addproduct', [ProductController::class, 'addProduct'])->name('products.addproduct');
                 // Route::get('/exportintoexcel', [ProductController::class, 'exportIntoExcel'])->name('products.exportintoexcel');

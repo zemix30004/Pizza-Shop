@@ -98,7 +98,7 @@ class ProductsTableSeeder extends Seeder
                 'category_id' => 2,
                 'name' => 'Жареный картофель',
                 'code' => 'baby_potato',
-                'description' => 'Самый обоажаемый жареный картофель',
+                'description' => 'Самый обожаемый жареный картофель',
                 'image' => 'products/Жареный картофель.jpg',
                 'price' => '40.00',
                 'size' => '160.00',

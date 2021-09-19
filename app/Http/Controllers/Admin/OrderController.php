@@ -44,4 +44,10 @@ class OrderController extends Controller
         $products = $order->products()->withTrashed()->get();
         return view('auth.orders.show', compact('order', 'products'));
     }
+
+    public function orderCancel(OrderRequest $request)
+    {
+        $this->cart->delete();
+        return redirect()->route('auth.orders.index');
+    }
 }

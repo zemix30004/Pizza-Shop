@@ -35,7 +35,7 @@ class CartController extends Controller
     public function cartConfirm(OrderRequest $request)
     {
         if ($request->get('cancel_order')) {
-            session()->flash('success', __('cart.cancel_order'));
+            session()->flash('success', __('cart.your_order_canceled'));
         } else {
             $email = Auth::check() ? Auth::user()->email : $request->email;
             if ((new Cart())->saveOrder($request->name, $request->phone, $request->address, $email)) {

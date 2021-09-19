@@ -155,11 +155,11 @@ class CategoryController extends Controller
     // }
     public function import(Request $request)
     {
-        // $request->validate([
-        //     'file' => 'required|max:10000|mimes:csv',
-        // ]);
+        $request->validate([
+            'file' => 'required|max:10000|mimes:csv',
+        ]);
 
-        Excel::import(new CategoryImport, $request->file('file')->store('temp'));
+        Excel::import(new CategoryImport, $request->file('file'));
 
         return back();
 

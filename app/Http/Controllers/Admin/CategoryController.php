@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Imports\CategoryImport;
 use App\Models\Category;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Exports\CategoryExport;
 use Maatwebsite\Excel\Facades\Excel;
+
 
 class CategoryController extends Controller
 {
@@ -137,13 +139,42 @@ class CategoryController extends Controller
     //     return "Records are inserted";
     // }
 
-    public function exportInExcel()
-    {
-        return Excel::download(new CategoryExport, 'categorylist.xlsx');
-    }
+    // public function exportInExcel()
+    // {
+    //     return Excel::download(new CategoryExport, 'categorylist.xlsx');
+    // }
 
     public function exportInCSV()
     {
         return Excel::download(new CategoryExport, 'categorylist.csv');
     }
+
+    // public function importForm()
+    // {
+    //     return view('import-form');
+    // }
+    public function import(Request $request)
+    {
+        // $request->validate([
+        //     'file' => 'required|max:10000|mimes:csv',
+        // ]);
+
+        Excel::import(new CategoryImport, $request->file('file')->store('temp'));
+
+        return back();
+
+        // Session::flash('success', 'Данные успешно импортированы!');
+        // return redirect()->route('categories.index');
+    }
+    // public function import(Request $request)
+    // {
+    //     Excel::import(new CategoryImport, $request->file('file'));
+    //     return "Данные успешно импортированы!";
+    // }
+    // public function categoryImport(Request $request)
+    // {
+    //     Excel::import(new CategoryImport(), $request->file('files'));
+
+    //     return redirect('/')->with('success', 'All good!');
+    // }
 }

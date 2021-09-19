@@ -53,9 +53,9 @@
 {{-- <a class="btn btn-danger btn-sm" type="button"
 href="{{ route('products.edit', $product) }}">Отменить заказ</a> --}}
 <input type="submit" class="btn btn-danger btn-sm" name="cancel_order" value="@lang('cart.cancel_order')">
-@csrf
+{{-- @csrf
 @method('DELETE')
-<input class="btn btn-danger btn-sm" type="submit" value="Удалить заказ">
+<input class="btn btn-danger btn-sm" type="submit" value="Удалить заказ"> --}}
 </div>
 @endsection
 

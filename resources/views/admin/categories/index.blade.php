@@ -47,5 +47,13 @@
         {{-- {{ $categories->links() }} --}}
         <a class="btn btn-success btn-sm" type="button"href="{{ route('categories.create') }}">Добавить категорию</a>
         <a class="btn btn-primary btn-sm" type="button" href="{{ route('categories.exportincsv') }}">Экспорт</a>
+<form method="POST" enctype "multipart/form-data" action="{{ route('categories.import') }}">
+    @csrf
+    <div class="form-group">
+        <label for="file">Выберите CSV</label>
+        <input type="file" name="file" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-secondary">Импорт</button>
+</form>
     </div>
 @endsection

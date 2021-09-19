@@ -9,7 +9,7 @@
 @section('content')
     <div class="col-md-12">
         @isset($user)
-            <h2>Редактировать пользователя <b>{{ $user->name }}</b></h2>
+            <h2>Редактировать пользователя <br><b>{{ $user->name }}</b></h2>
                 @else
                     <h2>Добавить пользователя</h2>
                 @endisset
@@ -57,6 +57,7 @@
                                         value="@isset($user){{ $user->email }}@endisset">
                                 </div>
                             </div>
+                            <br>
                         <button class="btn btn-success">Сохранить</button>
                     </div>
                 </form>

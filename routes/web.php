@@ -74,7 +74,7 @@ Route::middleware(['set_locale'])->group(function () {
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
                 Route::get('/exportinexcel', [CategoryController::class, 'exportInExcel'])->name('categories.exportinexcel');
                 Route::get('/exportincsv', [CategoryController::class, 'exportInCSV'])->name('categories.exportincsv');
-                Route::post('/categories/categoryimport', [CategoryController::class, 'categoryImport'])->name('categories.categoryimport');
+                Route::post('/categoryimport', [CategoryController::class, 'categoryImport'])->name('categories.categoryimport');
                 Route::get('/exportintoexcel', [ProductController::class, 'exportIntoExcel'])->name('products.exportintoexcel');
                 Route::get('/exportintocsv', [ProductController::class, 'exportIntoCSV'])->name('products.exportintocsv');
 

@@ -15,7 +15,7 @@
                                 @csrf
                                 <div class="form-group">
                                 <label for="file">Выберите CSV</label>
-                                <input type="file" name="file" class="form-control" />
+                                <input type="file" name="files" class="form-control" />
                             </div>
                             <button type="submit" class="btn btn-primary">Импорт</button>
                         </form>

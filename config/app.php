@@ -178,8 +178,6 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Maatwebsite\Excel\Concerns\WithHeadingRow::class,
-        Maatwebsite\Excel\Concerns\WithCustomCsvSettings::class,
 
     ],
 
@@ -235,7 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'CSV' => Maatwebsite\Excel\Concerns\WithCustomCsvSettings::class,
+        // 'CSV' => Maatwebsite\Excel\Concerns\WithCustomCsvSettings::class,
 
     ],
 

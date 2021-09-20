@@ -4,10 +4,8 @@ namespace App\Imports;
 
 use App\Models\Category;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class CategoryImport implements ToModel, WithHeadingRow, WithCustomCsvSettings
+class CategoryImport implements ToModel
 {
     /**
      * @param array $row

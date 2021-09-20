@@ -11,7 +11,7 @@
                     <h2>Импорт</h2>
                     </div>
                     <div class="card-body">
-                        {{-- <form method="POST" enctype "multipart/form-data" action="{{ route('categories.import') }}"> --}}
+                        {{-- <form method="POST" enctype "multipart/form-data" action="{{ route('categories.categoryimport') }}"> --}}
                                 @csrf
                                 <div class="form-group">
                                 <label for="file">Выберите CSV</label>

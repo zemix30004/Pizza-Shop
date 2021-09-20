@@ -4,9 +4,8 @@ namespace App\Exports;
 
 use App\Models\Product;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ProductExport implements FromCollection, WithHeadings
+class ProductExport implements FromCollection
 {
     public function headings(): array
     {

@@ -316,10 +316,10 @@ class ProductController extends Controller
     //     return "Records are inserted";
     // }
 
-    // public function exportIntoExcel()
-    // {
-    //     return Excel::download(new ProductExport, "productlist.xlsx");
-    // }
+    public function exportIntoExcel()
+    {
+        return Excel::download(new ProductExport, "productlist.xlsx");
+    }
 
     public function exportIntoCSV()
     {

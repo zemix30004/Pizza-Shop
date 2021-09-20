@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'all_products' => 'Все товары',
-    'product' => 'Товар',
+    'all_products' => 'Все продукты',
+    'product' => 'продукт',
     'categories' => 'Категории',
     'category' => 'Категория ',
     'cart' => 'В корзину',

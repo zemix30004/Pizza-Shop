@@ -4,9 +4,10 @@ namespace App\Imports;
 
 use App\Models\Category;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class CategoryImport implements ToModel, WithHeadingRow
+class CategoryImport implements ToModel, WithHeadingRow, WithCustomCsvSettings
 {
     /**
      * @param array $row
@@ -24,5 +25,11 @@ class CategoryImport implements ToModel, WithHeadingRow
             'description_en' => $row['description_en'],
             'count' => $row['count'],
         ]);
+    }
+    public function getCsvSettings(): array
+    {
+        return [
+            'input_encoding' => 'ISO-8859-1'
+        ];
     }
 }

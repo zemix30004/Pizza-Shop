@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Exports\CategoryExport;
 use Maatwebsite\Excel\Facades\Excel;
+// use Maatwebsite\Excel\Facades\Csv;
 
 
 class CategoryController extends Controller
@@ -118,6 +119,7 @@ class CategoryController extends Controller
 
     public function import(Request $request)
     {
+        dd($request);
         $request->validate([
             'file' => 'required|max:10000|mimes:csv,xlsx',
         ]);
@@ -134,10 +136,11 @@ class CategoryController extends Controller
     //     Excel::import(new CategoryImport, $request->file('file'));
     //     return "Данные успешно импортированы!";
     // }
-    public function categoryImport(Request $request)
-    {
-        Excel::import(new CategoryImport(), $request->file('files'));
+    // public function categoryImport(Request $request)
+    // {
+    //     Excel::import(new CategoryImport, $request->file('files'));
+    //     // (new CategoryImport)->import('categories.csv', null, \Maatwebsite\Excel\Excel::CSV);
 
-        return redirect('/')->with('success', 'All good!');
-    }
+    //     return redirect('/')->with('success', 'All good!');
+    // }
 }

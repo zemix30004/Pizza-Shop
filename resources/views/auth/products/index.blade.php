@@ -1,6 +1,6 @@
 @extends('layouts.new-master')
 
-@section('title', 'Товары')
+@section('title', 'Продукты')
 
 @section('content')
     <div class="col-md-12">
@@ -53,7 +53,7 @@
             </tbody>
         </table>
         {{-- {{ $products->links() }} --}}
-        <a class="btn btn-success btn-sm" type="button" href="{{ route('products.create') }}">Добавить товар</a>
+        <a class="btn btn-success btn-sm" type="button" href="{{ route('products.create') }}">Добавить продукт</a>
         <a class="btn btn-primary btn-sm" type="button" href="{{ route('products.exportintocsv') }}">Экспорт</a>
     </div>
 @endsection

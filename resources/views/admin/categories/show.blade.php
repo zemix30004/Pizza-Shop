@@ -93,7 +93,7 @@
                         height="240px"></td>
             </tr>
             <tr>
-                <td>Кол-во товаров</td>
+                <td>Кол-во продуктов</td>
                 <td>{{ $category->products->count() }}</td>
             </tr>
             </tbody>

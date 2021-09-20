@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 
 @isset($product)
-    @section('title', 'Редактировать товар ' . $product->name)
+    @section('title', 'Редактировать продукт ' . $product->name)
 @else
-    @section('title', 'Создать товар')
+    @section('title', 'Создать продукт')
 @endisset
 
 @section('content')
     <div class="col-md-12">
         @isset($product)
-            <h2>Редактировать товар <br><b>{{ $product->name }}</b></h2>
+            <h2>Редактировать продукт <br><b>{{ $product->name }}</b></h2>
         @else
-            <h2>Добавить товар</h2>
+            <h2>Добавить продукт</h2>
         @endisset
         <form method="POST" enctype="multipart/form-data"
             @isset($product)

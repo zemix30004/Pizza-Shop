@@ -117,12 +117,12 @@ class CategoryController extends Controller
         return Excel::download(new CategoryExport, 'categorylist.csv');
     }
 
-    public function import(Request $request)
+    public function categoryImport(Request $request)
     {
         dd($request);
-        $request->validate([
-            'file' => 'required|max:10000|mimes:csv,xlsx',
-        ]);
+        // $request->validate([
+        //     'file' => 'required|max:10000|mimes:csv,xlsx',
+        // ]);
 
         Excel::import(new CategoryImport, $request->file('file'));
 

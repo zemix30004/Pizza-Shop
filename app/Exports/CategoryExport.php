@@ -12,8 +12,8 @@ class CategoryExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'Code',
             'Name',
+            'Code',
             'Description',
             'Image',
             'Name_en',
@@ -26,7 +26,7 @@ class CategoryExport implements FromCollection, WithHeadings
      */
     public function collection()
     {
-        return Category::all();
-        // return collect(Category::getCategory());
+        // return Category::all();
+        return collect(Category::getCategory());
     }
 }

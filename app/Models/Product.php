@@ -16,7 +16,23 @@ class Product extends Model
 
     public static function getProduct()
     {
-        $records = DB::table('products')->select('category_id', 'name', 'code', 'description', 'image', 'price', 'size', 'is_spicy', 'is_veg', 'is_best_offer')->get()->toArray();
+        $records = DB::table('products')->select(
+            'name',
+            'code',
+            'description',
+            'image',
+            'price',
+            'size',
+            'is_spicy',
+            'is_veg',
+            'is_best_offer',
+            'hit',
+            'new',
+            'recommend',
+            'count',
+            'name_en',
+            'description_en'
+        )->get()->toArray();
         return $records;
     }
 
@@ -28,7 +44,6 @@ class Product extends Model
 
 
     protected $fillable = [
-        'category_id',
         'name',
         'code',
         'description',
@@ -37,13 +52,13 @@ class Product extends Model
         'size',
         'is_spicy',
         'is_veg',
-        'is_best_offer'
-        // 'hit',
-        // 'new',
-        // 'recommend',
-        // 'count',
-        // 'name_en',
-        // 'description_en'
+        'is_best_offer',
+        'hit',
+        'new',
+        'recommend',
+        'count',
+        'name_en',
+        'description_en'
     ];
 
 

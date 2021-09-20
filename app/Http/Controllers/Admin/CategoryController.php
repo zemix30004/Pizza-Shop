@@ -106,75 +106,38 @@ class CategoryController extends Controller
         return redirect()->route("admin.categories.index");
     }
 
-    // public function addCategory()
-    // {
-
-    //     $categories = [
-    //         [
-    //             "name" => "Пиццы",
-    //             "code" => "pizzas",
-    //             "description" => "Описание пицц на сайте",
-    //             "image" => "categories/Пиццы.png",
-    //         ],
-    //         [
-    //             "name" => "Закуски",
-    //             "code" => "snacks",
-    //             "description" => "Описание закусок на сайте",
-    //             "image" => "categories/Закуски.jpg",
-    //         ],
-    //         [
-    //             "name" => "Напитки",
-    //             "code" => "beverages",
-    //             "description" => "Описание напитков на сайте",
-    //             "image" => "categories/Напитки.jpg",
-    //         ],
-    //         [
-    //             "name" => "Десерты",
-    //             "code" => "desserts",
-    //             "description" => "Описание десертов на сайте",
-    //             "image" => "categories/Десерты.jpg",
-    //         ],
-    //     ];
-    //     Category::insert($categories);
-    //     return "Records are inserted";
-    // }
-
-    // public function exportInExcel()
-    // {
-    //     return Excel::download(new CategoryExport, 'categorylist.xlsx');
-    // }
+    public function exportInExcel()
+    {
+        return Excel::download(new CategoryExport, 'categorylist.xlsx');
+    }
 
     public function exportInCSV()
     {
         return Excel::download(new CategoryExport, 'categorylist.csv');
     }
 
-    // public function importForm()
-    // {
-    //     return view('import-form');
-    // }
     public function import(Request $request)
     {
         $request->validate([
-            'file' => 'required|max:10000|mimes:csv',
+            'file' => 'required|max:10000|mimes:csv,xlsx',
         ]);
 
         Excel::import(new CategoryImport, $request->file('file'));
 
-        return back();
-
-        // Session::flash('success', 'Данные успешно импортированы!');
-        // return redirect()->route('categories.index');
+        return back()->with('success', 'All good!');
     }
+    // Session::flash('success', 'Данные успешно импортированы!');
+    // return redirect()->route('categories.index');
+
     // public function import(Request $request)
     // {
     //     Excel::import(new CategoryImport, $request->file('file'));
     //     return "Данные успешно импортированы!";
     // }
-    // public function categoryImport(Request $request)
-    // {
-    //     Excel::import(new CategoryImport(), $request->file('files'));
+    public function categoryImport(Request $request)
+    {
+        Excel::import(new CategoryImport(), $request->file('files'));
 
-    //     return redirect('/')->with('success', 'All good!');
-    // }
+        return redirect('/')->with('success', 'All good!');
+    }
 }

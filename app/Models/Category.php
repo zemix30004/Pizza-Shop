@@ -13,15 +13,15 @@ class Category extends Model
 
     // protected $table = "categories";
 
-    // public static function getCategory()
-    // {
-    //     $records = DB::table('categories')->select('name, 'code', 'description', 'image', 'name_en', 'description_en')->get()->toArray();
-    //     return $records;
-    // }
+    public static function getCategory()
+    {
+        $records = DB::table('categories')->select('name', 'code', 'description', 'image', 'name_en', 'description_en', 'count')->get()->toArray();
+        return $records;
+    }
 
 
-    // protected $fillable = ['name', 'code', 'description', 'image', 'name_en', 'description_en', 'count'];
-    protected $fillable = ['name', 'code'];
+    protected $fillable = ['name', 'code', 'description', 'image', 'name_en', 'description_en', 'count'];
+    // protected $fillable = ['name', 'code'];
 
     public function products()
     {

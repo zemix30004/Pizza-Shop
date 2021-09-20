@@ -16,8 +16,8 @@ class CategoryImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Category([
-            'code' => $row['code'],
             'name' => $row['name'],
+            'code' => $row['code'],
             'description' => $row['description'],
             'image' => $row['image'],
             'name_en' => $row['name_en'],

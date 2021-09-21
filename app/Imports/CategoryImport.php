@@ -31,4 +31,10 @@ class CategoryImport implements ToModel, WithHeadingRow
             'input_encoding' => 'ISO-8859-1'
         ];
     }
+    // public function getCsvSettings(): array
+    // {
+    //     return [
+    //         'delimiter' => "\t"
+    //     ];
+    // }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+{{-- @extends('layouts.admin')
 
 @section('title', 'Импорт')
 
@@ -11,7 +11,7 @@
                     <h2>Импорт</h2>
                     </div>
                     <div class="card-body">
-                        {{-- <form method="POST" enctype "multipart/form-data" action="{{ route('categories.categoryimport') }}"> --}}
+                        <form method="POST" enctype "multipart/form-data" action="{{ route('categories.categoryimport') }}">
                                 @csrf
                                 <div class="form-group">
                                 <label for="file">Выберите CSV</label>
@@ -24,4 +24,4 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}

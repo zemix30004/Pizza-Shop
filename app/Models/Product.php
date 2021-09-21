@@ -17,6 +17,8 @@ class Product extends Model
     public static function getProduct()
     {
         $records = DB::table('products')->select(
+            'id',
+            'category_id',
             'name',
             'code',
             'description',

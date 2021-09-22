@@ -119,18 +119,20 @@ class CategoryController extends Controller
 
     public function categoryImport(Request $request)
     {
-        // dd($request->file);
+        // dd($request->file('sdgsgs', 'categories.csv'));
         // $request->validate([
         //     'file' => 'required|max:10000|mimes:csv,xlsx',
         // ]);
-        $path1 = $request->file('categorylist.csv')->store('temp');
-        $path = storage_path('app') . '/' . $path1;
-        Excel::import(new CategoryImport, $path);
+        // $path1 = $request->file(1, 'categories.csv'));
+        // $path = storage_path('app') . '/' . $path1;
+        // Excel::import(new CategoryImport, $path);
 
-        // Excel::import(new CategoryImport, request()->file('categorylist.csv'));
+        Excel::import(new CategoryImport, request()->file(1, 'C:\OpenServer\domains\Pizza-Shop\public\storage\categories\categories.csv'));
+        return back()->with('success', 'Данные успешно импортированы!');
         return "Данные успешно импортированы!";
+        //     (new CategoryImport)->import(null,'categories.csv', \Maatwebsite\Excel\Excel::CSV);
 
-        // return back()->with('success', 'All good!');
+        //  return redirect('/')->with('success', 'All good!');
     }
     // Session::flash('success', 'Данные успешно импортированы!');
     // return redirect()->route('categories.index');
@@ -140,8 +142,6 @@ class CategoryController extends Controller
     //     Excel::import(new CategoryImport, $request->file('file'));
     //     return "Данные успешно импортированы!";
     // }
-    // (new CategoryImport)->import('categories.csv', null, \Maatwebsite\Excel\Excel::CSV);
 
-    //     return redirect('/')->with('success', 'All good!');
-    // }
+
 }

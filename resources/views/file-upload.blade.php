@@ -73,7 +73,7 @@ if (empty($errors) == true) {
                 </ul>
             </button>
         </form>
-        <?php
+        {{-- <?php
 
 var_dump($POST);
 $pdo = new PDO("pgsql:host=localhost;dbname=Pizza-Shop","postgres", "vagon1977");
@@ -92,7 +92,7 @@ $statement->execute();
 //             // 'description_en' => $row['description_en'],
 //             // 'count' => $row['count'],
 // ];
-?>
+?> --}}
         <br>
         <form method="POST" enctype="multipart/form-data" action="{{ route('categories.categoryimport') }}">
 

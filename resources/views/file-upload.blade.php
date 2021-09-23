@@ -1,23 +1,28 @@
 <?php
-if(isset($_FILES['file'])){
-    $errors = array("file");
-    $file_name = $_FILES['file']['name'];
-    $file_size = $_FILES['file']['size'];
-    $file_type = $_FILES['file']['type'];
-    $file_ext = strlower(end(explode('.',$_FILES['file']['name'] )));
+// if(isset($_FILES['file'])){
+//     $errors = array("file");
+//     $file_name = $_FILES['file']['name'];
+//     $file_size = $_FILES['file']['size'];
+//     $file_type = $_FILES['file']['type'];
+//     $file_ext = strlower(end(explode('.',$_FILES['file']['name'] )));
 
-    $expensions = array("file");
-    // if($file_size> 2097152) {
-    //     $errors[] = 'Файл должен быть 2 мб';
-    // }
-if (empty($errors) == true) {
-    move_uploaded_file($file_tmp,"uploads/".$file_name);
-    echo "Success";
-}else{
-    print $errors;
-    }
-}
+//     $expensions = array("file");
+//     // if($file_size> 2097152) {
+//     //     $errors[] = 'Файл должен быть 2 мб';
+//     // }
+// if (empty($errors) == true) {
+//     move_uploaded_file($file_tmp,"uploads/".$file_name);
+//     echo "Success";
+// }else{
+//     print $errors;
+//     }}
+
+if(isset($_POST['submit']) and $_FILES) {
+    move_uploaded_file($_FILES['file']['tmp_name'], "uploads/".$_FILES['file']['name']);
+    echo "Success";}
+// }else echo "Error!";
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -73,6 +78,14 @@ if (empty($errors) == true) {
                 </ul>
             </button>
         </form>
+            <?php $path = scandir("C:\OpenServer\domains\Pizza-Shop\storage\app\public\uploads");
+foreach($path as $file) {
+    if($file != '.' and $file !='..'){
+    echo $file. "<br>";
+    }
+}
+?>
+
         {{-- <?php
 
 var_dump($POST);

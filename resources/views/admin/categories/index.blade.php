@@ -1,8 +1,8 @@
-    <?php
+    {{-- <?php
     var_dump($POST);
     $pdo = new PDO("pgsql:host=localhost;dbname=Pizza-Shop", "postgres", "vagon1977");
      var_dump($pdo);
-     ?>
+     ?> --}}
 
 
 @extends('layouts.admin')

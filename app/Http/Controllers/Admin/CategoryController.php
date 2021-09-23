@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\pgsql;
+use App\Classes\csv;
 use App\Imports\CategoryImport;
 use App\Models\Category;
 use App\Models\Product;
@@ -11,7 +13,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Exports\CategoryExport;
 use Maatwebsite\Excel\Facades\Excel;
-use Maatwebsite\Excel\Facades\Csv;
 
 
 class CategoryController extends Controller
@@ -121,15 +122,18 @@ class CategoryController extends Controller
     {
         // dd($request->file('sdgsgs', 'categories.csv'));
         // $request->validate([
-        //     'file' => 'required|max:10000|mimes:csv,xlsx',
+        //     'file' => 'required|max:10000|mimes:xls,xlsx,csv',
         // ]);
-        // $path1 = $request->file(1, 'categories.csv'));
+        // $path = $request->file('1', 'file')->getRealPath();
+        // $data = Excel::load($path)->get();
+        // dd($data);
+
         // $path = storage_path('app') . '/' . $path1;
         // Excel::import(new CategoryImport, $path);
 
-        Excel::import(new CategoryImport, request()->file(1, 'C:\OpenServer\domains\Pizza-Shop\public\storage\categories\categories.csv'));
-        return back()->with('success', 'Данные успешно импортированы!');
-        return "Данные успешно импортированы!";
+        // Excel::import(new CategoryImport, request()->file(1, 'C:\OpenServer\domains\Pizza-Shop\public\storage\categories\categories.csv'));
+        // return back()->with('success', 'Данные успешно импортированы!');
+        // return "Данные успешно импортированы!";
         //     (new CategoryImport)->import(null,'categories.csv', \Maatwebsite\Excel\Excel::CSV);
 
         //  return redirect('/')->with('success', 'All good!');
@@ -137,11 +141,9 @@ class CategoryController extends Controller
     // Session::flash('success', 'Данные успешно импортированы!');
     // return redirect()->route('categories.index');
 
-    // public function import(Request $request)
-    // {
-    //     Excel::import(new CategoryImport, $request->file('file'));
-    //     return "Данные успешно импортированы!";
-    // }
-
-
+    public function import(Request $request)
+    {
+        Excel::import(new CategoryImport, $request->file('file'));
+        return "Данные успешно импортированы!";
+    }
 }

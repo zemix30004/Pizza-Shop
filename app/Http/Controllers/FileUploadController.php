@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\File;
 
+
 class FileUploadController extends Controller
 {
     public function createForm()
@@ -14,9 +15,9 @@ class FileUploadController extends Controller
 
     public function fileUpload(Request $req)
     {
-        $req->validate([
-            'file' => 'required|mimes:png,jpg,jpeg|max:2048'
-        ]);
+        // $req->validate([
+        //     'file' => 'required|max:10000|mimes:csv'
+        // ]);
 
         $fileModel = new File;
 
@@ -29,8 +30,13 @@ class FileUploadController extends Controller
             $fileModel->save();
 
             return back()
-                ->with('success', 'File has been uploaded.')
+                ->with('success', 'File has been uploaded')
                 ->with('file', $fileName);
         }
     }
 }
+// fileUpload($_FILES['file']);
+// addCategory($_POST['name'], $_POST['code']);
+// require 'Category.php';
+// $filename = fileUpload($_FILES['image']);
+// addCategory($POST['name'], $_POST['code'], $filename);

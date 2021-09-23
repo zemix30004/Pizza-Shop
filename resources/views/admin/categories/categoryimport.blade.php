@@ -11,13 +11,13 @@
                     <h2>Импорт</h2>
                     </div>
                     <div class="card-body">
-                        <form method="POST" enctype "multipart/form-data" action="{{ route('categories.categoryimport') }}">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('categories.categoryimport') }}">
                                 @csrf
                                 <div class="form-group">
                                 <label for="file">Выберите CSV</label>
                                 <input type="file" name="file" class="form-control" />
                             </div>
-                            <button type="submit" class="btn btn-primary">Импорт</button>
+                            <button type="submit" name="submit" class="btn btn-primary">Импорт</button>
                         </form>
                     </div>
                 </div>

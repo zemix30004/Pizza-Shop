@@ -1,3 +1,10 @@
+    <?php
+    var_dump($POST);
+    $pdo = new PDO("pgsql:host=localhost;dbname=Pizza-Shop", "postgres", "vagon1977");
+     var_dump($pdo);
+     ?>
+
+
 @extends('layouts.admin')
 
 @section('title', 'Категории')
@@ -44,16 +51,19 @@
             @endforeach
             </tbody>
         </table>
+
         {{-- {{ $categories->links() }} --}}
         <a class="btn btn-success btn-sm" type="button"href="{{ route('categories.create') }}">Добавить категорию</a>
         <a class="btn btn-primary btn-sm" type="button" href="{{ route('categories.exportincsv') }}">Экспорт</a>
-<form method="POST" enctype "multipart/form-data" action="{{ route('categories.categoryimport') }}">
-    @csrf
+<form method="POST" enctype="multipart/form-data" action="{{ route('categories.categoryimport') }}">
+
     <div class="form-group">
         <label for="file">Выберите CSV</label>
-        <input type="file" name="file" class="form-control" />
+        <input type="file" name="file" accept=".csv" class="form-control">
+        {{-- {{ $errors->first('file') }} --}}
+        @csrf
     </div>
-    <button type="submit" class="btn btn-secondary">Импорт</button>
+    <button type="submit" name="submit" class="btn btn-secondary">Импорт</button>
 </form>
     </div>
 @endsection

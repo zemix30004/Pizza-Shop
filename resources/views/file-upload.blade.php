@@ -1,21 +1,26 @@
-<?php
-// if(isset($_FILES['file'])){
-//     $errors = array("file");
-//     $file_name = $_FILES['file']['name'];
-//     $file_size = $_FILES['file']['size'];
-//     $file_type = $_FILES['file']['type'];
-//     $file_ext = strlower(end(explode('.',$_FILES['file']['name'] )));
 
-//     $expensions = array("file");
-//     // if($file_size> 2097152) {
-//     //     $errors[] = 'Файл должен быть 2 мб';
-//     // }
-// if (empty($errors) == true) {
-//     move_uploaded_file($file_tmp,"uploads/".$file_name);
-//     echo "Success";
-// }else{
-//     print $errors;
-//     }}
+{{-- <?php
+var_dump($_POST);
+?> --}}
+<?php
+if(isset($_FILES['file'])){
+    $errors = array("file");
+    $file_name = $_FILES['file']['name'];
+    $file_size = $_FILES['file']['size'];
+    $file_type = $_FILES['file']['type'];
+    $file_ext = strlower(end(explode('.',$_FILES['file']['name'] )));
+
+    $expensions = array("file");
+    // if($file_size> 2097152) {
+    //     $errors[] = 'Файл должен быть 2 мб';
+    // }
+if (empty($errors) == true) {
+    move_uploaded_file($file_tmp,"uploads/".$file_name);
+    echo "Success";
+}else{
+    print $errors;
+    }
+}
 
 if(isset($_POST['submit']) and $_FILES) {
     move_uploaded_file($_FILES['file']['tmp_name'], "uploads/".$_FILES['file']['name']);
@@ -47,7 +52,7 @@ if(isset($_POST['submit']) and $_FILES) {
 <body>
 
     <div class="container mt-5">
-        <form action="{{route('fileUpload')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('fileUpload')}}" method="POST" enctype="multipart/form-data">
     <h3 class="text-center mb-5">Upload and Import CSVFile in Laravel</h3>
             @csrf
             @if ($message = Session::get('success'))
@@ -78,7 +83,8 @@ if(isset($_POST['submit']) and $_FILES) {
                 </ul>
             </button>
         </form>
-            <?php $path = scandir("C:\OpenServer\domains\Pizza-Shop\storage\app\public\uploads");
+<?php
+$path = scandir("C:\OpenServer\domains\Pizza-Shop\storage\app\public\uploads");
 foreach($path as $file) {
     if($file != '.' and $file !='..'){
     echo $file. "<br>";
@@ -86,25 +92,12 @@ foreach($path as $file) {
 }
 ?>
 
-        {{-- <?php
-
-var_dump($POST);
+{{-- <?php
 $pdo = new PDO("pgsql:host=localhost;dbname=Pizza-Shop","postgres", "vagon1977");
-$sql = "INSERT INTO categories(name, code) VALUES(:name, :code)";
+$sql = "INSERT INTO categories(name) VALUES(:name)";
 $statement = $pdo->prepare()($sql);
 $statement->bindParam(":name", $_POST['name']);
-$statement->bindParam(":code", $_POST['code']);
 $statement->execute();
-
-
-// [           'name' => "qwrqwr",
-//             'code' => "sdgsdg",
-//             // 'description' => "fhdfhd",
-//             // 'image' => $row['image'],
-//             // 'name_en' => $row['name_en'],
-//             // 'description_en' => $row['description_en'],
-//             // 'count' => $row['count'],
-// ];
 ?> --}}
         <br>
         <form method="POST" enctype="multipart/form-data" action="{{ route('categories.categoryimport') }}">

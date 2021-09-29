@@ -100,7 +100,7 @@ $statement->bindParam(":name", $_POST['name']);
 $statement->execute();
 ?> --}}
         <br>
-        <form method="POST" enctype="multipart/form-data" action="{{ route('categories.categoryimport') }}">
+        <form method="POST" enctype="multipart/form-data" action="">
 
             <div class="form-group">
                 <input type="file" name="file" class="form-control" id="chooseFile" accept=".csv">

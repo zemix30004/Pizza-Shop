@@ -68,8 +68,9 @@ Route::middleware(['set_locale'])->group(function () {
         Route::group([
             'namespace' => '',
             'prefix' => 'admin',
+            'as' => 'admin.'
         ], function () {
-            Route::group(['middleware' => 'is_admin'], function () {
+            Route::group(['middleware' => 'is_admin', ], function () {
                 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
                 Route::get('/exportinexcel', [CategoryController::class, 'exportInExcel'])->name('categories.exportinexcel');
@@ -93,7 +94,7 @@ Route::middleware(['set_locale'])->group(function () {
 
             // Route::get('/', [MainController::class, 'adminIndex'])->name('admin.index');
             //            Route::get('/admin/orders', [MainController::class, 'index'])->name('admin.orders');
-            Route::get('/', [OrderController::class, 'index'])->name('admin.index');
+            Route::get('/', [OrderController::class, 'index'])->name('index');
         });
     });
     Route::get('/', [MainController::class, 'index'])->name('index');

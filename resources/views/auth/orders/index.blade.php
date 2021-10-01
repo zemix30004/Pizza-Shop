@@ -36,7 +36,7 @@
             @foreach($orders as $order)
                 <tr>
                     <td>{{ $order->id}}</td>
-                    <td>{{ $order->status }}</td>
+                    <td>{{ $order->title_status }}</td>
                     <td>{{ $order->name }}</td>
                     <td>{{ $order->phone }}</td>
                     <td>{{ $order->address }}</td>
@@ -46,7 +46,7 @@
                         <div class="btn-group" role="group">
                             <a class="btn btn-success btn-sm" type="button"
                             @admin
-                                href="{{ route('orders.show', $order) }}"
+                                href="{{ route('admin.orders.show', $order) }}"
                             @else
                                 href="{{ route('person.orders.show', $order) }}"
                             @endadmin

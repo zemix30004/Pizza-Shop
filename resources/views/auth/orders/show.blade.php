@@ -50,7 +50,10 @@
         </div>
     </div>
     <div class="btn">
-<input type="submit" class="btn btn-danger btn-sm" name="cancel_order" value="@lang('cart.cancel_order')">
-</div>
+        <a class="btn btn-danger btn-sm" href="{{ 'admin/order/cancel/{order}' }}">@lang('cart.cancel_order')</a>
+{{--        <form action="">--}}
+{{--            <input type="submit" class="btn btn-danger btn-sm" name="cancel_order" value="@lang('cart.cancel_order')">--}}
+{{--        </form>--}}
+    </div>
 @endsection
 

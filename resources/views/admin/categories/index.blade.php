@@ -39,9 +39,9 @@
                     <td>{{ $category->count }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <form action="{{ route('categories.destroy', $category) }}" method="POST">
-                                <a class="btn btn-success btn-sm" type="button" href="{{ route('categories.show', $category) }}">Открыть</a>
-                                <a class="btn btn-warning btn-sm" type="button" href="{{ route('categories.edit', $category) }}">Редактировать</a>
+                            <form action="{{ route('admin.categories.destroy', $category) }}" method="POST">
+                                <a class="btn btn-success btn-sm" type="button" href="{{ route('admin.categories.show', $category) }}">Открыть</a>
+                                <a class="btn btn-warning btn-sm" type="button" href="{{ route('admin.categories.edit', $category) }}">Редактировать</a>
                                 @csrf
                                 @method('DELETE')
                                 <input class="btn btn-danger btn-sm" type="submit" value="Удалить"></form>

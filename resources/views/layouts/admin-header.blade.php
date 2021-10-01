@@ -6,10 +6,10 @@
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a class="nav-link px-2 text-secondary" href="{{ route('admin.index') }}">Админ</a></li>
-                <li><a class="nav-link px-2 text-white" href="{{ route('categories.index') }}">Категории</a></li>
-                <li><a class="nav-link px-2 text-white" href="{{ route('products.index') }}">Продукты</a></li>
-                <li><a class="nav-link px-2 text-white" href="{{ route('orders.index') }}">Заказы</a></li>
-                <li><a class="nav-link px-2 text-white" href="{{ route('users.index') }}">Пользователи</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('admin.categories.index') }}">Категории</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('admin.products.index') }}">Продукты</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('admin.orders.index') }}">Заказы</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('admin.users.index') }}">Пользователи</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('index') }}">Главная</a></li>
                 @guest
                 @else

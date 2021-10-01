@@ -84,12 +84,12 @@ if(isset($_POST['submit']) and $_FILES) {
             </button>
         </form>
 <?php
-$path = scandir("C:\OpenServer\domains\Pizza-Shop\storage\app\public\uploads");
-foreach($path as $file) {
-    if($file != '.' and $file !='..'){
-    echo $file. "<br>";
-    }
-}
+//$path = scandir("C:\OpenServer\domains\Pizza-Shop\storage\app\public\uploads");
+//foreach($path as $file) {
+//    if($file != '.' and $file !='..'){
+//    echo $file. "<br>";
+//    }
+//}
 ?>
 
 {{-- <?php

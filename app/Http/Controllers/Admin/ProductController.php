@@ -51,7 +51,7 @@ class ProductController extends Controller
         }
 
         Product::create($params);
-        return redirect()->route("products.index");
+        return redirect()->route("admin.products.index");
     }
 
     /**
@@ -101,7 +101,7 @@ class ProductController extends Controller
 
 
         $product->update($params);
-        return redirect()->route("products.index");
+        return redirect()->route("admin.products.index");
     }
 
     /**
@@ -113,7 +113,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route("products.index");
+        return redirect()->route("admin.products.index");
     }
 
     public function exportIntoExcel()

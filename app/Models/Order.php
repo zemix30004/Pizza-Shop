@@ -7,6 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = ['user_id'];
+
+    const STATUS_NEW = 0;
+    const STATUS_APPROVED = 1;
+    const STATUS_CANCELLED = 2;
+
+    protected $statuses = [
+        self::STATUS_NEW => 'Новый',
+        self::STATUS_APPROVED => 'Подтверджен',
+        self::STATUS_CANCELLED => 'Отменен',
+    ];
+
+    // $this->title_status
+    public function getTitleStatusAttribute() {
+        return $this->statuses[$this->status];
+    }
+
+
     public function products()
     {
         return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
@@ -45,7 +62,7 @@ class Order extends Model
 
     public function saveOrder($name, $phone, $address)
     {
-        if ($this->status == 0) {
+        if ($this->status == self::STATUS_NEW) {
             $this->name = $name;
             $this->phone = $phone;
             $this->address = $address;

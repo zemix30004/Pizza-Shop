@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <p>@lang('cart.full_cost'): <b>{{ $order->calculateFullSum() }} {{ App\Services\CurrencyConversion::getCurrencySymbol() }}.</b></p>
             <form action="{{ route('cart-confirm') }}" method="POST">
-                <>
+                <div>
                     <p>@lang('cart.personal_data')</p>
                     <div class="container">
                         <div class="form-group">

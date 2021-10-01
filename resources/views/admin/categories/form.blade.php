@@ -15,9 +15,9 @@
 						@endisset
 						<form method="POST" enctype="multipart/form-data"
 							@isset($category)
-							action="{{ route('categories.update', $category) }}"
+							action="{{ route('admin.categories.update', $category) }}"
 							@else
-							action="{{ route('categories.store') }}"
+							action="{{ route('admin.categories.store') }}"
 						@endisset
 						>
 							<div>
@@ -36,6 +36,21 @@
 										</div>
 									</div>
 									<br>
+                                        <ul>
+                                            <li class="nav nav-tabs" id="nav-tab-name" role="tablist">
+                                                <button class="nav-link active" id="nav-name1-tab" data-bs-toggle="tab" data-bs-target="#nav-name1" type="button" role="tab" aria-controls="nav-name1" aria-selected="true">Home</button>
+                                                <button class="nav-link" id="nav-name2-tab" data-bs-toggle="tab" data-bs-target="#nav-name2" type="button" role="tab" aria-controls="nav-name1" aria-selected="false">Profile</button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="nav-name1" role="tabpanel" aria-labelledby="nav-name1-tab">
+                                                home
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-name2" role="tabpanel" aria-labelledby="nav-name2-tab">
+                                                profile
+                                            </div>
+                                        </div>
+
                                     <ul class="nav nav-tabs" id="namesTab" role="tablist">
                                         <li class="nav-ite1" role="presentation">
                                             <button class="nav-link active" id="name1-tab" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name1" aria-selected="true">Название:</button>

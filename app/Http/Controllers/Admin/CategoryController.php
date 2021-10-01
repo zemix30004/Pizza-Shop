@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Classes\pgsql;
-use App\Classes\csv;
 use App\Imports\CategoryImport;
 use App\Models\Category;
-use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Exports\CategoryExport;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
-use Illuminate\Support\Facades\DB;
-
 
 class CategoryController extends Controller
 {
@@ -42,7 +39,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryRequest $request)
@@ -60,7 +57,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
@@ -71,7 +68,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
@@ -82,8 +79,8 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function update(CategoryRequest $request, Category $category)
@@ -97,10 +94,11 @@ class CategoryController extends Controller
         $category->update($params);
         return redirect()->route("admin.categories.index");
     }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)
@@ -116,31 +114,67 @@ class CategoryController extends Controller
 
     public function exportInCSV()
     {
-        return Excel::download(new CategoryExport, 'categorylist.csv');
+        $categories = Category::query()->get();
+        if (empty($categories)) {
+            return back();
+        }
+
+        $uploadPath = storage_path('uploads/');
+        if (!is_dir($uploadPath)) {
+            mkdir($uploadPath);
+        }
+
+        $filename = $uploadPath . Str::uuid()->toString() . '.csv';
+        $fp = fopen($filename, 'w');
+        fputcsv($fp, ['name', 'code', 'description']);
+        foreach ($categories as $category) {
+            fputcsv($fp, [
+                $category->name,
+                $category->code,
+                $category->description
+            ]);
+        }
+        fclose($fp);
+
+        return response()->download($filename, 'categories.csv');
     }
 
     public function categoryImport(Request $request)
     {
-        // dd($request->file('sdgsgs', 'categories.csv'));
-        // $request->validate([
-        //     'file' => 'required|max:10000|mimes:xls,xlsx,csv',
-        // ]);
-        // $path = $request->file('1', 'file')->getRealPath();
-        // $data = Excel::load($path)->get();
-        // dd($data);
+        $request->validate([
+            'file' => 'required|max:10000|mimes:xls,xlsx,csv',
+        ]);
 
-        // $path = storage_path('app') . '/' . $path1;
-        // Excel::import(new CategoryImport, $path);
+        if ($request->hasFile('file')) {
+            $path = $request->file('file')->path();
 
-        // Excel::import(new CategoryImport, request()->file(1, 'C:\OpenServer\domains\Pizza-Shop\public\storage\categories\categories.csv'));
-        // return back()->with('success', 'Данные успешно импортированы!');
-        // return "Данные успешно импортированы!";
-        //     (new CategoryImport)->import(null,'categories.csv', \Maatwebsite\Excel\Excel::CSV);
+            if (($handle = fopen($path, "r")) !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                    if ($data[0] === 'name') {
+                        continue;
+                    }
+                    $name = $data[0];
+                    $code = $data[1];
+                    $description = $data[2];
 
-        //  return redirect('/')->with('success', 'All good!');
+                    $validator = Validator::make(['name' => $name], [
+                        'name' => 'required|unique:categories|max:255',
+                    ]);
+
+                    if (!$validator->fails()) {
+                        Category::create([
+                            'name' => $name,
+                            'description' => $description,
+                            'code' => !empty($code) ? $code : Str::uuid()->toString()
+                        ]);
+                    }
+                }
+                fclose($handle);
+            }
+        }
+
+        return back()->with('success', 'All good!');
     }
-    // Session::flash('success', 'Данные успешно импортированы!');
-    // return redirect()->route('categories.index');
 
     public function import(Request $request)
     {

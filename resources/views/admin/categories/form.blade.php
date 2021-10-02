@@ -54,7 +54,7 @@
                                             </div>
                                             <div class="tab-pane fade" id="nav-name2" role="tabpanel" aria-labelledby="nav-name2-tab">
                                                 <div class="tab-pane fade show active" id="name2" role="tabpanel" aria-labelledby="name2-tab">
-                                                    @include('layouts.error', ['fieldName' => 'name_en'])
+                                                    @include('layouts.error', ['fieldName' => 'name2'])
                                                     <textarea name="name_en" id="name_en" cols="30" rows="1">{{ $category->name_en ?? '' }}</textarea>
                                                     {{-- {{ $category->name_en }} --}}
                                                 </div>

@@ -40,9 +40,9 @@
                     <td>{{ $product->count }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <form action="{{ route('products.destroy', $product) }}" method="POST">
-                                <a class="btn btn-success btn-sm" type="button" href="{{ route('products.show', $product) }}">Открыть</a>
-                                <a class="btn btn-warning btn-sm" type="button" href="{{ route('products.edit', $product) }}">Редактировать</a>
+                            <form action="{{ route('admin.products.destroy', $product) }}" method="POST">
+                                <a class="btn btn-success btn-sm" type="button" href="{{ route('admin.products.show', $product) }}">Открыть</a>
+                                <a class="btn btn-warning btn-sm" type="button" href="{{ route('admin.products.edit', $product) }}">Редактировать</a>
                                 @csrf
                                 @method('DELETE')
                                 <input class="btn btn-danger btn-sm" type="submit" value="Удалить"></form>
@@ -53,8 +53,8 @@
             </tbody>
         </table>
         {{-- {{ $products->links() }} --}}
-        <a class="btn btn-success btn-sm" type="button" href="{{ route('products.create') }}">Добавить продукт</a>
-        <a class="btn btn-primary btn-sm" type="button" href="{{ route('products.exportintocsv') }}">Экспорт</a>
+        <a class="btn btn-success btn-sm" type="button" href="{{ route('admin.products.create') }}">Добавить продукт</a>
+        <a class="btn btn-primary btn-sm" type="button" href="{{ route('admin.products.exportintocsv') }}">Экспорт</a>
     </div>
 @endsection
 

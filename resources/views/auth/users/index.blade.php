@@ -31,9 +31,9 @@
                     <td>{{ $user->email }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <form action="{{ route('users.destroy', $user) }}" method="POST">
-                                <a class="btn btn-success btn-sm" type="button" href="{{ route('users.show', $user) }}">Открыть</a>
-                                <a class="btn btn-warning btn-sm" type="button" href="{{ route('users.edit', $user) }}">Редактировать</a>
+                            <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
+                                <a class="btn btn-success btn-sm" type="button" href="{{ route('admin.users.show', $user) }}">Открыть</a>
+                                <a class="btn btn-warning btn-sm" type="button" href="{{ route('admin.users.edit', $user) }}">Редактировать</a>
                                 {{-- <a class="btn btn-primary btn-sm" type="button" href="{{ route('users.update_token', $user) }}">Обновить токен</a> --}}
                                 @csrf
                                 @method('DELETE')
@@ -46,7 +46,7 @@
             </tbody>
         </table>
  {{ $users->links() }}
-<a class="btn btn-success" type="button" href="{{ route('users.create') }}">Добавить пользователя</a>
+<a class="btn btn-success" type="button" href="{{ route('admin.users.create') }}">Добавить пользователя</a>
 {{-- <a class="btn btn-primary btn-sm" type="button" href="{{ route('users.exportintocsv') }}">Экспорт</a> --}}
     </div>
 @endsection

@@ -53,9 +53,9 @@
         </table>
 
         {{-- {{ $categories->links() }} --}}
-        <a class="btn btn-success btn-sm" type="button"href="{{ route('categories.create') }}">Добавить категорию</a>
-        <a class="btn btn-primary btn-sm" type="button" href="{{ route('categories.exportincsv') }}">Экспорт</a>
-<form method="POST" enctype="multipart/form-data" action="{{ route('categories.categoryimport') }}">
+        <a class="btn btn-success btn-sm" type="button"href="{{ route('admin.categories.create') }}">Добавить категорию</a>
+        <a class="btn btn-primary btn-sm" type="button" href="{{ route('admin.categories.exportincsv') }}">Экспорт</a>
+<form method="POST" enctype="multipart/form-data" action="{{ route('admin.categories.categoryimport') }}">
 
     <div class="form-group">
         <label for="file">Выберите CSV</label>

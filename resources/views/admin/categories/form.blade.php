@@ -38,16 +38,16 @@
 									<br>
                                         <ul>
                                             <li class="nav nav-tabs" id="nav-tab-name" role="tablist">
-                                                <button class="nav-link active" id="nav-name1-tab" data-bs-toggle="tab" data-bs-target="#nav-name1" type="button" role="tab" aria-controls="nav-name1" aria-selected="true">Home</button>
-                                                <button class="nav-link" id="nav-name2-tab" data-bs-toggle="tab" data-bs-target="#nav-name2" type="button" role="tab" aria-controls="nav-name1" aria-selected="false">Profile</button>
+                                                <button class="nav-link active" id="nav-name1-tab" data-bs-toggle="tab" data-bs-target="#nav-name1" type="button" role="tab" aria-controls="nav-name1" aria-selected="true">Название</button>
+                                                <button class="nav-link" id="nav-name2-tab" data-bs-toggle="tab" data-bs-target="#nav-name2" type="button" role="tab" aria-controls="nav-name2" aria-selected="false">Название en</button>
                                             </li>
                                         </ul>
                                         <div class="tab-content" id="nav-tabContent">
                                             <div class="tab-pane fade show active" id="nav-name1" role="tabpanel" aria-labelledby="nav-name1-tab">
-                                                home
+                                                Пиццы
                                             </div>
                                             <div class="tab-pane fade" id="nav-name2" role="tabpanel" aria-labelledby="nav-name2-tab">
-                                                profile
+                                                Pizzas
                                             </div>
                                         </div>
 

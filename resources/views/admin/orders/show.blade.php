@@ -50,7 +50,14 @@
         </div>
     </div>
     <div class="btn">
-        <a class="btn btn-danger btn-sm" href="{{ 'cancel/{order}' }}">@lang('cart.cancel_order')</a>
+        @if($order->status == 'ordered')
+        <a class="btn btn-danger btn-sm" href="{{ route('/orders/cancel/{order}') }}" wire:click.prevent="cancelOrder">@lang('cart.cancel_order')</a>
+        @endif
+        <div class="col-md-12">
+            @if(Session::has('order_message'))
+            <div class="alert alert-succes" role="alert">{{ Session::get('order_message') }}</div>
+            @endif
+        </div>
 {{--        <form action="">--}}
 {{--            <input type="submit" class="btn btn-danger btn-sm" name="cancel_order" value="@lang('cart.cancel_order')">--}}
 {{--        </form>--}}

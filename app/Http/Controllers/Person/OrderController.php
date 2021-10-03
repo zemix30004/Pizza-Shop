@@ -22,9 +22,10 @@ class OrderController extends Controller
         }
         return view('auth.orders.show', compact('order'));
     }
-    public function orderCancel(OrderRequest $request)
+    public function cancelOrder()
     {
-        $this->cart->delete();
-        return redirect()->route('cart');
+        dd();
+        // $this->cart->delete();
+        // return redirect()->route('cart');
     }
 }

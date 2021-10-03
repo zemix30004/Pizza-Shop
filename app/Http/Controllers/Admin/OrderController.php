@@ -45,14 +45,18 @@ class OrderController extends Controller
         return view('auth.orders.show', compact('order', 'products'));
     }
 
-    public function orderCancel(OrderRequest $request)
+    // public function orderCancel(OrderRequest $request)
+    // {
+    //     $this->cart->delete();
+    //     return redirect()->route('auth.orders.index');
+    // }
+    public function cancelOrder()
     {
-        $this->cart->delete();
-        return redirect()->route('auth.orders.index');
-    }
-    public function cancelOrder(OrderRequest $request)
-    {
-        $this->cart->delete();
-        return redirect()->route('cart');
+        $order = Order::find($this->order);
+        $order->status = "canceled";
+        $order->save();
+        session()->flash('order_message', 'Order has been canceled!');
+        // $this->cart->delete();
+        // return redirect()->route('cart');
     }
 }

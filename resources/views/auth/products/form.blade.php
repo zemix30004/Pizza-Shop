@@ -17,7 +17,7 @@
             @isset($product)
             action="{{ route('admin.products.update', $product) }}"
             @else
-            action="{{ route('products.store') }}"
+            action="{{ route('admin.products.store') }}"
             @endisset
         >
             <div>

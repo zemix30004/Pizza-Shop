@@ -26,7 +26,7 @@
                         @endisset
                         @csrf
                         <div class="input-group row">
-                            <label for="name" class="col-sm-2 col-form-label">Название: </label>
+                            <label for="name" class="col-sm-2 col-form-label">Имя: </label>
                             <div class="col-sm-6">
                                 @error('name')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -35,6 +35,17 @@
                                     value="@isset($user){{ $user->name }}@endisset">
                             </div>
                         </div>
+                            <br>
+                            <div class="input-group row">
+                                <label for="password" class="col-sm-2 col-form-label">Пароль: </label>
+                                <div class="col-sm-6">
+                                    @error('password')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                    <input type="text" class="form-control" name="password" id="password"
+                                        value="@isset($user){{ $user->password }}@endisset">
+                                </div>
+                            </div>
                             <br>
                             {{-- <div class="input-group row">
                                 <label for="name" class="col-sm-2 col-form-label">Название en: </label>

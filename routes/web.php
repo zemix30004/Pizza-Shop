@@ -58,13 +58,13 @@ Route::middleware(['set_locale'])->group(function () {
         Route::group([
             'prefix' => '',
             'namespace' => 'person',
-            'as' => 'person',
+            'as' => 'auth.'
         ], function () {
             Route::get('/orders', [App\Http\Controllers\Person\OrderController::class, 'index'])->name('orders.index');
             Route::get('/orders/{order}', [App\Http\Controllers\Person\OrderController::class, 'show'])->name('orders.show');
             Route::get('cancel/{order}', [OrderController::class, 'orderCancel'])->name('order-cancel');
-            // Route::get('/users', [App\Http\Controllers\Person\OrderController::class, 'index'])->name('users.index');
-            // Route::get('/users/{user}', [App\Http\Controllers\Person\UserController::class, 'show'])->name('users.show');
+            Route::get('/users', [UserController::class, 'index'])->name('users.index');
+            Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
         });
         Route::group([
             'namespace' => '',

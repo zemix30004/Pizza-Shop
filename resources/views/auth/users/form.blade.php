@@ -15,7 +15,7 @@
                 @endisset
                 <form method="POST" enctype="multipart/form-data"
                         @isset($user)
-                        action="{{ route('users.update', $user) }}"
+                        action="{{ route('admin.users.update', $user) }}"
                         @else
                         action="{{ route('admin.users.store') }}"
                     @endisset

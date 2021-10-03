@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="col-md-12">
-        <h2>Пользователь {{ $user->name }}</h2>
+        <h2>Пользователь <br>{{ $user->name }}</h2>
         <table class="table">
             <tbody>
             <tr>

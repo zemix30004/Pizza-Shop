@@ -8,7 +8,7 @@
             <div class="justify-content-center">
                 <div class="panel">
                     <h2>Заказ №{{ $order->id }}</h2>
-                    <p>Статус: <b>{{ $order->status }}</b></p>
+                    <p>Статус: <b>{{ $order->title_status }}</b></p>
                     <p>Заказчик: <b>{{ $order->name }}</b></p>
                     <p>Номер телефона: <b>{{ $order->phone }}</b></p>
                     <p>Адрес: <b>{{ $order->address }}</b></p>

@@ -17,7 +17,7 @@
                         @isset($user)
                         action="{{ route('users.update', $user) }}"
                         @else
-                        action="{{ route('users.store') }}"
+                        action="{{ route('admin.users.store') }}"
                     @endisset
                 >
                     <div>

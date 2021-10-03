@@ -62,6 +62,7 @@ Route::middleware(['set_locale'])->group(function () {
         ], function () {
             Route::get('/orders', [App\Http\Controllers\Person\OrderController::class, 'index'])->name('orders.index');
             Route::get('/orders/{order}', [App\Http\Controllers\Person\OrderController::class, 'show'])->name('orders.show');
+            Route::get('cancel/{order}', [OrderController::class, 'orderCancel'])->name('order-cancel');
             // Route::get('/users', [App\Http\Controllers\Person\OrderController::class, 'index'])->name('users.index');
             // Route::get('/users/{user}', [App\Http\Controllers\Person\UserController::class, 'show'])->name('users.show');
         });
@@ -70,9 +71,10 @@ Route::middleware(['set_locale'])->group(function () {
             'prefix' => 'admin',
             'as' => 'admin.'
         ], function () {
-            Route::group(['middleware' => 'is_admin', ], function () {
+            Route::group(['middleware' => 'is_admin',], function () {
                 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+                Route::get('cancel/{order}', [OrderController::class, 'cancelOrder'])->name('cancel-order');
                 Route::get('/exportinexcel', [CategoryController::class, 'exportInExcel'])->name('categories.exportinexcel');
                 Route::get('/exportincsv', [CategoryController::class, 'exportInCSV'])->name('categories.exportincsv');
                 Route::post('/categoryimport', [CategoryController::class, 'categoryImport'])->name('categories.categoryimport');

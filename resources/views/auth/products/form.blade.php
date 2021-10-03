@@ -65,7 +65,7 @@
                             <div class="tab-pane fade show active" id="name1" role="tabpanel" aria-labelledby="name1-tab">
                                 @include('layouts.error', ['fieldName' => 'name1'])
                                 <textarea name="name" id="name" cols="50" rows="1">{{ $product->name ?? '' }}</textarea>
-                                {{ $product->name }}
+                                {{-- {{ $product->name }} --}}
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <div class="tab-pane fade show active" id="name2" role="tabpanel" aria-labelledby="name2-tab">
                             @include('layouts.error', ['fieldName' => 'name2'])
                             <textarea name="name_en" id="name_en" cols="50" rows="1">{{ $product->name_en ?? '' }}</textarea>
-                            {{ $product->name_en }}
+                            {{-- {{ $product->name_en }} --}}
                         </div>
                     </div>
                     </div>

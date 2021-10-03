@@ -50,4 +50,9 @@ class OrderController extends Controller
         $this->cart->delete();
         return redirect()->route('auth.orders.index');
     }
+    public function cancelOrder(OrderRequest $request)
+    {
+        $this->cart->delete();
+        return redirect()->route('cart');
+    }
 }

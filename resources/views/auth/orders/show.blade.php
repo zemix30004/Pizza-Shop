@@ -50,7 +50,20 @@
         </div>
     </div>
     <div class="btn">
-        <a class="btn btn-danger btn-sm" href="{{ 'cancel/{order}' }}">@lang('cart.cancel_order')</a>
+        {{-- <a class="btn btn-danger btn-sm" href="{{('/orders/{order}/cancelorder') }}">@lang('cart.cancel_order')</a> --}}
+<form action="{{('{order}/cancelorder') }}" method="POST" style="display: inline-block">
+        @csrf
+        @method('post')
+        <button type="submit" class="btn btn-danger btn-sm delete-btn">Отменить заказ
+            <i class="fas fa-trash"></i></button>
+    </form>
+                {{-- <form action="{{ route('admin.destroy', $order->id) }}" method="DELETE" style="display: inline-block">
+        @csrf
+        @method('delete')
+        <button type="submit" class="btn btn-danger btn-sm delete-btn">Delete
+            <i class="fas fa-trash"></i></button>
+    </form> --}}
+
 {{--        <form action="">--}}
 {{--            <input type="submit" class="btn btn-danger btn-sm" name="cancel_order" value="@lang('cart.cancel_order')">--}}
 {{--        </form>--}}

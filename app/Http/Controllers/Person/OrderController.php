@@ -22,10 +22,12 @@ class OrderController extends Controller
         }
         return view('auth.orders.show', compact('order'));
     }
-    public function cancelOrder()
+    public function cancelOrder(OrderRequest $request)
     {
-        dd();
-        // $this->cart->delete();
-        // return redirect()->route('cart');
+        dd($request->all());
+        if ($request->get('cancel_order')) {
+            session()->flash('order_message', 'Order has been canceled!');
+            return redirect()->route('admin.orders.index');
+        }
     }
 }

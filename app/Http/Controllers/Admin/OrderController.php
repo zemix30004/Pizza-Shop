@@ -41,6 +41,7 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
+
         $products = $order->products()->withTrashed()->get();
         return view('auth.orders.show', compact('order', 'products'));
     }
@@ -50,13 +51,31 @@ class OrderController extends Controller
     //     $this->cart->delete();
     //     return redirect()->route('auth.orders.index');
     // }
-    public function cancelOrder()
+    // public function cancelOrder(OrderRequest $request)
+    // {
+    //     dd($request->all());
+    //     if ($request->get('cancel_order')) {
+    //         session()->flash('order_message', 'Order has been canceled!');
+    //         return redirect()->route('admin.orders.index');
+    //     }
+    // }
+    // public function destroy($id)
+    // {
+    //     $order = Order::find($id);
+    //     $order->delete();
+    //     return redirect()->back()->withSuccess('Заказ был успешно удален!');
+    // }
+    public function cancelOrder(Order $order)
     {
-        $order = Order::find($this->order);
-        $order->status = "canceled";
-        $order->save();
-        session()->flash('order_message', 'Order has been canceled!');
-        // $this->cart->delete();
-        // return redirect()->route('cart');
+        $order->cancel();
+        return redirect()->back()->withSuccess('Заказ был успешно отменен!');
     }
+    // $order = Order::find($this->order);
+    // $order->cancel();
+    // $order->status = "canceled";
+    // $order->save();
+    // session()->flash('order_message', 'Order has been canceled!');
+    // $this->cart->delete();
+    // return redirect()->route('cart');
+
 }

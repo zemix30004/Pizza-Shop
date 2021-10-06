@@ -67,13 +67,22 @@ class OrderController extends Controller
     //     $order->delete();
     //     return redirect()->back()->withSuccess('Заказ был успешно удален!');
     // }
-    public function cancelOrder(Order $order)
+    // public function cancelOrder(Order $order)
+    // {
+    //     $order->delete(['order' => $order->id]);
+    //     // $orderId->delete('orderId');
+    //     // $orderId = Order::cancel($this->orderId);
+    //     return redirect(route('admin.orders.index'))->withSuccess('Заказ был успешно отменен!');
+    // }
+    public function orderTest($order_id)
     {
-        $order->delete(['order' => $order->id]);
-        // $orderId->delete('orderId');
-        // $orderId = Order::cancel($this->orderId);
+        $order = Order::where('id', $order_id);
+        $order->delete();
         return redirect(route('admin.orders.index'))->withSuccess('Заказ был успешно отменен!');
     }
+
+
+
     // $order = Order::find($this->order);
     // $order->cancel();
     // $order->status = "canceled";

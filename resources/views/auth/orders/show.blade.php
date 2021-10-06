@@ -49,7 +49,8 @@
         </div>
     </div>
     <div class="btn">
-        <a class="btn btn-danger btn-sm" href="{{route('admin.order.cancelorder',['order'=> $order->id]) }}">@lang('cart.cancel_order')</a>
+        {{-- <a class="btn btn-danger btn-sm" href="{{route('admin.order.cancelorder',['order'=> $order->id]) }}">@lang('cart.cancel_order')</a> --}}
+        <a class="btn btn-danger btn-sm" href="{{route('admin.order.ordertest', $order->id) }}">@lang('cart.cancel_order')</a>
      {{-- <form action="{{route('cancelorder',['order'=> 1]) }}" method="GET" style="display: inline-block">
         @csrf
         @method('get')

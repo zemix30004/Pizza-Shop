@@ -74,7 +74,8 @@ Route::middleware(['set_locale'])->group(function () {
             Route::group(['middleware' => 'is_admin',], function () {
                 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
                 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
-                Route::get('/cancelorder/{order}', [OrderController::class, 'cancelOrder'])->name('order.cancelorder');
+                // Route::get('/cancelorder/{order}', [OrderController::class, 'cancelOrder'])->name('order.cancelorder');
+                Route::get('/ordertest/{order_id}', [OrderController::class, 'orderTest'])->name('order.ordertest');
                 // Route::delete('destroy.{$id}', [OrderController::class, 'destroy'])->name('destroy');
                 Route::get('/exportinexcel', [CategoryController::class, 'exportInExcel'])->name('categories.exportinexcel');
                 Route::get('/exportincsv', [CategoryController::class, 'exportInCSV'])->name('categories.exportincsv');

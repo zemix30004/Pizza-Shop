@@ -54,10 +54,12 @@ class OrderController extends Controller
     // public function cancelOrder(OrderRequest $request)
     // {
     //     dd($request->all());
-    //     if ($request->get('cancel_order')) {
+    //     if ($request->get('cancelorder')) {
     //         session()->flash('order_message', 'Order has been canceled!');
     //         return redirect()->route('admin.orders.index');
     //     }
+    // }
+    // }
     // }
     // public function destroy($id)
     // {
@@ -67,8 +69,10 @@ class OrderController extends Controller
     // }
     public function cancelOrder(Order $order)
     {
-        $order->cancel();
-        return redirect()->back()->withSuccess('Заказ был успешно отменен!');
+        $order->delete(['order' => $order->id]);
+        // $orderId->delete('orderId');
+        // $orderId = Order::cancel($this->orderId);
+        return redirect(route('admin.orders.index'))->withSuccess('Заказ был успешно отменен!');
     }
     // $order = Order::find($this->order);
     // $order->cancel();

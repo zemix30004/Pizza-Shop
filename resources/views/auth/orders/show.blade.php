@@ -35,7 +35,6 @@
                                     <td>{{ $product->getPriceForCount()}} @lang('main.uah')</td>
                                 </td>
                                 <td><span class="badge">1</span></td>
-
                             </tr>
                         @endforeach
                         <tr>
@@ -50,19 +49,19 @@
         </div>
     </div>
     <div class="btn">
-        {{-- <a class="btn btn-danger btn-sm" href="{{('/orders/{order}/cancelorder') }}">@lang('cart.cancel_order')</a> --}}
-<form action="{{('{order}/cancelorder') }}" method="POST" style="display: inline-block">
+        <a class="btn btn-danger btn-sm" href="{{route('admin.order.cancelorder',['order'=> $order->id]) }}">@lang('cart.cancel_order')</a>
+     {{-- <form action="{{route('cancelorder',['order'=> 1]) }}" method="GET" style="display: inline-block">
         @csrf
-        @method('post')
+        @method('get')
         <button type="submit" class="btn btn-danger btn-sm delete-btn">Отменить заказ
             <i class="fas fa-trash"></i></button>
-    </form>
+     </form> --}}
                 {{-- <form action="{{ route('admin.destroy', $order->id) }}" method="DELETE" style="display: inline-block">
         @csrf
         @method('delete')
         <button type="submit" class="btn btn-danger btn-sm delete-btn">Delete
             <i class="fas fa-trash"></i></button>
-    </form> --}}
+     </form> --}}
 
 {{--        <form action="">--}}
 {{--            <input type="submit" class="btn btn-danger btn-sm" name="cancel_order" value="@lang('cart.cancel_order')">--}}

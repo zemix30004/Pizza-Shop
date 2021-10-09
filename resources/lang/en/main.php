@@ -9,6 +9,7 @@ return [
     'reset_project' => 'Reset project to default state',
     'current_lang' => 'en',
     'set_lang' => 'ru',
+    'contacts' => 'Contacts',
 
     'properties' => [
         'hit' => 'Hit',

@@ -63,6 +63,10 @@ class MainController extends Controller
         ]);
         return redirect()->back()->with('success', __('product.we_will_update'));
     }
+    public function contacts()
+    {
+        return view('contacts');
+    }
 
     public function changeLocale($locale)
     {

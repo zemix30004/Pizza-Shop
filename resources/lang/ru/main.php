@@ -9,6 +9,7 @@ return [
     'reset_project' => 'Сбросить проект в начальное состояние',
     'current_lang' => 'ru',
     'set_lang' => 'en',
+    'contacts' => 'Контакты',
 
     'properties' => [
         'hit' => 'Хит',

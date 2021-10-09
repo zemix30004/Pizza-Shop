@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\FileUploadController;
@@ -106,6 +107,12 @@ Route::middleware(['set_locale'])->group(function () {
     Route::post('subscription/{product}', [MainController::class, 'subscribe'])->name('subscription');
     Route::get('/contacts', [MainController::class, 'contacts'])->name('contacts');
     Route::get('/search', [MainController::class, 'search'])->name('search');
+
+    Route::get('/contact', [ContactController::class, 'create'])->name('contact');
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+    Route::get('/contact-us', [ContactController::class, 'contact'])->name('contact-us');
+    Route::post('/sent-message', [ContactController::class, 'sendMail'])->name('contact.send');
+
 
     Route::group(['prefix' => 'cart'], function () {
         Route::post('/add/{product}', [CartController::class, 'cartAdd'])->name('cart-add');

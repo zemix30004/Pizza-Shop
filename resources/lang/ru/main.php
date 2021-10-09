@@ -10,6 +10,7 @@ return [
     'current_lang' => 'ru',
     'set_lang' => 'en',
     'contacts' => 'Контакты',
+    'contact_us' => 'Обратная связь',
 
     'properties' => [
         'hit' => 'Хит',

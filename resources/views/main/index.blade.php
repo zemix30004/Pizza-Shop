@@ -25,6 +25,9 @@
               </li>
             </ul>
           </nav> --}}
-
-       {{ $products->links() }}
+          <div class="col-sm-12 text-right text-center-xs">
+            {{ $products->appends(['s' => request()->s])->links() }}
+        </div>
+       {{-- @else
+       <p>Таких продуктов не найдено</p> --}}
 @endsection

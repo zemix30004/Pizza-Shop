@@ -105,6 +105,7 @@ Route::middleware(['set_locale'])->group(function () {
     Route::get('/categories', [MainController::class, 'categories'])->name('categories');
     Route::post('subscription/{product}', [MainController::class, 'subscribe'])->name('subscription');
     Route::get('/contacts', [MainController::class, 'contacts'])->name('contacts');
+    Route::get('/search', [MainController::class, 'search'])->name('search');
 
     Route::group(['prefix' => 'cart'], function () {
         Route::post('/add/{product}', [CartController::class, 'cartAdd'])->name('cart-add');

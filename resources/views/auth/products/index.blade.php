@@ -1,4 +1,4 @@
-@extends('layouts.new-master')
+@extends('layouts.admin')
 
 @section('title', 'Продукты')
 
@@ -52,9 +52,10 @@
             @endforeach
             </tbody>
         </table>
-        {{-- {{ $products->links() }} --}}
+
         <a class="btn btn-success btn-sm" type="button" href="{{ route('admin.products.create') }}">Добавить продукт</a>
         <a class="btn btn-primary btn-sm" type="button" href="{{ route('admin.products.exportintocsv') }}">Экспорт</a>
     </div>
+    {{ $products->links() }}
 @endsection
 

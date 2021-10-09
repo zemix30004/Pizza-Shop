@@ -8,6 +8,7 @@ use App\Http\Requests\SubscriptionRequest;
 use App\Models\Category;
 use App\Models\Currency;
 use App\Models\Product;
+use App\Models\Contact;
 use App\Models\Subscription;
 use App\Services\CurrencyConversion;
 use Illuminate\Http\Request;
@@ -67,6 +68,24 @@ class MainController extends Controller
     {
         return view('contacts');
     }
+    public function contacts_check(Request $request)
+    {
+        $valid = $request->validate([
+            'name' => 'reqiured|min:2|max:20',
+            'phone' => 'required|number|min:7|max:20',
+            'email' => 'reqiured|min:4|max:100',
+            'message' => 'required|min:15|max:500'
+        ]);
+        // $contacts = new Contacts();
+        $contacts->name = $request->input('name');
+        $contacts->phone = $request->input('phone');
+        $contacts->email = $request->input('email');
+        $contacts->message = $request->input('message');
+
+        $contacts->save();
+
+        return redirect()->route('contacts');
+    }
 
     public function changeLocale($locale)
     {
@@ -84,5 +103,13 @@ class MainController extends Controller
         $currency = Currency::byCode($currencyCode)->firstOrFail();
         session(['currency' => $currency->code]);
         return redirect()->back();
+    }
+
+    public function search(Request $request)
+    {
+        $s = $request->s;
+        $products = Product::query();
+        $products = $products->where('name', "LIKE", "%{$s}%")->orderBy('name');
+        return view('main.index', compact('products'));
     }
 }

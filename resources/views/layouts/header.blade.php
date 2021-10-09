@@ -31,10 +31,7 @@
                     </ul>
                   </div>
             </ul> --}}
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" method="get" action="">
-                <input type="search" class="form-control form-control-dark" name="s" placeholder="Поиск по сайту..." aria-label="Search">
-                {{-- <input type="submit" value="Найти"></p> --}}
-            </form>
+
             <div class="text-end">
                 @guest
                     <a class="btn btn-outline-light me-2" href="{{ route('login') }}">@lang('main.login')</a>
@@ -53,6 +50,17 @@
                         <a class="btn btn-outline-light me-2" href="{{ route('register') }}">@lang('main.register')</a>
                     @endguest
             </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+     <form method="get" action="{{ route('search')}}">
+        <div class="form-row">
+            <div class="form-group col-md-10">
+                <input type="text" class="form-control form-control-dark" id="s" name="s" value="{{request()->s}}" placeholder="Поиск по сайту..." aria-label="Search"></div>
+                <div class="form-group col-md-2">
+                <button type="submit" class="btn btn-secondary btn-block" value="Найти">Найти</p>
+                </div>
+            </form>
         </div>
     </div>
 </header>

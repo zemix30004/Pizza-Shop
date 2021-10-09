@@ -5,17 +5,21 @@
 @section('content')
 
 <section class="py-5 text-center container">
-<h2>@lang('main.contacts'):</h2>
+<h2>@lang('main.contacts')</h2>
 <div class="contact-us">
-<ul class="contact-us__tabs">
+<div class="contact-us__content">
+    <h4 class="address-us__title">Наш адрес:</h4>
+    <p>г.Кропивницкий,ул.Большая Перспективная 23</p>
+    <h4 class="email-us__title">Email:</h4>
+    <p>admin@example.com</p>
+    {{-- <ul class="contact-us__tabs">
   <li class="contact-us__tab active" data-tab="call">Позвоните</li>
   <li class="contact-us__tab" data-tab="write">Напишите</li>
-</ul>
-
-
-<div class="contact-us__content">
+</ul> --}}
   <div class="contact-us__tab-content call-us active" data-tab="call">
-    <h3 class="call-us__title">Консультации по телефонам</h3>
+
+    <div class="call-us__contact-row">
+    <h4 class="call-us__title">Консультации по телефонам</h4>
     <div class="call-us__contact-row">
       <h5 class="call-us__row-title">Бесплатно в Украине:</h5>
       <div class="call-us__contacts-wrapper">
@@ -52,6 +56,7 @@
       <div class="call-us__map">
         <span class="call-us__map-label">Перейти на карту адреса магазина</span>
         <a href="" titlte="Перейти на карту адреса магазина" class="call-us__map-link"></a>
+        {{-- <img class="aligncenter size-full wp-image-3119" src="/wp-content/uploads/2017/02/contacts.jpg" alt="contacts" width="775"> --}}
       </div>
     </div>
     <a href="" target="_blank" title="Оцените работу нашего сервиса" class="call-us__service">
@@ -71,12 +76,17 @@
 
 <form method="POST" class="feedback"><h3 class="feedback__title">
 Напишите нам и мы с вами свяжемся
-</h3> <div class="feedback__row"><div class="modal-input feedback__input"><label for="feedback-name" class="require-field">Имя</label> <div class="v_input_field"><input id="feedback-name" data-input="name" name="name" placeholder="" title="Ім'я" spellcheck="false" type="text" class="input-text"></div> <!----></div></div> <div class="feedback__row"></label> <div class="feedback__phone-email"><div class="feedback__phone-email-select"><span class="feedback__phone-email-name"><br></ul></div> <div class="modal-input feedback__phone-email-component feedback__email"><label for="feedback-email" class="require-field">Почта</label> <div class="v_input_field"><input id="feedback-email" data-input="email" name="email" placeholder="example@mail.com" title="Пошта" spellcheck="false" type="text" class="input-text"></div> <!----></div></div></div> <div class="feedback__row"><label class="feedback__label"> Тема сообщения </label> <div class="feedback__subject"><span class="feedback__subject-name">
-    Выберите тему сообщения
+</h3> <div class="feedback__row"><div class="modal-input feedback__input">
+    <label for="feedback-name" class="require-field">Имя</label>
+    <div class="v_input_field"><input id="feedback-name" data-input="name" name="name" placeholder="" title="Имя" spellcheck="false" type="text" class="input-text"></div> <!----></div></div>
+    <div class="feedback__row"></label> <div class="feedback__phone-email"><div class="feedback__phone-email-select"><span class="feedback__phone-email-name"><br></ul></div>
+        <div class="modal-input feedback__phone-email-component feedback__email"><label for="feedback-email" class="require-field">Почта</label> <div class="v_input_field"><input id="feedback-email" data-input="email" name="email" placeholder="example@example.com" title="Почта" spellcheck="false" type="text" class="input-text"></div> <!----></div></div></div><br>
+        <div class="feedback__row"><div class="feedback__subject"><span class="feedback__subject-name"><h3>Выберите тему сообщения</h3>
   </span> <ul data-subject-list="" class="feedback__subject-list"><li data-subjec-id="2" class="feedback__subject-item">Вопрос о заказе</li><li data-subjec-id="3" class="feedback__subject-item">Вопрос о сервисе</li><li data-subjec-id="4" class="feedback__subject-item">Хочу обменять товар</li><li data-subjec-id="5" class="feedback__subject-item">Вопрос по кредитам</li><li data-subjec-id="6" class="feedback__subject-item">Вопрос о безналичном расчете</li><li data-subjec-id="7" class="feedback__subject-item">Вопрос по поводу акций</li><li data-subjec-id="8" class="feedback__subject-item">Жалобы и предложения</li><li data-subjec-id="9" class="feedback__subject-item">Другие вопросы</li><li data-subjec-id="10" class="feedback__subject-item">Вопрос о сотрудничестве</li><li data-subjec-id="11" class="feedback__subject-item">Сообщить об ошибке</li></ul></div></div> <!----> <div class="feedback__row"><div class="modal-input feedback__message"><label for="feedback-message" class="require-field">Сообщения</label> <div class="v_input_field"><textarea id="feedback-message" data-input="message" name="message" title="Повідомлення" spellcheck="false" class="textarea-text"></textarea></div> <!----></div></div> <button type="submit" data-feedback-submit="" class="feedback__submit-button">
 Прислать
 </button>
 </form>
+</div>
 </section>
 
 @endsection

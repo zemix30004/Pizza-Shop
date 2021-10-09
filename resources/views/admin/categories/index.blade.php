@@ -1,9 +1,3 @@
-    {{-- <?php
-    var_dump($POST);
-    $pdo = new PDO("pgsql:host=localhost;dbname=Pizza-Shop", "postgres", "vagon1977");
-    var_dump($pdo);
-    ?> --}}
-
 
 @extends('layouts.admin')
 
@@ -52,11 +46,9 @@
             </tbody>
         </table>
 
-        {{-- {{ $categories->links() }} --}}
         <a class="btn btn-success btn-sm" type="button"href="{{ route('admin.categories.create') }}">Добавить категорию</a>
         <a class="btn btn-primary btn-sm" type="button" href="{{ route('admin.categories.exportincsv') }}">Экспорт</a>
 <form method="POST" enctype="multipart/form-data" action="{{ route('admin.categories.categoryimport') }}">
-
     <div class="form-group">
         <label for="file">Выберите CSV</label>
         <input type="file" name="file" accept=".csv" class="form-control">
@@ -66,4 +58,10 @@
     <button type="submit" name="submit" class="btn btn-secondary">Импорт</button>
 </form>
     </div>
+    {{ $categories->links() }}
 @endsection
+    {{-- <?php
+    var_dump($POST);
+    $pdo = new PDO("pgsql:host=localhost;dbname=Pizza-Shop", "postgres", "vagon1977");
+    var_dump($pdo);
+    ?> --}}

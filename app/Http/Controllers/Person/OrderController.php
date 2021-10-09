@@ -12,7 +12,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Auth::user()->orders->active()->paginate(6);
-        return view('auth.orders.index', compact('orders'));
+        return view("auth.orders.index", compact("orders"));
     }
 
     public function show(Order $order)
@@ -24,7 +24,7 @@ class OrderController extends Controller
     }
     public function cancelOrder(OrderRequest $request)
     {
-        dd($request->all());
+        // dd($request->all());
         if ($request->get('cancel_order')) {
             session()->flash('order_message', 'Order has been canceled!');
             return redirect()->route('admin.orders.index');

@@ -10,6 +10,7 @@
                 <li><a class="nav-link px-2 text-white" href="{{ route('admin.products.index') }}">Продукты</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('admin.orders.index') }}">Заказы</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('admin.users.index') }}">Пользователи</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('components.admin.admin-contact-component') }}">Все контакты</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('index') }}">Главная</a></li>
                 @guest
                 @else

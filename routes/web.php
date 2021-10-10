@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Components\ContactComponent as ComponentsContactComponent;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\LoginController;
@@ -17,6 +18,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\FileUploadController;
+use App\View\Components\ContactComponent;
+use App\View\Components\AdminContactComponent;
 
 use App\Services\CurrencyConversion;
 use App\Models\Currency;
@@ -112,6 +115,9 @@ Route::middleware(['set_locale'])->group(function () {
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
     Route::get('/contact-us', [ContactController::class, 'contact'])->name('contact-us');
     Route::post('/sent-message', [ContactController::class, 'sendMail'])->name('contact.send');
+    Route::get('/contact-component', [ContactComponent::class, 'render'])->name('contact-component');
+    Route::post('/sent-message', [ContactComponent::class, 'sendMessage'])->name('contact.send');
+    Route::get('/admin/contacts', [AdminContactComponent::class, 'adminContacts'])->name('components.admin.admin-contact-component');
 
 
     Route::group(['prefix' => 'cart'], function () {

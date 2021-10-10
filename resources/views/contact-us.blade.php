@@ -1,4 +1,4 @@
-@extends('layouts.new-master')
+{{-- @extends('layouts.new-master')
 
 @section('title', __('contact-us'))
 
@@ -57,4 +57,4 @@
     </div>
 </div>
 </section>
-@endsection
+@endsection --}}

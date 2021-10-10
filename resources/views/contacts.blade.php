@@ -73,19 +73,73 @@
 </div>
 </div>
 
-
-<form method="POST" class="feedback"><h3 class="feedback__title">
+<div class="card-body">
+    @if(Session::has('flash_message'))
+    <div class="alert alert-success">{{ Session::get('flash_message') }}</div>
+    @endif
+<form method="POST" action="{{ route('contact.store') }}" enctype="multipart/form-data">
+    @csrf
 Напишите нам и мы с вами свяжемся
 </h3> <div class="feedback__row"><div class="modal-input feedback__input">
-    <label for="feedback-name" class="require-field">Имя</label>
-    <div class="v_input_field"><input id="feedback-name" data-input="name" name="name" placeholder="" title="Имя" spellcheck="false" type="text" class="input-text"></div> <!----></div></div>
-    <div class="feedback__row"></label> <div class="feedback__phone-email"><div class="feedback__phone-email-select"><span class="feedback__phone-email-name"><br></ul></div>
-        <div class="modal-input feedback__phone-email-component feedback__email"><label for="feedback-email" class="require-field">Почта</label> <div class="v_input_field"><input id="feedback-email" data-input="email" name="email" placeholder="example@example.com" title="Почта" spellcheck="false" type="text" class="input-text"></div> <!----></div></div></div><br>
-        <div class="feedback__row"><div class="feedback__subject"><span class="feedback__subject-name"><h3>Выберите тему сообщения</h3>
-  </span> <ul data-subject-list="" class="feedback__subject-list"><li data-subjec-id="2" class="feedback__subject-item">Вопрос о заказе</li><li data-subjec-id="3" class="feedback__subject-item">Вопрос о сервисе</li><li data-subjec-id="4" class="feedback__subject-item">Хочу обменять товар</li><li data-subjec-id="5" class="feedback__subject-item">Вопрос по кредитам</li><li data-subjec-id="6" class="feedback__subject-item">Вопрос о безналичном расчете</li><li data-subjec-id="7" class="feedback__subject-item">Вопрос по поводу акций</li><li data-subjec-id="8" class="feedback__subject-item">Жалобы и предложения</li><li data-subjec-id="9" class="feedback__subject-item">Другие вопросы</li><li data-subjec-id="10" class="feedback__subject-item">Вопрос о сотрудничестве</li><li data-subjec-id="11" class="feedback__subject-item">Сообщить об ошибке</li></ul></div></div> <!----> <div class="feedback__row"><div class="modal-input feedback__message"><label for="feedback-message" class="require-field">Сообщения</label> <div class="v_input_field"><textarea id="feedback-message" data-input="message" name="message" title="Повідомлення" spellcheck="false" class="textarea-text"></textarea></div> <!----></div></div> <button type="submit" data-feedback-submit="" class="feedback__submit-button">
-Прислать
-</button>
+    {{-- <label for="feedback-name" class="require-field">Имя</label>
+    <div class="v_input_field"><input id="feedback-name" data-input="name" name="name"
+        placeholder="" title="Имя" spellcheck="false" type="text" class="input-text"></div> <!----></div></div> --}}
+        <div class="form-group">
+            <label for="name">Имя:</label>
+            {{-- <input type="text" name="name" class="form-control" /> --}}
+            <input type="text" placeholder="Name" name="name" id="name" wire:model="name" class="form-control" required="">
+            {{ $errors->first('name') }}
+            @if ($errors->has('name'))
+            <small class="form-text invalid-feedback"></small>
+            @endif
+        </div>
+        <div class="form-group">
+            <label for="phone">Телефон:</label>
+            {{-- <input type="text" name="phone" class="form-control" /> --}}
+            <input type="text" placeholder="Phone" name="phone" id="phone" wire:model="phone" class="form-control" required="">
+            {{ $errors->first('phone') }}
+            @if ($errors->has('phone'))
+            <small class="form-text invalid-feedback"></small>
+            @endif
+        </div>
+        <div class="form-group">
+            <label for="email">Электронная почта:</label>
+            {{-- <input type="text" name="email" class="form-control" /> --}}
+            <input type="text" placeholder="Email" name="email" id="email" wire:model="email" class="form-control" required="">
+            {{ $errors->first('email') }}
+            @if ($errors->has('email'))
+            <small class="form-text invalid-feedback"></small>
+            @endif
+        </div>
+        <div class="form-group">
+            <label for="message">Сообщение:</label>
+            {{-- <textarea name="message" class="form-control"></textarea> --}}
+            <textarea placeholder="Your Message" name="message" id="message" wire:model="message" class="form-control" required=""></textarea>
+            {{-- <input type="text" placeholder="Message" name="message" id="message" wire:model="message" class="form-control" required=""> --}}
+            {{ $errors->first('message') }}
+            @if ($errors->has('message'))
+            <small class="form-text invalid-feedback alert alert-danger"></small>
+            @endif
+        </div>
+        {{-- <button type="submit" class="btn btn-primary float-right">Далее</button> --}}
+        <input type="submit" name="Submit" value="Send Message" class="btn btn-primary">
+    {{-- <div class="feedback__row"></label> <div class="feedback__phone-email"><div class="feedback__phone-email-select"><span class="feedback__phone-email-name"><br></ul></div>
+        <div class="modal-input feedback__phone-email-component feedback__email"><label for="feedback-email" class="require-field">Почта</label>
+             <div class="v_input_field"><input id="feedback-email" data-input="email" name="email" placeholder="example@example.com" title="Почта" spellcheck="false" type="text" class="input-text"></div> <!----></div></div></div><br> --}}
+        {{-- <div class="feedback__row"><div class="feedback__subject"><span class="feedback__subject-name"><h3>Выберите тему сообщения</h3>
+  </span> <ul data-subject-list="" class="feedback__subject-list"><li data-subjec-id="2" class="feedback__subject-item">Вопрос о заказе</li><li data-subjec-id="3" class="feedback__subject-item">Вопрос о сервисе</li><li data-subjec-id="4" class="feedback__subject-item">Хочу обменять товар</li>
+    <li data-subjec-id="5" class="feedback__subject-item">Вопрос по кредитам</li><li data-subjec-id="6" class="feedback__subject-item">Вопрос о безналичном расчете</li>
+    <li data-subjec-id="7" class="feedback__subject-item">Вопрос по поводу акций</li>
+    <li data-subjec-id="8" class="feedback__subject-item">Жалобы и предложения</li>
+    <li data-subjec-id="9" class="feedback__subject-item">Другие вопросы</li>
+    <li data-subjec-id="10" class="feedback__subject-item">Вопрос о сотрудничестве</li>
+    <li data-subjec-id="11" class="feedback__subject-item">Сообщить об ошибке</li></ul></div></div> <!---->
+    <div class="feedback__row"><div class="modal-input feedback__message"><label for="feedback-message" class="require-field">Сообщения</label>
+         <div class="v_input_field"><textarea id="feedback-message" data-input="message" name="message" title="Повідомлення" spellcheck="false" class="textarea-text"></textarea></div> <!----></div></div>
+          < type="submit" data-feedback-submit="" class="feedback__submit-button">
+Прислать --}}
 </form>
+</div>
 </div>
 </section>
 

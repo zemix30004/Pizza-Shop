@@ -113,11 +113,8 @@ Route::middleware(['set_locale'])->group(function () {
 
     Route::get('/contact', [ContactController::class, 'create'])->name('contact');
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-    Route::get('/contact-us', [ContactController::class, 'contact'])->name('contact-us');
-    Route::post('/sent-message', [ContactController::class, 'sendMail'])->name('contact.send');
-    Route::get('/contact-component', [ContactComponent::class, 'render'])->name('contact-component');
-    Route::post('/sent-message', [ContactComponent::class, 'sendMessage'])->name('contact.send');
-    Route::get('/admin/contacts', [AdminContactComponent::class, 'adminContacts'])->name('components.admin.admin-contact-component');
+    Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact-us');
+    Route::post('/contact-us', [ContactController::class, 'contactSubmit'])->name('contact.submit');
 
 
     Route::group(['prefix' => 'cart'], function () {

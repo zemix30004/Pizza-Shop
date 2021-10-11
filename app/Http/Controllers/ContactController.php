@@ -31,7 +31,7 @@ class ContactController extends Controller
             'message' => $request->message
         ], function ($mail)  use ($request) {
             $mail->from($request->email, $request->name);
-            $mail->to('admin@example.com')->subject('Contact Message');
+            $mail->to('eugenezm@gmail.com')->subject('Contact Message');
         });
         return redirect()->back()->with('flash_message', 'Спасибо вам за сообщение');
     }
@@ -42,12 +42,12 @@ class ContactController extends Controller
     //     'email' => 'reqiured|min:4|max:100',
     //     'message' => 'required|min:15|max:500'
     // ]);
-}
-    // public function contact()
-    // {
-    //     return view('contact-us');
-    // }
-    // public function sendEmail(Request $request)
+
+    public function contactUs()
+    {
+        return view('contact-us');
+    }
+    // public function sendMail(Request $request)
     // {
     //     $details = [
     //         'name' => $request->name,
@@ -59,6 +59,19 @@ class ContactController extends Controller
     //     Mail::to('eugenezm@gmail.com')->send(new ContactMail($details));
     //     return back()->with('message_sent, "Ваше сообщение успешно отправлено!');
     // }
+    public function contactSubmit(Request $request)
+    {
+        Mail::send('emails.contactmailform', [
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'msg' => $request->msg
+        ], function ($mail) use ($request) {
+            $mail->from(env('MAIL_FROM_ADDRESS'), $request->name);
+            $mail->to("eugenezm@gmail.com")->subject('emails.contact-message');
+        });
+        return "Message has been sent succesfully!";
+    }
     // public function contact(Request $request)
     // {
     //     $validator = Validator::make($request->all(), [
@@ -79,4 +92,4 @@ class ContactController extends Controller
     //     Mail::to("eugenezm@gmail.com")->send(new ContactUs($name, $phone, $email, $message));
 
     //     return back()->with("message", "Ваше сообщение успешно отправлено!");
-    // }
+}

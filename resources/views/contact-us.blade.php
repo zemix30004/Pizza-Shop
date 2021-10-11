@@ -1,4 +1,4 @@
-{{-- @extends('layouts.new-master')
+@extends('layouts.new-master')
 
 @section('title', __('contact-us'))
 
@@ -18,25 +18,26 @@
                     {{ Session::get('message_sent') }}
                 </div>
                 @endif
-                <form method="POST" action="{{ route('contact.send') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('contact.submit') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name">Имя</label>
-                        <input type="text" name="имя" class="form-control" />
+                        <input type="text" name="имя" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label for="phone">Телефон</label>
-                        <input type="text" name="телефон" class="form-control" />
+                        <input type="text" name="телефон" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" name="email" class="form-control" />
+                        <input type="text" name="email" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label for="message">Сообщение</label>
-                        <input type="text" name="сообщение" class="form-control" />
+                        <textarea name="message" id="message" class="form-control"></textarea>
+                        {{-- <input type="text" name="сообщение" class="form-control" required/> --}}
                     </div>
-                    <button type="submit" class="btn btn-primary float-right">Submit</button></button>
+                    <input type="submit" class="btn btn-primary float-right"></input>
                 </form>
                 @if($errors->any())
                 <div class="alert alert-danger">
@@ -57,4 +58,4 @@
     </div>
 </div>
 </section>
-@endsection --}}
+@endsection

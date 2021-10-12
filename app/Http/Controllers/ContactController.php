@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
 use App\Mail\ContactUs;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Mail;
@@ -61,17 +62,47 @@ class ContactController extends Controller
     // }
     public function contactSubmit(Request $request)
     {
-        Mail::send('emails.contactmailform', [
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'msg' => $request->msg
-        ], function ($mail) use ($request) {
-            $mail->from(env('MAIL_FROM_ADDRESS'), $request->name);
-            $mail->to("eugenezm@gmail.com")->subject('emails.contact-message');
+        $this->validate($request, [
+            'name' => 'required',
+            'phone' => 'required|numeric',
+            'email' => 'required|email',
+            'message' => 'required'
+
+        ]);
+
+        $contact = new Contact;
+        $contact->name = $request->name;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->message = $request->message;
+
+        $contact->save();
+
+        return back()->with('success', 'Спасибо вам за обращение к нам!');
+
+        Mail::send('contact_email', [
+            'name' => $request->get('name'),
+            'phone' => $request->get('phone'),
+            'email' => $request->get('email'),
+            'user_message' => $request->get('message'),
+        ], function ($message) use ($request) {
+            $message->from($request->email);
+            $message->to('admin@example.com')->subject('emails.contact-message');
         });
-        return "Message has been sent succesfully!";
+        return back()->with('success', 'Сообщение было успешно отправлено!');
     }
+    //     public function contactSubmit(Request $request)
+    // {
+    //     Mail::send('emails.contactmailform', [
+    //         'name' => $request->name,
+    //         'phone' => $request->phone,
+    //         'email' => $request->email,
+    //         'msg' => $request->msg
+    //     ], function ($mail) use ($request) {
+    //         $mail->from(env('MAIL_FROM_ADDRESS'), $request->name);
+    //         $mail->to("eugenezm@gmail.com")->subject('emails.contact-message');
+    //     });
+    //     return "Message has been sent succesfully!";
     // public function contact(Request $request)
     // {
     //     $validator = Validator::make($request->all(), [
@@ -92,4 +123,9 @@ class ContactController extends Controller
     //     Mail::to("eugenezm@gmail.com")->send(new ContactUs($name, $phone, $email, $message));
 
     //     return back()->with("message", "Ваше сообщение успешно отправлено!");
+    public function adminContact(Request $request)
+    {
+        $contacts = Contact::paginate(10);
+        return view('admin.contact', ['contacts' => $contacts]);
+    }
 }

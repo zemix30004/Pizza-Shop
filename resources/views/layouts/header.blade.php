@@ -10,9 +10,9 @@
                 <li><a href="{{ route('categories') }}" class="nav-link px-2 text-white">Категории</a></li>
                 <li><a href="{{ route('cart') }}" class="nav-link px-2 text-white">Корзина</a></li>
                 <li><a href="{{ route('cart-place') }}" class="nav-link px-2 text-white">Подтверждение заказа</a></li>
-                <li><a href="{{ route('contacts') }}" class="nav-link px-2 text-white">Контакты</a></li>
+                {{-- <li><a href="{{ route('contacts') }}" class="nav-link px-2 text-white">Контакты</a></li> --}}
                 <li><a href="{{ route('contact-us') }}" class="nav-link px-2 text-white">Обратная связь</a></li>
-                <li><a href="{{ route('contact') }}" class="nav-link px-2 text-white">Контакт</a></li>
+                {{-- <li><a href="{{ route('contact') }}" class="nav-link px-2 text-white">Контакт</a></li> --}}
             </ul>
                 {{-- <li class="dropdown">
                     <a href="#" class=" nav-link px-2 text-white dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ App\Services\CurrencyConversion::getCurrencySymbol() }}<span class="caret"></span></a>

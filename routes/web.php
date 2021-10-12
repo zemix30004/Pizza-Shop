@@ -86,6 +86,8 @@ Route::middleware(['set_locale'])->group(function () {
                 Route::post('/categoryimport', [CategoryController::class, 'categoryImport'])->name('categories.categoryimport');
                 Route::get('/exportintoexcel', [ProductController::class, 'exportIntoExcel'])->name('products.exportintoexcel');
                 Route::get('/exportintocsv', [ProductController::class, 'exportIntoCSV'])->name('products.exportintocsv');
+                Route::get('/contact', [ContactController::class, 'adminContact'])->name('contact');
+                // Route::post('/contact-us', [ContactController::class, 'contactSubmit'])->name('contact.submit');
 
                 // Route::get('/users', [UserController::class, 'index'])->name('users.index');
                 // Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');

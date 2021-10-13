@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Review extends Model
 {
@@ -15,13 +16,19 @@ class Review extends Model
     // {
     //     return $this->belongsTo(ProductItem::class);
     // }
-    protected $table = 'reviews';
+    public static function getReview()
+    {
+        $records = DB::table('reviews')->select('id', 'user_id', 'product_id', 'rating', 'dignity', 'flaw', 'comment')->get()->toArray();
+        return $records;
+    }
 
-    protected $fillable = [
-        'user_id',
-        'product_id',
-        'user-review',
-    ];
+    protected $fillable = ['id', 'user_id', 'product_id', 'rating', 'dignity', 'flaw', 'comment'];
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function review()
     {
         return $this->belongsToMany(Reviews::class);

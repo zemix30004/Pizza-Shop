@@ -8,8 +8,8 @@
 @foreach($reviews as $data)
 <div class="panel panel-default">
     <div class="panel-body">
-        <h4>{{ $data->user['name'] }}</h4>
-        <p>{{ $data->ulasan }}</p>
+        <h4>{{ $data->user['id'] }}</h4>
+        <p>{{ $data->product_id}}</p>
         <h3>{{ $data->rating }}</h3>
     </div>
 </div>

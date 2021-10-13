@@ -88,6 +88,7 @@ Route::middleware(['set_locale'])->group(function () {
                 Route::get('/exportintoexcel', [ProductController::class, 'exportIntoExcel'])->name('products.exportintoexcel');
                 Route::get('/exportintocsv', [ProductController::class, 'exportIntoCSV'])->name('products.exportintocsv');
                 Route::get('/contact', [ContactController::class, 'adminContact'])->name('contact');
+                Route::get('/review', [ReviewController::class, 'adminReview'])->name('review');
                 // Route::post('/contact-us', [ContactController::class, 'contactSubmit'])->name('contact.submit');
 
                 // Route::get('/users', [UserController::class, 'index'])->name('users.index');
@@ -122,7 +123,8 @@ Route::middleware(['set_locale'])->group(function () {
     Route::get('/contacts', [ContactController::class, 'contacts'])->name('contacts');
 
     Route::get('/review', [ReviewController::class, 'review'])->name('review');
-    Route::get('/viewproduct', [ReviewController::class, 'storeReviewProduct'])->name('viewproduct');
+    // Route::get('/viewproduct', [ReviewController::class, 'storeReviewProduct'])->name('viewproduct');
+    Route::post('/viewproduct', [ReviewController::class, 'reviewSubmit'])->name('review.submit');
     // Route::get('/review', [ReviewController::class, 'viewProduct'])->name('viewproduct');
     // Route::get('add-review/{product_slug})/userview', [ReviewController::class, 'addReview'])->name('add-review');
 

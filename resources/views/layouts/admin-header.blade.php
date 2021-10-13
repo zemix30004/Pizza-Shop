@@ -13,6 +13,7 @@
                 <li><a class="nav-link px-2 text-white" href="{{ route('admin.users.index') }}">Пользователи</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('contacts') }}" >Контакты</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('admin.contact') }}" >Контакт</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('admin.review') }}" >Отзывы</a></li>
                 @guest
                 @else
                 <li><a class="btn btn-outline-light me-2" href="{{ route('get-logout') }}">@lang('main.logout')</a></li>

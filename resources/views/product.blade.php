@@ -13,6 +13,9 @@
             <button type="submit" class="btn btn-success btn-sm" role="button">@lang('product.add_to_cart')</button>
             @csrf
         </form>
+        <form action="{{ route('review', $product) }}" method="GET">
+            <button type="submit" class="btn btn-primary btn-sm" role="button">@lang('product.add_review')</button>
+        </form>
     @else
         <span>@lang('product.not_available')</span>
         <br>

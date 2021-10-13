@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Currency;
 use App\Models\Product;
 use App\Models\Contact;
+use App\Models\Review;
 use App\Models\Subscription;
 use App\Services\CurrencyConversion;
 use Illuminate\Http\Request;
@@ -64,28 +65,28 @@ class MainController extends Controller
         ]);
         return redirect()->back()->with('success', __('product.we_will_update'));
     }
-    public function contacts()
-    {
-        return view('contacts');
-    }
-    public function contacts_check(Request $request)
-    {
-        $valid = $request->validate([
-            'name' => 'reqiured|min:2|max:20',
-            'phone' => 'required|number|min:7|max:20',
-            'email' => 'reqiured|min:4|max:100',
-            'message' => 'required|min:15|max:500'
-        ]);
-        // $contacts = new Contacts();
-        $contacts->name = $request->input('name');
-        $contacts->phone = $request->input('phone');
-        $contacts->email = $request->input('email');
-        $contacts->message = $request->input('message');
+    // public function contacts()
+    // {
+    //     return view('contacts');
+    // }
+    // public function contacts_check(Request $request)
+    // {
+    //     $valid = $request->validate([
+    //         'name' => 'reqiured|min:2|max:20',
+    //         'phone' => 'required|number|min:7|max:20',
+    //         'email' => 'reqiured|min:4|max:100',
+    //         'message' => 'required|min:15|max:500'
+    //     ]);
+    //     $contacts = new Contacts();
+    //     $contacts->name = $request->input('name');
+    //     $contacts->phone = $request->input('phone');
+    //     $contacts->email = $request->input('email');
+    //     $contacts->message = $request->input('message');
 
-        $contacts->save();
+    //     $contacts->save();
 
-        return redirect()->route('contacts');
-    }
+    //     return redirect()->route('contacts');
+    // }
 
     public function changeLocale($locale)
     {
@@ -111,5 +112,14 @@ class MainController extends Controller
         $products = Product::query();
         $products = $products->where('name', "LIKE", "%{$s}%")->orderBy('name');
         return view('main.index', compact('products'));
+    }
+    // public function review()
+    // {
+    //     return view('review');
+    // }
+
+    public function reviewProduct()
+    {
+        return $this->hasOne(Review::class, 'product_item_id');
     }
 }

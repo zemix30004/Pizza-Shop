@@ -18,6 +18,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\ReviewController;
 use App\View\Components\ContactComponent;
 use App\View\Components\AdminContactComponent;
 
@@ -110,13 +111,20 @@ Route::middleware(['set_locale'])->group(function () {
     Route::get('/', [MainController::class, 'index'])->name('index');
     Route::get('/categories', [MainController::class, 'categories'])->name('categories');
     Route::post('subscription/{product}', [MainController::class, 'subscribe'])->name('subscription');
-    Route::get('/contacts', [MainController::class, 'contacts'])->name('contacts');
+    // Route::get('/contacts', [MainController::class, 'contacts'])->name('contacts');
+    // Route::get('/review', [MainController::class, 'review'])->name('review');
     Route::get('/search', [MainController::class, 'search'])->name('search');
 
     Route::get('/contact', [ContactController::class, 'create'])->name('contact');
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
     Route::get('/contact-us', [ContactController::class, 'contactUs'])->name('contact-us');
     Route::post('/contact-us', [ContactController::class, 'contactSubmit'])->name('contact.submit');
+    Route::get('/contacts', [ContactController::class, 'contacts'])->name('contacts');
+
+    Route::get('/review', [ReviewController::class, 'review'])->name('review');
+    Route::get('/viewproduct', [ReviewController::class, 'storeReviewProduct'])->name('viewproduct');
+    // Route::get('/review', [ReviewController::class, 'viewProduct'])->name('viewproduct');
+    // Route::get('add-review/{product_slug})/userview', [ReviewController::class, 'addReview'])->name('add-review');
 
 
     Route::group(['prefix' => 'cart'], function () {

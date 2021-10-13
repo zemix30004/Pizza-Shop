@@ -11,8 +11,8 @@
                 <li><a class="nav-link px-2 text-white" href="{{ route('admin.products.index') }}">Продукты</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('admin.orders.index') }}">Заказы</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('admin.users.index') }}">Пользователи</a></li>
-                <li><a href="{{ route('contacts') }}" class="nav-link px-2 text-white">Контакты</a></li>
-                <li><a href="{{ route('admin.contact') }}" class="nav-link px-2 text-white">Контакт</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('contacts') }}" >Контакты</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('admin.contact') }}" >Контакт</a></li>
                 @guest
                 @else
                 <li><a class="btn btn-outline-light me-2" href="{{ route('get-logout') }}">@lang('main.logout')</a></li>

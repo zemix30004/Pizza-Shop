@@ -39,6 +39,10 @@ return [
             'driver' => 'stack',
             'channels' => ['single'],
             'ignore_exceptions' => false,
+            'mailer' => [
+                'driver' => 'single',
+                'path' => storage_path('logs/mailer.log'),
+            ],
         ],
 
         'single' => [

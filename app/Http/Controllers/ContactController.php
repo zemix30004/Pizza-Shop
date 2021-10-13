@@ -32,7 +32,7 @@ class ContactController extends Controller
             'message' => $request->message
         ], function ($mail)  use ($request) {
             $mail->from($request->email, $request->name);
-            $mail->to('eugenezm@gmail.com')->subject('Contact Message');
+            $mail->to('hello@example.com')->subject('Contact Message');
         });
         return redirect()->back()->with('flash_message', 'Спасибо вам за сообщение');
     }
@@ -71,6 +71,7 @@ class ContactController extends Controller
         ]);
 
         $contact = new Contact;
+
         $contact->name = $request->name;
         $contact->phone = $request->phone;
         $contact->email = $request->email;
@@ -78,7 +79,7 @@ class ContactController extends Controller
 
         $contact->save();
 
-        return back()->with('success', 'Спасибо вам за обращение к нам!');
+        // return back()->with('success', 'Спасибо вам за обращение к нам!');
 
         Mail::send('contact_email', [
             'name' => $request->get('name'),
@@ -87,7 +88,7 @@ class ContactController extends Controller
             'user_message' => $request->get('message'),
         ], function ($message) use ($request) {
             $message->from($request->email);
-            $message->to('admin@example.com')->subject('emails.contact-message');
+            $message->to('hello@example.com');
         });
         return back()->with('success', 'Сообщение было успешно отправлено!');
     }
@@ -123,6 +124,10 @@ class ContactController extends Controller
     //     Mail::to("eugenezm@gmail.com")->send(new ContactUs($name, $phone, $email, $message));
 
     //     return back()->with("message", "Ваше сообщение успешно отправлено!");
+    public function contacts()
+    {
+        return view('contacts');
+    }
     public function adminContact(Request $request)
     {
         $contacts = Contact::paginate(10);

@@ -119,13 +119,9 @@ class MainController extends Controller
     public function search(Request $request)
     {
         $s = $request->s;
-        $products = Product::where('name', "LIKE", "%{$s}%")->orWhere('id', "LIKE", "%$s%")->paginate(1);
-        $categories = Category::get();
-        $category = Category::get();
+        $products = Product::where('name', "LIKE", "%{$s}%")->orWhere('id', "LIKE", "%$s%")->paginate(6);
         return view('main.index', [
-            'products' => $products,
-            'categories' => $categories,
-            'category' => $category
+            'products' => $products
         ]);
     }
     public function review()

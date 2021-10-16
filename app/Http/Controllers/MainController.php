@@ -106,17 +106,32 @@ class MainController extends Controller
         return redirect()->back();
     }
 
+    // public function search(Request $request)
+    // {
+    //     $name = $request->name;
+    //     $products = Product::where('name', "LIKE", "%$name%")->orWhere('id', "LIKE", "%$name%")->get();
+    //     // $categories = Category::where('isVisiable', '=', 1)->get();
+    //     return view('index', [
+    //         'products' => $products,
+    //         // 'categories' => $categories,
+    //     ]);
+    // }
     public function search(Request $request)
     {
         $s = $request->s;
-        $products = Product::query();
-        $products = $products->where('name', "LIKE", "%{$s}%")->orderBy('name');
-        return view('main.index', compact('products'));
+        $products = Product::where('name', "LIKE", "%{$s}%")->orWhere('id', "LIKE", "%$s%")->paginate(1);
+        $categories = Category::get();
+        $category = Category::get();
+        return view('main.index', [
+            'products' => $products,
+            'categories' => $categories,
+            'category' => $category
+        ]);
     }
-    // public function review()
-    // {
-    //     return view('review');
-    // }
+    public function review()
+    {
+        return view('review');
+    }
 
     public function reviewProduct()
     {

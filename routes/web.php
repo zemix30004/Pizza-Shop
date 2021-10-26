@@ -19,6 +19,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SendMailController;
 use App\View\Components\ContactComponent;
 use App\View\Components\AdminContactComponent;
 
@@ -122,6 +123,16 @@ Route::middleware(['set_locale'])->group(function () {
     Route::post('/contact-us', [ContactController::class, 'contactSubmit'])->name('contact.submit');
     Route::get('/contacts', [ContactController::class, 'contacts'])->name('contacts');
 
+    Route::get('/sendmail', [SendMailController::class, 'index'])->name('sendmail');
+
+    // Route::post('/sendmail',[SendMailController::class, 'send'])->name('send.submit');
+    Route::post(
+        '/sendmail',
+        function () {
+            $sm = new SendMailController();
+            return $sm->send('message');
+        }
+    );
     Route::get('/review', [ReviewController::class, 'review'])->name('review');
     // Route::get('/viewproduct', [ReviewController::class, 'storeReviewProduct'])->name('viewproduct');
     Route::post('/viewproduct', [ReviewController::class, 'reviewSubmit'])->name('review.submit');

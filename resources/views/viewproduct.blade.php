@@ -29,7 +29,7 @@
 </div>
 {{-- @if($product->currentUserHasSubmittedReview() == false)
 
- <!-- REVIEW CODE -->
+    <!-- REVIEW CODE -->
 
 @endif --}}
 @endsection

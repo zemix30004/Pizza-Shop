@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Jobs\QueueSenderEmail;
 
 class ContactController extends Controller
 {
@@ -33,6 +34,8 @@ class ContactController extends Controller
         ], function ($mail)  use ($request) {
             $mail->from($request->email, $request->name);
             $mail->to('hello@example.com')->subject('Contact Message');
+            $qs = (new QueueSenderEmail($mail))->delay(now()->addMinutes(3));
+            $this->dispatch($qs);
         });
         return redirect()->back()->with('flash_message', 'Спасибо вам за сообщение');
     }
@@ -91,7 +94,14 @@ class ContactController extends Controller
             $message->to('hello@example.com');
         });
         return back()->with('success', 'Сообщение было успешно отправлено!');
-    }
+    } //     public function send($message) {
+    // $qs = (new QueueSenderEmail($message))->delay(now()->addMinutes(3));
+    //         $this->dispatch($qs);
+
+    //         return redirect()
+    //                 ->back()
+    //                 ->with('mess', "Сообщение $message отправлено");
+    //     }
     //     public function contactSubmit(Request $request)
     // {
     //     Mail::send('emails.contactmailform', [

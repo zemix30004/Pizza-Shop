@@ -114,8 +114,8 @@ $statement->execute();
 <br><hr>
     <form action="{{ url('upload-file') }}" method="POST" enctype="multipart/form-data">
         @csrf
-            <input type="text" class="" name="name" placeholder="Искомое слово файла"><br>
-    <input type="text" class="" name="url" placeholder="URLадрес файла"><br>
+            <input type="text" class="" name="word" size="30" placeholder="Искомое слово файла"><br>
+    <input type="text" class="" name="url" size="70" placeholder="URLадрес файла"><br>
     {{-- <input type="file" class="" name="file"><br> --}}
     <button type="submit" name="submit" class="btn btn-danger btn-block mt-4">
         <ul>

@@ -42,19 +42,19 @@ class FileUploadController extends Controller
         }
 
         /*When the user types the word*/
-        //  $search = $_POST["text"];
-        //  /*The website*/
-        //  $page = $_POST["web"];
-        //  $web = file_get_contents($page);
-        //  /*Count words*/
-        //  $result = (substr_count(strip_tags(strtolower($web)), strtolower($search)));
-        // /*Display the information*/
-        // if($result == 0){
-        // echo "слова " .mb_strtoupper($search). "нет на сайте";
-        // }else{
-        // echo "слово " .mb_strtoupper($search). " встречается $result times";
-        // }
-        //         # Get an array with lowercase words
+        $search = $_POST["word"];
+        /*The website*/
+        $page = $_POST["url"];
+        $web = file_get_contents($page);
+        /*Count words*/
+        $result = (substr_count(strip_tags(strtolower($web)), strtolower($search)));
+        /*Display the information*/
+        if ($result == 0) {
+            echo "слова " . mb_strtoupper($search) . "нет на сайте";
+        } else {
+            echo "слово " . mb_strtoupper($search) . " встречается $result раз";
+        }
+        // # Get an array with lowercase words
         // $array_with_words = str_word_count(strtolower('string to analyze'), 1);
 
         // # Get a count of all unique values
@@ -80,10 +80,10 @@ class FileUploadController extends Controller
         // $file = wp_get_attachment_url($file);
 
         // if($file):
-        //     $word = $file('word');
+        //     $word = $file('word.txt');
         //     $url = $file('url');
-        // if (strpos(file_get_contents ("word.txt")
-        //     echo "Есть такое слово!<br>";
+        // if (strpos(file_get_contents ("word.txt")))
+        // echo "Есть такое слово!<br>";
         // else echo "Есть такое слово!<br>";
 
 
@@ -94,14 +94,14 @@ class FileUploadController extends Controller
 
         // if (strpos(file_get_contents("C:\Users\Админ\Downloads\Группа крови.txt"), "группа"))
         // if (strpos(file_get_contents("./assets/1636627002.txt"), "крови"))
-        if (strpos(file_get_contents("https://teksty-pesenok.ru/rus-viktor-coj/tekst-pesni-gruppa-krovi/5225196/"), "рукаве"))
-            echo "Есть такое слово!<br>";
-        else echo "Есть такое слово!<br>";
+        // if (strpos(file_get_contents("https://teksty-pesenok.ru/rus-viktor-coj/tekst-pesni-gruppa-krovi/5225196/"), "рукаве"))
+        //     echo "Есть такое слово!<br>";
+        // else echo "Есть такое слово!<br>";
 
-        // $txt = file_get_contents("C:\Users\Админ\Downloads\Группа крови.txt");
-        // $txt = file_get_contents("./assets/1636627002.txt");
-        $txt = file_get_contents("https://teksty-pesenok.ru/rus-viktor-coj/tekst-pesni-gruppa-krovi/5225196/");
-        echo "Слово рукаве встречается " . substr_count($txt, "рукаве") . "раз<br>";
+        // // $txt = file_get_contents("C:\Users\Админ\Downloads\Группа крови.txt");
+        // // $txt = file_get_contents("./assets/1636627002.txt");
+        // $txt = file_get_contents("https://teksty-pesenok.ru/rus-viktor-coj/tekst-pesni-gruppa-krovi/5225196/");
+        // echo "Слово рукаве встречается " . substr_count($txt, "рукаве") . "раз<br>";
     }
 }
 // fileUpload($_FILES['file']);

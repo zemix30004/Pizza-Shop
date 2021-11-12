@@ -20,6 +20,7 @@ use App\Http\Controllers\ResetController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SendMailController;
+use App\Http\Controllers\UploadController;
 use App\View\Components\ContactComponent;
 use App\View\Components\AdminContactComponent;
 
@@ -57,6 +58,8 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('get-logout');
 Route::get('/upload-file', [FileUploadController::class, 'createForm']);
 
 Route::post('/upload-file', [FileUploadController::class, 'fileUpload'])->name('fileUpload');
+
+
 
 
 Route::middleware(['set_locale'])->group(function () {

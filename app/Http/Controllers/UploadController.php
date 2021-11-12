@@ -41,7 +41,7 @@ $csvAsArray = array_map('str_getcsv', file($tmpName));
             }
         }
     }
-}
+
 // pgsql = new pssql('localhost, 'postgres', 'vagon 1977', 'Pizza-Shop');
 // $file = fopen('test.csv', 'r');
 

@@ -13,6 +13,7 @@
                 {{-- <li><a href="{{ route('contacts') }}" class="nav-link px-2 text-white">Контакты</a></li> --}}
                 <li><a href="{{ route('contact-us') }}" class="nav-link px-2 text-white">Обратная связь</a></li>
                 <li><a href="{{ route('sendmail') }}" class="nav-link px-2 text-white">Отправка письма</a></li>
+                <li><a href="{{ route('fileUpload') }}" class="nav-link px-2 text-white">Загрузка файла</a></li>
                 {{-- <li><a href="{{ route('review') }}" class="nav-link px-2 text-white">Отзывы</a></li> --}}
                 {{-- <li><a href="{{ route('contact') }}" class="nav-link px-2 text-white">Контакт</a></li> --}}
             </ul>
